@@ -1,5 +1,5 @@
 # FirstProject
 
-#backgend(Иван)
+### Backgend
 
-1. backgend будем писать на Node.js  используя все прелести javaScript!
+- backgend будем писать на Node.js  используя все прелести javaScript!
