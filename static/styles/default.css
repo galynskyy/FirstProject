@@ -6,6 +6,7 @@
 	left: 0;
 	overflow: auto;
 }
+
 .auth-form {
 	height: 300px;
 	width: 300px;
@@ -14,7 +15,7 @@
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	margin: -125px 0 0 -125px;
+	margin: 80% 0 0 0;
 }
 .auth-form__action {
 	margin-top: 80%;
