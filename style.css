@@ -1,52 +1,46 @@
-*{
+* {
 	margin: 0;
 	padding: 0;
 }
 
-.auth-wrapper{
-	padding-top: 148px;
-	padding-left: 10%;
+.auth-wrapper {
+	padding: 148px 0 0 10%;
 }
 
-.container{
+.container {
 	width: 500px;
 	height: 460px;
 	background: #f4f4f4;
 }
 
-.auth-div{
+.auth-div {
 	width: 400px;
 	height: 40px;
 	overflow: hidden;
-	margin-bottom: 19px;
+	margin: 0 0 19px 0;
 }
 
-.auth-input{
+.auth-input {
 	display: block;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
+	font: normal 16px 'Roboto', sans-serif;
 	border: solid 1px #acadaf;
 	width: 100%;
 	height: 100%;
 	box-sizing: border-box;
-	font-size: 16px;
 	outline: none;
 }
 
-.auth-button-div{
+.auth-button-div {
 	width: 146px;
 	height: 37px;
 	overflow: hidden;
-	padding-top: 50px;
-	padding-left: 156px;
+	padding: 50px 0 0 156px;
 }
 
-.auth-btn{
+.auth-btn {
 	padding: 7px;
 	background: #ff9000;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 400;
-	font-size: 16px;
+	font: 16px 'Roboto', sans-serif;
 	width: 100%;
 	border-radius: 5px;
 	outline: none;
@@ -59,4 +53,3 @@
 
 .auth-btn:hover{}
 .auth-btn:active{}
-
