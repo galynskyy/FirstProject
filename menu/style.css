@@ -1,0 +1,28 @@
+ul{ 
+	list-style: none;
+}
+li{
+	float: left;
+}
+.vk a{
+	display: block;
+	width: 153px;
+	height: 93px;
+	margin: 0;
+	background: url(img/vk-icon.png)
+}
+.tweet a{
+	display: block;
+	width: 153px;
+	height: 93px;
+	margin-right: 0;
+	background: url(img/tweet-icon.png)
+
+}
+.fb a{
+	display: block;
+	width: 153px;
+	height: 93px;
+	margin: 0;
+	background: url(img/fb-icon.png)
+}
