@@ -50,28 +50,3 @@
 	border: none;
 	cursor: pointer;
 }
-
-.form.menu.social {
-	min-width: 640px;
-}
-.form.menu__list { 
-	list-style: none;
-}
-.form.menu__check {
-	float: left;
-	width: 153px;
-	height: 93px;
-}
-.social-svg {
-	width: 153px;
-	height: 93px;
-}
-.menu__check.vk {
-	background: #54769b;
-} 
-.menu__check.tweet {
-	background: #55acef;
-}
-.menu__check.fb {
-	background: #46609b;
-}
