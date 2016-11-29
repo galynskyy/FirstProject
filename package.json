@@ -1,0 +1,22 @@
+{
+  "name": "todo",
+  "version": "1.0.0",
+  "description": "project to create todo lists",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galynskyy/FirstProject.git"
+  },
+  "author": "Ivan Opanasiuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/galynskyy/FirstProject/issues"
+  },
+  "homepage": "https://github.com/galynskyy/FirstProject#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
