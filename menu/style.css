@@ -1,10 +1,10 @@
 .form.menu.social {
 	min-width: 640px;
 }
-.form.menu_list { 
+.form.menu__list { 
 	list-style: none;
 }
-.form.menu_check {
+.form.menu__check {
 	float: left;
 	width: 153px;
 	height: 93px;
@@ -13,12 +13,12 @@
 	width: 153px;
 	height: 93px;
 }
-.menu_check.vk {
+.menu__check.vk {
 	background: #54769b;
 } 
-.menu_check.tweet {
+.menu__check.tweet {
 	background: #55acef;
 }
-.menu_check.fb {
+.menu__check.fb {
 	background: #46609b;
 }
