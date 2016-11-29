@@ -1,28 +1,24 @@
-ul{ 
+.form.menu.social{
+	min-width: 640px;
+}
+.form.menu_list{ 
 	list-style: none;
 }
-li{
+.form.menu_check{
 	float: left;
-}
-.vk a{
-	display: block;
 	width: 153px;
 	height: 93px;
-	margin: 0;
-	background: url(img/vk-icon.png)
 }
-.tweet a{
-	display: block;
+.social-svg{
 	width: 153px;
 	height: 93px;
-	margin-right: 0;
-	background: url(img/tweet-icon.png)
-
 }
-.fb a{
-	display: block;
-	width: 153px;
-	height: 93px;
-	margin: 0;
-	background: url(img/fb-icon.png)
+.menu_check.vk{
+	background: #54769b;
+} 
+.menu_check.tweet{
+	background: #55acef;
+}
+.menu_check.fb{
+	background: #46609b;
 }
