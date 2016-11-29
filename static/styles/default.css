@@ -13,9 +13,6 @@ body {
 	background: #f4f4f4;	
 }
 
-.auth-form {
-	/* Пустой класс. Оо Вроде это не хорошо*/
-}
 .auth-form__action {
 	margin-top: 80%;
 	text-align: center;
