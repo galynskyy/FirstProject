@@ -1,23 +1,103 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	height: 900px;
 	position: relative;
 }
 
-.container {
+.wrapper {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 400px;
-	height: 400px;
+	width: 540px;
+	height: 500px;
 	transform: translate(-50%, -50%);  
-	background: #f4f4f4;	
+	background: #f4f4f4;
 }
 
-.auth-form__action {
+.auth {
+	padding: 148px 0 0 10%;
+}
+
+.login__item {
+	width: 400px;
+	height: 40px;
+	overflow: hidden;
+	margin: 0 0 19px 0;
+}
+
+.login__input {
+	display: block;
+	font: 16px "Roboto-Regular", sans-serif;
+	border: solid 1px #acadaf;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.login__item__submit {
+	width: 146px;
+	height: 37px;
+	overflow: hidden;
+	padding: 50px 0 0 156px;
+}
+
+.login__button {
+	padding: 7px;
+	background: #ff9000;
+	font: 16px "Roboto-Regular", sans-serif;
+	width: 100%;
+	border-radius: 5px;
+	outline: none;
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	border: none;
+	cursor: pointer;
+}
+
+.login__action {
 	margin-top: 80%;
 	text-align: center;
 }
-.auth-form__link {
+
+.login__link {
 	padding: 5px;
-	font-family: "Roboto-Regular", sans-serif;
+	font: 16px "Roboto-Regular", sans-serif;
+	color: blue;
+}
+
+.social {
+	min-width: 640px;
+}
+
+.social__list { 
+	list-style: none;
+}
+
+.social__item {
+	float: left;
+	width: 153px;
+	height: 93px;
+}
+
+.social__image {
+	width: 153px;
+	height: 93px;
+}
+
+.social__item__vk {
+	background: #54769b;
+}
+
+.social__item__tw {
+	background: #55acef;
+}
+
+.social__item__fb {
+	background: #46609b;
 }

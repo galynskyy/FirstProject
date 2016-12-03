@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<head>
-	<meta charset="UTF-8">
-	<title>FirstProgect</title>
-	<link href="../static/styles/default.css" rel="stylesheet">
-	<link href="../static/styles/fonts.css" rel="stylesheet">
-	<link rel="stylesheet" href="static/styles/style.css">	
-</head>
-<body>
-	<div class="container">
-		<div class="auth-wrapper">
-			<nav class="form menu social">
-	 			<ul class="form menu__list social">
-	 				<li class="form menu__check vk"><a href="#"><img src="static/img/vk-min.svg" alt="111" class="social-svg"></a></li>
-	 				<li class="form menu__check tweet"><a href="#"><img src="static/img/tweet-min.svg" alt="222" class="social-svg"></a></li>
-	 				<li class="form menu__check fb"><a href="#"><img src="static/img/fb-min.svg" alt="333" class="social-svg"></a></li>
-	 			</ul>
-	 		</nav>
-			<div class="auth-div">
-				<input class="auth-input" type="text" placeholder="Введите логин">
-			</div>
-			<div class="auth-div">
-				<input class="auth-input" type="text" placeholder="Введите пароль">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>FirstProgect</title>
+		<link href="static/styles/default.css" rel="stylesheet">
+		<link href="static/styles/fonts.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="auth">
+				<div class="social">
+					<ul class="social__list">
+						<li class="social__item social__item__vk"><a href="#"><img src="static/img/vk-min.svg" alt="111" class="social__image"></a></li>
+						<li class="social__item social__item__tw"><a href="#"><img src="static/img/tweet-min.svg" alt="222" class="social__image"></a></li>
+						<li class="social__item social__item__fb"><a href="#"><img src="static/img/fb-min.svg" alt="333" class="social__image"></a></li>
+					</ul>
+				</div>
+				<form class="login">
+					<div class="login__item">
+						<input class="login__input" type="text" placeholder="Введите логин">
+					</div>
+					<div class="login__item">
+						<input class="login__input" type="password" placeholder="Введите пароль">
+					</div>
+					<div class="login__item login__item__submit">
+						<button type="button" class="login__button">Войти</button>
+					</div>
+					<div class="login__action">
+						<a href="#" class="login__link">Регистрация</a>
+						<a href="#" class="login__link">Восстановить пароль</a>
+					</div>
+				</form>
 			</div>
 		</div>
-		<div class="auth-button-div">
-			<button type="button" class="auth-btn"><span>Войти</span></button>
-		</div>
-		<form class="auth-form">
-			<div class="auth-form__action">
-				<a href="#" class="auth-form__link">Регистрация</a>
-				<a href="#" class="auth-form__link">Восстановить пароль</a>
-			</div>
-		</form>
-	</div>
-</body>
+	</body>
 </html>
