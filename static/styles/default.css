@@ -1,4 +1,4 @@
-* {
+html, body {
 	margin: 0;
 	padding: 0;
 }
@@ -12,21 +12,22 @@ body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 540px;
-	height: 500px;
+	width: 500px;
+    height: 460px;
 	transform: translate(-50%, -50%);  
 	background: #f4f4f4;
 }
 
 .auth {
-	padding: 148px 0 0 10%;
+	padding: 148px 0 0 13%;
 }
+
 
 .login__item {
 	width: 400px;
 	height: 40px;
 	overflow: hidden;
-	margin: 0 0 19px 0;
+	margin: 0 0 19px 0;	
 }
 
 .login__input {
@@ -39,18 +40,11 @@ body {
 	outline: none;
 }
 
-.login__item__submit {
-	width: 146px;
-	height: 37px;
-	overflow: hidden;
-	padding: 50px 0 0 156px;
-}
-
 .login__button {
-	padding: 7px;
+	padding: 6px 50px 6px 50px;
+    margin: 50px 0px 0px 25%;
 	background: #ff9000;
 	font: 16px "Roboto-Regular", sans-serif;
-	width: 100%;
 	border-radius: 5px;
 	outline: none;
 	color: white;
@@ -58,20 +52,23 @@ body {
 	display: inline-block;
 	border: none;
 	cursor: pointer;
+	min-height: 37px;
 }
 
 .login__action {
-	margin-top: 80%;
-	text-align: center;
+	text-align: right;
+    padding: 60px 0 0px 0;
+    margin: 0 106px 0px 0;
 }
 
 .login__link {
 	padding: 5px;
 	font: 16px "Roboto-Regular", sans-serif;
-	color: blue;
+	color: #3a8bc0;
 }
 
 .social {
+	position: absolute;
 	min-width: 640px;
 }
 
