@@ -69,7 +69,9 @@ body {
 
 .social {
 	position: absolute;
-	min-width: 640px;
+	min-width: 500px;
+	right: 0px;
+	bottom: 371px;
 }
 
 .social__list { 
