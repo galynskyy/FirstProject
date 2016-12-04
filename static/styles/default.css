@@ -31,7 +31,6 @@ body {
 }
 
 .login__input {
-	display: block;
 	font: 16px "Roboto-Regular", sans-serif;
 	border: solid 1px #acadaf;
 	width: 100%;
@@ -41,6 +40,7 @@ body {
 }
 
 .login__button {
+	display: block;
 	padding: 6px 50px 6px 50px;
     margin: 50px 0px 0px 127px;
 	background: #ff9000;
