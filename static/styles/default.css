@@ -1,23 +1,102 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	height: 900px;
 	position: relative;
 }
 
-.container {
+.wrapper {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 400px;
-	height: 400px;
-	transform: translate(-50%, -50%);  
-	background: #f4f4f4;	
+	width: 460px;
+    height: 460px;
+	transform: translate(-50%, -50%); 
+	background: #f4f4f4;
 }
 
-.auth-form__action {
-	margin-top: 80%;
-	text-align: center;
+.auth {
+	padding: 148px 0 0 29px;
 }
-.auth-form__link {
+
+
+.login__item {
+	width: 400px;
+	height: 40px;
+	overflow: hidden;
+	margin: 0 0 19px 0;	
+}
+
+.login__input {
+	font: 16px "Roboto-Regular", sans-serif;
+	border: solid 1px #acadaf;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.login__button {
+	display: block;
+	padding: 6px 50px 6px 50px;
+    margin: 50px 0px 0px 127px;
+	background: #ff9000;
+	font: 16px "Roboto-Regular", sans-serif;
+	border-radius: 5px;
+	outline: none;
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	border: none;
+	cursor: pointer;
+	min-height: 37px;
+}
+
+.login__action {
+	text-align: right;
+    padding: 60px 0 0px 0;
+    margin: 0 90px 0px 0;
+}
+
+.login__link {
 	padding: 5px;
-	font-family: "Roboto-Regular", sans-serif;
+	font: 16px "Roboto-Regular", sans-serif;
+	color: #3a8bc0;
+}
+
+.social {
+	position: absolute;
+	min-width: 500px;
+	right: 0px;
+	bottom: 371px;
+}
+
+.social__list { 
+	list-style: none;
+}
+
+.social__item {
+	float: left;
+	width: 153px;
+	height: 93px;
+}
+
+.social__image {
+	width: 153px;
+	height: 93px;
+}
+
+.social__item__vk {
+	background: #54769b;
+}
+
+.social__item__tw {
+	background: #55acef;
+}
+
+.social__item__fb {
+	background: #46609b;
 }
