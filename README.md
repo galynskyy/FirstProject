@@ -6,3 +6,4 @@
 - Vladimir Galynsky
 - Timur Chumakov
 - Ivan Opanasiuk
+- Anna Sychugina
