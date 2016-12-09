@@ -7,7 +7,7 @@ html, body {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	min-width: 30%;
+	max-width: 460px;
 	min-height: 230px;
 	transform: translate(-50%, -50%); 
 	background: #f4f4f4;
@@ -42,7 +42,7 @@ html, body {
 	border: none;
 	cursor: pointer;
 	min-height: 40px;
-	width: 30%;
+	width: 50%;
 }
 
 .login__action {
@@ -60,7 +60,6 @@ html, body {
 }
 
 .socials {
-	width: 100%;
 	list-style: none;
 	font-size: 0;
 	padding: 0;
