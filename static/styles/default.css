@@ -30,6 +30,10 @@ html, body {
 	padding: 5px;
 }
 
+.login__input:focus {
+	outline: #EB9300 solid 2px;
+}
+
 .login__button {
 	display: block;
     margin: auto;
@@ -43,6 +47,10 @@ html, body {
 	cursor: pointer;
 	min-height: 40px;
 	width: 50%;
+}
+
+.login__button:hover {
+	opacity: .8;
 }
 
 .login__action {
@@ -59,6 +67,10 @@ html, body {
 	color: #3a8bc0;
 }
 
+.login__link:hover {
+	opacity: .8;
+}
+
 .socials {
 	list-style: none;
 	font-size: 0;
@@ -69,6 +81,10 @@ html, body {
 	display: inline-block;
 	width: 33.33%;
 	max-height: 93px;
+}
+
+.socials__item:hover {
+	opacity: .8;
 }
 
 .socials__image {
