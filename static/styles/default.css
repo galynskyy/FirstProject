@@ -42,7 +42,7 @@ html, body {
 	font: 16px "Roboto-Regular", sans-serif;
 	border-radius: 5px;
 	outline: none;
-	color: #ffffff;
+	color: #fff;
 	text-decoration: none;
 	border: none;
 	cursor: pointer;
@@ -81,7 +81,6 @@ html, body {
 .socials__item {
 	display: inline-block;
 	width: 33.33%;
-	max-height: 93px;
 }
 
 .socials__item:hover {
