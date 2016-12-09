@@ -85,10 +85,13 @@ html, body {
 	width: 33.3%;
 }
 
+<<<<<<< df8ef4c1ec52b2646cdd0729996d0e0ef6419797
 .social__item:hover{
 	opacity: .8;
 }
 
+=======
+>>>>>>> escape of static size and getting rid of unnecessary entities
 .social__image {
 	width: 100%;
 	max-height: 93px;
