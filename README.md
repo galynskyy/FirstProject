@@ -8,7 +8,7 @@
 - Ivan Opanasiuk
 - Anna Sychugina
 
-### Style Guide
+# Style Guide
 
 ## Html:
 Необязательный закрывающий тег у одиночных тегов не используется.
