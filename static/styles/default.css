@@ -8,7 +8,7 @@ body {
 	position: relative;
 }
 
-.wrapper {
+.auth {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -74,7 +74,7 @@ body {
 	bottom: 371px;
 }
 
-.social__list { 
+.social { 
 	list-style: none;
 }
 
