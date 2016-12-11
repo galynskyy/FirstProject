@@ -120,7 +120,9 @@ html, body {
 
 .login__input {
     min-height: 40px;
-    width: 80%;    
+    width: 80%;
+    max-width: 460px;
+    max-height: 460px;    
     display: block;
     font: 16px "Roboto-Regular", sans-serif;
     border: solid 1px #acadaf;
