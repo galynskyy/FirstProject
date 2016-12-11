@@ -7,3 +7,4 @@
 - Timur Chumakov
 - Ivan Opanasiuk
 - Aleksandr Chernenko
+- Anna Sychugina
