@@ -17,11 +17,8 @@ html, body {
 	width: 400px;
 	height: 40px;
 	overflow: hidden;
-	margin: 0 auto 19px;	
-}
-.login__item.pasw{
-	margin: 0 auto 55px;
-}
+	margin: 0 auto 19px;
+}	
 
 .login__input {
 	font: 16px "Roboto-Regular", sans-serif;
