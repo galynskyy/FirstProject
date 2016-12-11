@@ -28,7 +28,7 @@ html, body {
 	min-height: 40px;
 	box-sizing: border-box;
 	outline: none;
-	padding: 5px;
+	padding: 12px;
 }
 
 .login__input:focus {
@@ -54,12 +54,12 @@ html, body {
 	opacity: .8;
 }
 
-.login__action {
+.auth__action {
 	text-align: center;
 	padding: 0 0 40px;
 }
 
-.login__link {
+.auth__link {
 	padding: 5px;
 	font: 16px "Roboto-Regular", sans-serif;
 	color: #3a8bc0;
@@ -69,34 +69,34 @@ html, body {
 	opacity: .8;
 }
 
-.socials {
+.social {
 	list-style: none;
 	font-size: 0;
 	padding: 0;
 }
 
-.socials__item {
+.social__item {
 	display: inline-block;
 	width: 33.33%;
 }
 
-.socials__item:hover {
+.social__item:hover {
 	opacity: .8;
 }
 
-.socials__image {
+.social__image {
 	width: 100%;
 	max-height: 93px;
 }
 
-.socials__item._vk {
+.social__item._vk {
 	background: #54769b;
 }
 
-.socials__item._tw {
+.social__item._tw {
 	background: #55acef;
 }
 
-.socials__item._fb {
+.social__item._fb {
 	background: #46609b;
 }
