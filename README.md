@@ -11,7 +11,7 @@
 # Style Guide
 
 ## Html:
-Закрывать одиночные теги (**<img>**, **<input>** и т.д.)
+Закрывать одиночные теги (`<img>`, **<input>** и т.д.)
 ```html
 <img src="static/img/vk-min.svg" alt="111" class="social__image"></img>
 ```
