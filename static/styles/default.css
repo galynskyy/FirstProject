@@ -14,26 +14,20 @@ html, body {
 	background: #f4f4f4;
 }
 
-<<<<<<< 811ad6de4c720c74001cfc56d8933148d7dbab53
 .login {
 	margin: 0 0 60px;
 }
 
-.login__item {
+.login__input {
+	display: block;
 	width: 80%;
 	min-height: 40px;
-	overflow: hidden;
-	margin: 0 auto 19px;
-}
-
-.login__input {
+	padding: 12px;
+	margin: 0 auto 20px;
 	font: 16px "Roboto-Regular", sans-serif;
 	border: solid 1px #acadaf;
-	width: 100%;
-	min-height: 40px;
 	box-sizing: border-box;
 	outline: none;
-	padding: 12px;
 }
 
 .login__input:focus {
@@ -42,6 +36,8 @@ html, body {
 
 .login__submit {
 	display: block;
+	min-height: 40px;
+	width: 50%;
     margin: auto;
 	background: #ff9000;
 	font: 16px "Roboto-Regular", sans-serif;
@@ -51,8 +47,6 @@ html, body {
 	text-decoration: none;
 	border: none;
 	cursor: pointer;
-	min-height: 40px;
-	width: 50%;
 }
 
 .login__submit:hover {
@@ -72,13 +66,6 @@ html, body {
 
 .auth__link:hover {
 	opacity: .8;
-=======
-.social {
-	position: absolute;
-	min-width: 500px;
-	right: 0px;
-	bottom: 371px;
->>>>>>> bring to a logical conclusion
 }
 
 .social { 
@@ -93,11 +80,7 @@ html, body {
 	width: 33.3%;
 }
 
-<<<<<<< 811ad6de4c720c74001cfc56d8933148d7dbab53
 .social__item:hover{
-=======
-.social__item:hover {  
->>>>>>> bring to a logical conclusion
 	opacity: .8;
 }
 
@@ -116,55 +99,4 @@ html, body {
 
 .social__item._fb {
 	background: #46609b;
-}
-
-.login__input {
-    min-height: 40px;
-    width: 80%;
-    display: block;
-    font: 16px "Roboto-Regular", sans-serif;
-    border: solid 1px #acadaf;
-    box-sizing: border-box;
-    outline: none;
-    padding: 12px;
-    margin: 0 auto 19px;
-}
-
-.login__input:hover {
-	opacity: .8;
-}
-
-.login__input:focus {
-	outline: #eb9300 solid 2px;
-}
-
-.login__button {
-    display: block;
-    padding: 6px 50px;
-    margin: auto;
-    background: #ff9000;
-    font: 16px "Roboto-Regular", sans-serif;
-    border-radius: 5px;
-    outline: none;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    min-height: 37px;
-}
-
-.login__button:hover {
-	opacity: .8;
-}
-
-.login__action {
-	text-align: right;
-    padding: 60px 0 0;
-    margin: 0 90px 0;
-}
-
-.login__link {
-	padding: 5px;
-	font: 16px "Roboto-Regular", sans-serif;
-	color: #3a8bc0;
 }
