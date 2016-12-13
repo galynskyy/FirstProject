@@ -103,7 +103,8 @@ html, body {
 
 @media (max-width: 480px) {
 	.auth{
-		min-width: 300px;
+		/*min-width: 300px;*/
+		width: 90%;
 	}
 	.login__submit {
 		width: 80%;
@@ -142,7 +143,7 @@ html, body {
 
 @media (min-width: 768px) and (max-width: 1024px) {
 	.auth{
-		min-width: 738px;
+		min-width: 668px;
 	}
 	.login__submit {
 		width: 80%;
@@ -151,17 +152,17 @@ html, body {
 		margin: 0 0 50px;
 	}
 	.social__image {
-		min-height: 240px;
+		min-height: 140px;
 	}
 	.login {
 		margin: 0 0 20px;
 	}
 	.login__input {
-		min-height: 100px;
+		min-height: 60px;
 		font: 32px "Roboto-Regular", sans-serif;
 	}
 	.login__submit {
-		min-height: 80px;
+		min-height: 60px;
 		font: 32px "Roboto-Regular", sans-serif;
 	}
 	.auth__link {
