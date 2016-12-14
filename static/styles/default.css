@@ -110,7 +110,10 @@ html, body {
 	.social {
 		margin: 0 0 10px;
 	}
+	.social__image {
+		max-height: 70px;
+	}
 	.auth__action {
-		margin: 0 0 10px;
+		margin: 0 0 15px;
 	}
 }
