@@ -101,71 +101,17 @@ html, body {
 	background: #46609b;
 }
 
-@media (max-width: 480px) {
-	.auth{
-		/*min-width: 300px;*/
-		width: 90%;
-	}
-	.login__submit {
-		width: 80%;
-	}
-	.login {
-		margin: 0 0 20px;
-	}
-	.social {
-		margin: 0 0 20px;
-	}
-	.auth__link {
-		font: 18px "Roboto-Regular", sans-serif;
-	}
-}
-
-@media (min-width: 480px) and (max-width: 768px) {
-	.auth{
-		min-width: 480px;
-	}
-	.login__submit {
-		width: 80%;
-	}
-	.social {
-		margin: 0 0 15px;
-	}
-	.social__image {
-		max-height: 70px;
+@media screen and (max-device-width: 768px) {
+	.auth {
+		min-width: 300px;
 	}
 	.login {
 		margin: 0 0 10px;
 	}
-	.auth__link {
-		font: 18px "Roboto-Regular", sans-serif;
-	}
-}
-
-@media (min-width: 768px) and (max-width: 1024px) {
-	.auth{
-		min-width: 668px;
-	}
-	.login__submit {
-		width: 80%;
-	}
 	.social {
-		margin: 0 0 50px;
+		margin: 0 0 10px;
 	}
-	.social__image {
-		min-height: 140px;
-	}
-	.login {
-		margin: 0 0 20px;
-	}
-	.login__input {
-		min-height: 60px;
-		font: 32px "Roboto-Regular", sans-serif;
-	}
-	.login__submit {
-		min-height: 60px;
-		font: 32px "Roboto-Regular", sans-serif;
-	}
-	.auth__link {
-		font: 32px "Roboto-Regular", sans-serif;
+	.auth__action {
+		margin: 0 0 10px;
 	}
 }
