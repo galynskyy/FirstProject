@@ -90,7 +90,6 @@ html, body {
   transition: opacity .5s, text-indent 1s;
 }
 
-
 .login__submit {
 	display: block;
 	min-height: 40px;
