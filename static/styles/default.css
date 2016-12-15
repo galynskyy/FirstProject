@@ -34,6 +34,62 @@ html, body {
 	outline: #eb9300 solid 2px;
 }
 
+::-webkit-input-placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+::-moz-placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+:-ms-input-placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+::placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+:focus::-webkit-input-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
+:focus::-moz-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
+:focus:-ms-input-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
+:focus::placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
 .login__submit {
 	display: block;
 	min-height: 40px;
