@@ -3,6 +3,114 @@ html, body {
 	padding: 0;
 }
 
+.wrapper{
+	max-width: 1280px;
+	margin: auto;
+}
+
+.user {
+	
+}
+
+.task {
+	
+}
+
+.goal-header__title {
+	font: bold 18px "Lato-Regular", sans-serif;
+}
+
+.goal-stat {
+	list-style: none;
+	padding: 0;
+}
+
+.goal-stat__item {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+
+.goal-element_active {
+	color: #232323;
+}
+
+.goal-element_complete {
+	color: #90a7b2;
+}
+
+.badge {
+ 	display: inline-block;
+  	min-width: 10px;
+  	padding: 3px 10px;
+  	font-size: 12px;
+  	font-weight: bold;
+  	line-height: 2;
+  	color: #fff;
+  	text-align: center;
+  	white-space: nowrap;
+  	vertical-align: middle;
+  	border-radius: 30px;
+}
+
+.badge._active {
+	background-color: #4ac241;
+}
+
+._complete {
+	background-color: #90a7b2;
+}
+
+.goal-active {
+ 	background: #3bc8f5;
+  	text-align: center;
+  	width: 40px;
+  	height: 40px;
+  	border-radius: 20px;
+}
+
+.goal-detail {
+
+}
+.goal-task {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
+}
+.goal-progress {
+	display: inline-block;
+	margin: 0 60px 0 0;
+}
+
+/* Circle Progress */
+.progress {
+  	height: 190px;
+  	width: 190px;
+}
+
+.inactive {
+  	fill: transparent;
+  	stroke: #e5e5e5;
+  	stroke-width: 16;
+  	stroke-dasharray: 502;
+  	stroke-dashoffset: 0;
+}
+
+.active {
+  	fill: transparent;
+  	stroke: #33b800;
+  	stroke-width: 16;
+  	stroke-dasharray: 502.55;
+ 	stroke-dashoffset: 502.55;
+ 	transition: 4s stroke-dashoffset;
+  	/*animation-name: load;
+  	animation-duration: 5s;*/
+}
+
+/*@keyframes load {
+    from {stroke-dashoffset: 502;}
+    to {stroke-dashoffset: 125.5;}
+}*/
+/* /Circle Progress */
 .auth {
 	position: absolute;
 	top: 50%;

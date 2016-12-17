@@ -8,19 +8,101 @@
 <body>
 	<div class="wrapper">
 		<div class="user">
-
+			<p>User Block</p>
 		</div>
 		<div class="task">
-
+			<p>Task Block</p>
 		</div>
 		<div class="goal">
 			<div class="goal-info">
-
+				<div class="goal-header">
+					<h1 class="goal-header__title">Разработка рекламной компании на НГ</h1>
+				</div>
+				<ul class="goal-stat">
+					<li class="goal-stat__item">
+						<p class="goal-element_active">
+							<span class="badge _active">1</span> Действующих
+						</p>
+					</li>
+					<li class="goal-stat__item">
+						<p class="goal-element_complete">
+							<span class="badge _complete">1</span> Выполненных
+						</p>
+					</li>
+				</ul>
 			</div>
 			<div class="goal-detail">
-
+				<div class="goal-progress">
+					<svg class="progress" data-pct="80" id="circle-progress">
+				  		<text x="60" y="90" font-size="18" fill="#33b800">Выполнено</text>
+				  		<text x="80" y="120" font-size="28" fill="#000" id="progress_val">75%</text>
+					  	<circle class="inactive" r="80" cx="100" cy="100" id="inactive"></circle>
+					  	<circle class="active" r="80" cx="100" cy="100" transform="rotate(-90, 100, 100)" id="active"></circle>
+					</svg>
+				</div>
+				<ul class="goal-task">
+					<li class="goal-task__item">
+						<input type="checkbox" class="checkbox" checked="checked">
+						<label>Наружная реклама</label>
+					</li>
+					<li class="goal-task__item">
+						<input type="checkbox" checked="checked">
+						<label>Баннеры для контекной рекламы</label>
+					</li>
+					<li class="goal-task__item">
+						<input type="checkbox" checked="checked">
+						<label>Баннеры для SMM</label>
+					</li>
+					<li class="goal-task__item">
+						<input type="checkbox">
+						<label>Лендинг для корпоратива</label>
+					</li>
+					<li class="goal-task__item">
+						<input type="checkbox">
+						<label>Креатив на афишу</label>
+					</li>
+					<li class="goal-task__item">
+						<input type="checkbox">
+						<label>Отрисовка баннеров</label>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(function() {
+			reDraw();
+		});
+		$(".goal-task__item input").change(function(){
+			reDraw();
+		});
+		function reDraw ()
+			{
+				var all = $(".goal-task__item input").length;
+				var checked = $(".goal-task__item input:checked").length;
+				var val = parseInt((checked * 100) / all);
+
+				//var val = parseInt($("#circle-progress").attr("data-pct"));
+	  			var circle = $('#circle-progress #active');
+	  
+			  	if (isNaN(val)) {
+		  	 		val = 100; 
+		 	 	}
+			 	else {
+		   	 		var r = circle.attr('r');
+			    	var c = Math.PI*(r*2);
+			   
+			    	if (val < 0) { val = 0;}
+			    	if (val > 100) { val = 100;}
+			    
+			    	var pct = ((100-val)/100)*c;
+			    
+			    	$(".active").css({ strokeDashoffset: pct});
+			    
+			    	$('#progress_val').html(val + "%");
+	 		 	}
+			}
+	</script>
 </body>
 </html>
