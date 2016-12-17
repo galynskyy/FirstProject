@@ -58,7 +58,7 @@ html, body {
 }
 
 .auth__link {
-	margin: 5px;
+	margin: 0 5px 0 0;
 	font: 16px "Roboto-Regular", sans-serif;
 	color: #3a8bc0;
 }
