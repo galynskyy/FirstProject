@@ -3,46 +3,44 @@ html, body {
 	padding: 0;
 }
 
+/* Index */
 .wrapper{
 	max-width: 1280px;
 	margin: auto;
 }
 
-.user {
-	
-}
-
-.task {
-	
-}
-
 .goal-header__title {
-	font: bold 18px "Lato-Regular", sans-serif;
+	font: bold 18px "Lato-Black", sans-serif;
 }
 
-.goal-stat {
+.goal-indicators {
 	list-style: none;
 	padding: 0;
 }
 
-.goal-stat__item {
+.goal-indicators__item {
 	display: inline-block;
 	margin: 0 20px 0 0;
 }
 
-.goal-element_active {
+.goal-indicators__label {
+	font: 14px "Lato-Regular", sans-serif;
+}
+
+.goal-indicators__label._active {
 	color: #232323;
 }
 
-.goal-element_complete {
+.goal-indicators__label._complete {
 	color: #90a7b2;
 }
 
-.badge {
+.goal-badge {
  	display: inline-block;
-  	min-width: 10px;
-  	padding: 3px 10px;
-  	font-size: 12px;
+ 	margin: 0 5px 0 0;
+  	min-width: 12px;
+  	padding: 2px 10px;
+  	font-size: 14px;
   	font-weight: bold;
   	line-height: 2;
   	color: #fff;
@@ -52,42 +50,47 @@ html, body {
   	border-radius: 30px;
 }
 
-.badge._active {
+.goal-badge._active {
 	background-color: #4ac241;
 }
 
-._complete {
+.goal-badge._complete {
 	background-color: #90a7b2;
 }
 
-.goal-active {
- 	background: #3bc8f5;
-  	text-align: center;
-  	width: 40px;
-  	height: 40px;
-  	border-radius: 20px;
-}
-
-.goal-detail {
-
-}
-.goal-task {
-	list-style: none;
-	display: inline-block;
-	padding: 0;
-}
 .goal-progress {
 	display: inline-block;
-	margin: 0 60px 0 0;
+	margin: 0 20px 0 0;
 }
 
-/* Circle Progress */
-.progress {
-  	height: 190px;
-  	width: 190px;
+.goal-chart {
+  	max-height: 190px;
+  	max-width: 190px;
+  	overflow: visible;
 }
 
-.inactive {
+.goal-chart__caption {
+	font: 14px "Lato-Regular", sans-serif;
+	fill: #33b800;
+	text-anchor: middle;
+}
+
+.goal-chart__percent {
+	font: 32px "Lato-Regular", sans-serif;
+	fill: #000;
+	text-anchor: middle;
+}
+
+.goal-chart__active {
+  	fill: transparent;
+  	stroke: #33b800;
+  	stroke-width: 16;
+  	stroke-dasharray: 502.55;
+ 	stroke-dashoffset: 502.55;
+ 	transition: 4s stroke-dashoffset;
+}
+
+.goal-chart__inactive {
   	fill: transparent;
   	stroke: #e5e5e5;
   	stroke-width: 16;
@@ -95,22 +98,22 @@ html, body {
   	stroke-dashoffset: 0;
 }
 
-.active {
-  	fill: transparent;
-  	stroke: #33b800;
-  	stroke-width: 16;
-  	stroke-dasharray: 502.55;
- 	stroke-dashoffset: 502.55;
- 	transition: 4s stroke-dashoffset;
-  	/*animation-name: load;
-  	animation-duration: 5s;*/
+.goal-task {
+	list-style: none;
+	display: inline-block;
+	padding: 0;
 }
 
-/*@keyframes load {
-    from {stroke-dashoffset: 502;}
-    to {stroke-dashoffset: 125.5;}
-}*/
-/* /Circle Progress */
+.goal-task__label {
+	font: 16px "Lato-Regular", sans-serif;
+}
+
+.goal-checkbox {
+	
+}
+/* /Index */
+
+/* Login */
 .auth {
 	position: absolute;
 	top: 50%;
@@ -225,3 +228,4 @@ html, body {
 		margin: 0 0 15px;
 	}
 }
+/* /Login */

@@ -8,62 +8,68 @@
 <body>
 	<div class="wrapper">
 		<div class="user">
-			<p>User Block</p>
+
 		</div>
 		<div class="task">
-			<p>Task Block</p>
+
 		</div>
 		<div class="goal">
 			<div class="goal-info">
 				<div class="goal-header">
 					<h1 class="goal-header__title">Разработка рекламной компании на НГ</h1>
 				</div>
-				<ul class="goal-stat">
-					<li class="goal-stat__item">
-						<p class="goal-element_active">
-							<span class="badge _active">1</span> Действующих
-						</p>
+				<ul class="goal-indicators">
+					<li class="goal-indicators__item">
+						<label class="goal-indicators__label _active">
+							<span class="goal-badge _active">2</span> Действующих
+						</label>
 					</li>
-					<li class="goal-stat__item">
-						<p class="goal-element_complete">
-							<span class="badge _complete">1</span> Выполненных
-						</p>
+					<li class="goal-indicators__item">
+						<label class="goal-indicators__label _complete">
+							<span class="goal-badge _complete">1</span> Выполненных
+						</label>
 					</li>
 				</ul>
 			</div>
 			<div class="goal-detail">
 				<div class="goal-progress">
-					<svg class="progress" data-pct="80" id="circle-progress">
-				  		<text x="60" y="90" font-size="18" fill="#33b800">Выполнено</text>
-				  		<text x="80" y="120" font-size="28" fill="#000" id="progress_val">75%</text>
-					  	<circle class="inactive" r="80" cx="100" cy="100" id="inactive"></circle>
-					  	<circle class="active" r="80" cx="100" cy="100" transform="rotate(-90, 100, 100)" id="active"></circle>
+					<svg class="goal-chart">
+				  		<text x="50%" y="90" class="goal-chart__caption">Выполнено</text>
+				  		<text x="50%" y="125" class="goal-chart__percent">75%</text>
+					  	<circle r="80" cx="100" cy="100" class="goal-chart__inactive"></circle>
+					  	<circle r="80" cx="100" cy="100" class="goal-chart__active" transform="rotate(-90, 100, 100)"></circle>
 					</svg>
 				</div>
 				<ul class="goal-task">
 					<li class="goal-task__item">
-						<input type="checkbox" class="checkbox" checked="checked">
-						<label>Наружная реклама</label>
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked"> Наружная реклама
+						</label>
 					</li>
 					<li class="goal-task__item">
-						<input type="checkbox" checked="checked">
-						<label>Баннеры для контекной рекламы</label>
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked"> Баннеры для контекной рекламы
+						</label>
 					</li>
 					<li class="goal-task__item">
-						<input type="checkbox" checked="checked">
-						<label>Баннеры для SMM</label>
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked"> Баннеры для SMM
+						</label>
 					</li>
 					<li class="goal-task__item">
-						<input type="checkbox">
-						<label>Лендинг для корпоратива</label>
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox"> Лендинг для корпоратива
+						</label>
 					</li>
 					<li class="goal-task__item">
-						<input type="checkbox">
-						<label>Креатив на афишу</label>
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox"> Креатив на афишу
+						</label>
 					</li>
 					<li class="goal-task__item">
-						<input type="checkbox">
-						<label>Отрисовка баннеров</label>
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox"> Отрисовка баннеров
+						</label>
 					</li>
 				</ul>
 			</div>
@@ -74,33 +80,37 @@
 		$(function() {
 			reDraw();
 		});
-		$(".goal-task__item input").change(function(){
+		$(".goal-checkbox").change(function(){
 			reDraw();
 		});
 		function reDraw ()
 			{
-				var all = $(".goal-task__item input").length;
-				var checked = $(".goal-task__item input:checked").length;
+				var all = $(".goal-checkbox").length;
+				var checked = $(".goal-checkbox:checked").length;
 				var val = parseInt((checked * 100) / all);
-
-				//var val = parseInt($("#circle-progress").attr("data-pct"));
-	  			var circle = $('#circle-progress #active');
+	  			var circle = $(".goal-chart__active");
 	  
 			  	if (isNaN(val)) {
 		  	 		val = 100; 
 		 	 	}
 			 	else {
-		   	 		var r = circle.attr('r');
-			    	var c = Math.PI*(r*2);
+		   	 		var r = circle.attr("r");
+			    	var c = Math.PI * (r * 2);
 			   
-			    	if (val < 0) { val = 0;}
-			    	if (val > 100) { val = 100;}
+			    	if (val < 0) {
+			    		val = 0;
+			    	}
+			    	if (val > 100) {
+			    		val = 100;
+			    	}
 			    
-			    	var pct = ((100-val)/100)*c;
+			    	var percent = ((100 - val) / 100) * c;
 			    
-			    	$(".active").css({ strokeDashoffset: pct});
+			    	$(".goal-chart__active").css({
+			    		strokeDashoffset: percent
+			    	});
 			    
-			    	$('#progress_val').html(val + "%");
+			    	$(".goal-chart__percent").html(val + "%");
 	 		 	}
 			}
 	</script>
