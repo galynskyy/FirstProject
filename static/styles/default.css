@@ -100,3 +100,51 @@ html, body {
 .social__item._fb {
 	background: #46609b;
 }
+
+.info__title {
+	font: 18px "Lato-Black", sans-serif;
+	margin: 0 0 30px;
+}
+
+.disc {
+	vertical-align: middle;
+}
+
+.disc__one {
+	display: inline-block;
+	background: #4ac241;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+}
+
+.disc__two {
+	display: inline-block;
+	background: #90a7b2;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+}
+
+.disc__title {
+	position: relative;
+	bottom: 25%;
+	color: white;
+	font: 11px "Lato-Regular", sans-serif;
+}
+
+.fact {
+	display: inline-block;
+	font: 13px "Lato-Regular", sans-serif;
+	width: 10%;
+}
+
+.check__list {
+	list-style: none;
+}
+
+.check__list {
+	font: 13px "Lato-Regular", sans-serif;
+}
