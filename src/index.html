@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FirstProject / Index</title>
+	<link href="static/styles/default.css" rel="stylesheet">
+	<link href="static/styles/fonts.css" rel="stylesheet">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="user">
+
+		</div>
+		<div class="task">
+
+		</div>
+		<div class="goal">
+			<div class="goal-info">
+				<div class="goal-header">
+					<h1 class="goal-header__title">Разработка рекламной компании на НГ</h1>
+				</div>
+				<ul class="goal-indicators">
+					<li class="goal-indicators__item">
+						<label class="goal-indicators__label _active">
+							<span class="goal-badge _active">2</span> Действующих
+						</label>
+					</li>
+					<li class="goal-indicators__item">
+						<label class="goal-indicators__label _complete">
+							<span class="goal-badge _complete">1</span> Выполненных
+						</label>
+					</li>
+				</ul>
+			</div>
+			<div class="goal-detail">
+				<div class="goal-progress">
+					<svg class="goal-chart">
+				  		<text x="50%" y="90" class="goal-chart__caption">Выполнено</text>
+				  		<text x="50%" y="125" class="goal-chart__percent">75%</text>
+					  	<circle r="80" cx="100" cy="100" class="goal-chart__inactive"></circle>
+					  	<circle r="80" cx="100" cy="100" class="goal-chart__active" transform="rotate(-90, 100, 100)"></circle>
+					</svg>
+				</div>
+				<ul class="goal-task">
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked"> Наружная реклама
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked"> Баннеры для контекной рекламы
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked"> Баннеры для SMM
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox"> Лендинг для корпоратива
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox"> Креатив на афишу
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox"> Отрисовка баннеров
+						</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(function() {
+			reDraw();
+		});
+		$(".goal-checkbox").change(function(){
+			reDraw();
+		});
+		function reDraw ()
+			{
+				var all = $(".goal-checkbox").length;
+				var checked = $(".goal-checkbox:checked").length;
+				var val = parseInt((checked * 100) / all);
+	  			var circle = $(".goal-chart__active");
+	  
+			  	if (isNaN(val)) {
+		  	 		val = 100; 
+		 	 	}
+			 	else {
+		   	 		var r = circle.attr("r");
+			    	var c = Math.PI * (r * 2);
+			   
+			    	if (val < 0) {
+			    		val = 0;
+			    	}
+			    	if (val > 100) {
+			    		val = 100;
+			    	}
+			    
+			    	var percent = ((100 - val) / 100) * c;
+			    
+			    	$(".goal-chart__active").css({
+			    		strokeDashoffset: percent
+			    	});
+			    
+			    	$(".goal-chart__percent").html(val + "%");
+	 		 	}
+			}
+	</script>
+</body>
+</html>
