@@ -36,7 +36,7 @@ html, body {
 .login__submit {
 	display: block;
 	min-height: 40px;
-	width: 50%;
+	width: 30%;
     margin: auto;
 	background: #ff9000;
 	font: 16px "Roboto-Regular", sans-serif;
