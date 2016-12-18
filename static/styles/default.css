@@ -143,8 +143,28 @@ html, body {
 
 .check__list {
 	list-style: none;
+	font: 13px "Lato-Regular", sans-serif;
 }
 
-.check__list {
-	font: 13px "Lato-Regular", sans-serif;
+input[type=checkbox] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 10px 0 0;
+    background-image: url(../assets/sprite-checkbox.png);
+    background-repeat: no-repeat;
+    background-position: -6px -5px;  
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-position: -6px -35px;
 }
