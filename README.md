@@ -1,6 +1,6 @@
 # FirstProject
 
-# Authors
+<b>Authors:</b>
 
 - Andrey Shevtsov
 - Vladimir Galynsky
@@ -8,3 +8,12 @@
 - Ivan Opanasiuk
 - Aleksandr Chernenko
 - Anna Sychugina
+
+<b>Start App:</b>
+````
+git clone https://github.com/galynskyy/FirstProject.git
+cd FirstProject/
+git checkout gulp-env
+npm install
+gulp dev
+````
