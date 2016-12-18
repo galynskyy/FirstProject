@@ -24,13 +24,13 @@ html, body {
 	padding: 12px;
 	margin: 0 auto 20px;
 	font: 16px "Roboto-Regular", sans-serif;
-	border: solid 1px #acadaf;
+	border: 1px solid #acadaf;
 	box-sizing: border-box;
 	outline: none;
 }
 
 .login__input:focus {
-	outline: #eb9300 solid 2px;
+	border: 1px solid #eb9300;
 }
 
 .login__submit {
