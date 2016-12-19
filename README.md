@@ -15,7 +15,6 @@ git clone https://github.com/galynskyy/FirstProject.git
 cd FirstProject/
 git checkout gulp-env
 npm install
-gulp dev
 ````
 
 <b>Run Dev:</b>
