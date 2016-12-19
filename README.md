@@ -9,11 +9,21 @@
 - Aleksandr Chernenko
 - Anna Sychugina
 
-<b>Start App:</b>
+<b>Install:</b>
 ````
 git clone https://github.com/galynskyy/FirstProject.git
 cd FirstProject/
 git checkout gulp-env
 npm install
 gulp dev
+````
+
+<b>Run Dev:</b>
+````
+gulp dev
+````
+
+<b>Run Production:</b>
+````
+gulp build
 ````
