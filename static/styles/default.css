@@ -101,6 +101,28 @@ html, body {
 	background: #46609b;
 }
 
+input[type=checkbox] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+	vertical-align: bottom;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 8px 10px 0 0;
+    background: url(../assets/sprite-checkbox.png) no-repeat -6px -5px;    
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-position: -6px -35px;
+}
+
 .info__title {
 	font: 18px "Lato-Black", sans-serif;
 	margin: 0 0 30px;
@@ -138,33 +160,9 @@ html, body {
 .fact {
 	display: inline-block;
 	font: 13px "Lato-Regular", sans-serif;
-	width: 10%;
 }
 
 .check__list {
 	list-style: none;
 	font: 13px "Lato-Regular", sans-serif;
-}
-
-input[type=checkbox] {
-    display: none;
-}
-
-input[type="checkbox"] + label {
-	cursor: pointer;
-}
-
-input[type="checkbox"] + label::before {
-    content: "";
-    display: inline-block;
-    height: 20px;
-    width: 20px;
-    margin: 0 10px 0 0;
-    background-image: url(../assets/sprite-checkbox.png);
-    background-repeat: no-repeat;
-    background-position: -6px -5px;  
-}
-
-input[type="checkbox"]:checked + label::before {
-    background-position: -6px -35px;
 }
