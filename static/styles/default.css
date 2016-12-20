@@ -3,7 +3,6 @@ html, body {
 	padding: 0;
 }
 
-/* Index */
 .wrapper{
 	max-width: 1280px;
 	margin: auto;
@@ -108,12 +107,6 @@ html, body {
 	font: 16px "Lato-Regular", sans-serif;
 }
 
-.goal-checkbox {
-	
-}
-/* /Index */
-
-/* Login */
 .auth {
 	position: absolute;
 	top: 50%;
@@ -215,17 +208,20 @@ html, body {
 	.auth {
 		min-width: 300px;
 	}
+
 	.login {
 		margin: 0 0 10px;
 	}
+
 	.social {
 		margin: 0 0 10px;
 	}
+
 	.social__image {
 		max-height: 70px;
 	}
+	
 	.auth__action {
 		margin: 0 0 15px;
 	}
 }
-/* /Login */

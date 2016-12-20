@@ -43,32 +43,32 @@
 				<ul class="goal-task">
 					<li class="goal-task__item">
 						<label class="goal-task__label">
-							<input type="checkbox" class="goal-checkbox" checked="checked"> Наружная реклама
+							<input type="checkbox" class="goal-checkbox" checked="checked">Наружная реклама</input>
 						</label>
 					</li>
 					<li class="goal-task__item">
 						<label class="goal-task__label">
-							<input type="checkbox" class="goal-checkbox" checked="checked"> Баннеры для контекной рекламы
+							<input type="checkbox" class="goal-checkbox" checked="checked">Баннеры для контекной рекламы</input>
 						</label>
 					</li>
 					<li class="goal-task__item">
 						<label class="goal-task__label">
-							<input type="checkbox" class="goal-checkbox" checked="checked"> Баннеры для SMM
+							<input type="checkbox" class="goal-checkbox" checked="checked">Баннеры для SMM</input>
 						</label>
 					</li>
 					<li class="goal-task__item">
 						<label class="goal-task__label">
-							<input type="checkbox" class="goal-checkbox"> Лендинг для корпоратива
+							<input type="checkbox" class="goal-checkbox">Лендинг для корпоратива</input>
 						</label>
 					</li>
 					<li class="goal-task__item">
 						<label class="goal-task__label">
-							<input type="checkbox" class="goal-checkbox"> Креатив на афишу
+							<input type="checkbox" class="goal-checkbox">Креатив на афишу</input>
 						</label>
 					</li>
 					<li class="goal-task__item">
 						<label class="goal-task__label">
-							<input type="checkbox" class="goal-checkbox"> Отрисовка баннеров
+							<input type="checkbox" class="goal-checkbox">Отрисовка баннеров</input>
 						</label>
 					</li>
 				</ul>
@@ -76,43 +76,6 @@
 		</div>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script>
-		$(function() {
-			reDraw();
-		});
-		$(".goal-checkbox").change(function(){
-			reDraw();
-		});
-		function reDraw ()
-			{
-				var all = $(".goal-checkbox").length;
-				var checked = $(".goal-checkbox:checked").length;
-				var val = parseInt((checked * 100) / all);
-	  			var circle = $(".goal-chart__active");
-	  
-			  	if (isNaN(val)) {
-		  	 		val = 100; 
-		 	 	}
-			 	else {
-		   	 		var r = circle.attr("r");
-			    	var c = Math.PI * (r * 2);
-			   
-			    	if (val < 0) {
-			    		val = 0;
-			    	}
-			    	if (val > 100) {
-			    		val = 100;
-			    	}
-			    
-			    	var percent = ((100 - val) / 100) * c;
-			    
-			    	$(".goal-chart__active").css({
-			    		strokeDashoffset: percent
-			    	});
-			    
-			    	$(".goal-chart__percent").html(val + "%");
-	 		 	}
-			}
-	</script>
+	<script src="static/scripts/chart.js"></script>
 </body>
 </html>
