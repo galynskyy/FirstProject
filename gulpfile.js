@@ -4,10 +4,10 @@ var browserSync = require("browser-sync").create();
 
 gulp.task("dev", ["styles", "server", "watch"]);
 
-gulp.task("styles", function(){
-	return gulp.src("./src/styles/*.css")
+gulp.task("styles", function() {
+	return gulp.src("./src/styles/**/*.css")
 		.pipe(concat("build.css"))
-		.pipe(gulp.dest("./src/styles/"));
+		.pipe(gulp.dest("./public/styles/"));
 });
 
 gulp.task("server", function () {
@@ -18,6 +18,6 @@ gulp.task("server", function () {
 	});
 });
 
-gulp.task("watch", function(){
+gulp.task("watch", function() {
 	gulp.watch("./src/styles/**/*.css", ["styles"]);
 });
