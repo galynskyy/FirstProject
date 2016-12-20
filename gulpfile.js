@@ -42,4 +42,6 @@ gulp.task("server", function () {
 
 gulp.task("watch", function() {
 	gulp.watch("./src/styles/**/*.css", ["styles"]);
+	gulp.watch("./src/*.html", ["html"]);
+	gulp.watch("./src/scripts/**/*.js", ["js"]);
 });
