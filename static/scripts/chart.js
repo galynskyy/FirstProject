@@ -1,9 +1,15 @@
 (function() {
-    /*var all = document.getElementsByClassName("goal-checkbox").length;
-    alert(all);*/
-    //alert(test);
     reDraw();
+    eventItem();
 })();
+
+function eventItem() {
+    var item = document.querySelectorAll(".goal-checkbox");
+    
+    for (var i = 0; i < item.length; i++) {
+        item[i].addEventListener("click", reDraw);
+    }
+}
 
 function reDraw() {
     var all = document.querySelectorAll(".goal-checkbox").length;
