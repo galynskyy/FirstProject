@@ -1,0 +1,14 @@
+.contact__image,
+.contact__name{
+	display: inline-block;
+
+}
+.contact__name.gray{
+	color: #d0d3d0;
+}
+h2{
+	font-size: 18px;
+}
+h3{
+	font-size: 14px;
+}
