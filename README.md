@@ -21,8 +21,3 @@ npm install
 ````
 gulp dev
 ````
-
-<b>Run Production:</b>
-````
-gulp build
-````
