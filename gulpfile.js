@@ -15,7 +15,6 @@ gulp.task("html", function() {
 		.pipe(gulp.dest("./public/"));
 });
 
-
 gulp.task("assets", () => {
     gulp.src("./src/assets/**/*.svg")
         .pipe(gulp.dest("./public/assets/"));
