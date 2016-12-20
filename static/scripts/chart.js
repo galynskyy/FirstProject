@@ -1,38 +1,35 @@
-$(function() {
-	reDraw();
-});
+(function() {
+    /*var all = document.getElementsByClassName("goal-checkbox").length;
+    alert(all);*/
+    //alert(test);
+    reDraw();
+})();
 
-$(".goal-checkbox").change(function() {
-	reDraw();
-});
+function reDraw() {
+    var all = document.querySelectorAll(".goal-checkbox").length;
+    var checked = document.querySelectorAll(".goal-checkbox:checked").length;
+    var pctCheck = parseInt(checked * 100 / all);
+    var circle = document.querySelector(".goal-chart__active");
+    var pctChart = document.querySelector(".goal-chart__percent");
 
-function reDraw () {
-	var all = $(".goal-checkbox").length;
-	var checked = $(".goal-checkbox:checked").length;
-	var val = parseInt((checked * 100) / all);
-	var circle = $(".goal-chart__active");
-
-  	if (isNaN(val)) {
- 		val = 100; 
- 	}
- 	else {
- 		var r = circle.attr("r");
-    	var c = Math.PI * (r * 2);
+    if (isNaN(pctCheck)) {
+        pctCheck = 100; 
+    } else {
+        var radius = circle.getAttribute("r");
+        var area = Math.PI * (radius * 2);
    
-    	if (val < 0) {
-    		val = 0;
-    	}
+        if (pctCheck < 0) {
+            pctCheck = 0;
+        }
 
-    	if (val > 100) {
-    		val = 100;
-    	}
+        if (pctCheck > 100) {
+            pctCheck = 100;
+        }
     
-    	var percent = ((100 - val) / 100) * c;
+        var inActive = ((100 - pctCheck) / 100) * area;
     
-    	$(".goal-chart__active").css({
-    		strokeDashoffset: percent
-    	});
+        circle.style.strokeDashoffset = inActive;
     
-    	$(".goal-chart__percent").html(val + "%");
- 	}
+        pctChart.innerHTML = pctCheck + "%";
+    }
 }
