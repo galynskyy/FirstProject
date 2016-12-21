@@ -1,12 +1,17 @@
-var gulp = require("gulp");
-var concat = require("gulp-concat");
-var browserSync = require("browser-sync").create();
+const gulp = require("gulp");
+const concat = require("gulp-concat");
+const browserSync = require("browser-sync").create();
+const autoprefixer = require("gulp-autoprefixer");
 
 gulp.task("dev", ["styles", "html", "js", "assets", "fonts", "server", "watch"]);
 
 gulp.task("styles", function() {
 	return gulp.src("./src/styles/**/*.css")
 		.pipe(concat("build.css"))
+		.pipe(autoprefixer({
+			browsers: ["last 2 versions"],
+			cascade: false
+		}))
 		.pipe(gulp.dest("./public/styles/"));
 });
 
