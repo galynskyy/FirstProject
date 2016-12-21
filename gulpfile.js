@@ -3,7 +3,9 @@ var concat = require("gulp-concat");
 var browserSync = require("browser-sync").create();
 var autoprefixer = require("gulp-autoprefixer");
 
-gulp.task("dev", ["styles", "html", "js", "assets", "fonts", "server", "watch"]);
+gulp.task("default", ["build"]);
+gulp.task("dev", ["build", "browserSync", "watch"]);
+gulp.task("build", ["styles", "html", "js", "assets", "fonts"]);
 
 gulp.task("styles", function() {
 	return gulp.src("./src/styles/**/*.css")
@@ -36,7 +38,7 @@ gulp.task("js", function() {
 		.pipe(gulp.dest("./public/scripts/"));
 });
 
-gulp.task("server", function () {
+gulp.task("browserSync", function () {
 	browserSync.init({
     	server: {
 			baseDir: "./public"
