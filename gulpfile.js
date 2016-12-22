@@ -22,12 +22,12 @@ gulp.task("html", function() {
 		.pipe(gulp.dest("./public/"));
 });
 
-gulp.task("assets", () => {
+gulp.task("assets", function() {
     gulp.src("./src/assets/**/*.svg")
         .pipe(gulp.dest("./public/assets/"));
 });
 
-gulp.task("fonts", () => {
+gulp.task("fonts", function() {
     gulp.src("./src/fonts/**/*.ttf")
         .pipe(gulp.dest("./public/fonts/"));
 });
