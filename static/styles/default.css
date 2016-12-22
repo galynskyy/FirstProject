@@ -8,7 +8,6 @@ html, body {
 	top: 50%;
 	left: 50%;
 	max-width: 460px;
-	min-width: 140px;
 	min-height: 230px;
 	transform: translate(-50%, -50%); 
 	background: #f4f4f4;
@@ -25,19 +24,75 @@ html, body {
 	padding: 12px;
 	margin: 0 auto 20px;
 	font: 16px "Roboto-Regular", sans-serif;
-	border: solid 1px #acadaf;
+	border: 1px solid #acadaf;
 	box-sizing: border-box;
 	outline: none;
 }
 
 .login__input:focus {
-	outline: #eb9300 solid 2px;
+	border: 1px solid #eb9300;
+}
+
+::-webkit-input-placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+::-moz-placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+:-ms-input-placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+::placeholder {
+  color: #ccc;
+  text-indent: 0;
+  -webkit-transition: opacity .75s;
+  transition: opacity .75s;
+}
+
+:focus::-webkit-input-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
+:focus::-moz-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
+:focus:-ms-input-placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
+}
+
+:focus::placeholder {
+  text-indent: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s, text-indent 1s;
+  transition: opacity .5s, text-indent 1s;
 }
 
 .login__submit {
 	display: block;
 	min-height: 40px;
-	width: 50%;
+	width: 30%;
     margin: auto;
 	background: #ff9000;
 	font: 16px "Roboto-Regular", sans-serif;
@@ -59,7 +114,7 @@ html, body {
 }
 
 .auth__link {
-	padding: 5px;
+	margin: 0 5px 0 0;
 	font: 16px "Roboto-Regular", sans-serif;
 	color: #3a8bc0;
 }
@@ -161,4 +216,22 @@ input[type="checkbox"]:checked + label::before {
 .check__list {
 	list-style: none;
 	font: 13px "Lato-Regular", sans-serif;
+}
+
+@media screen and (max-device-width: 768px) {
+	.auth {
+		min-width: 300px;
+	}
+	.login {
+		margin: 0 0 10px;
+	}
+	.social {
+		margin: 0 0 10px;
+	}
+	.social__image {
+		max-height: 70px;
+	}
+	.auth__action {
+		margin: 0 0 15px;
+	}
 }
