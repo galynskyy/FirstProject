@@ -18,9 +18,7 @@ function initCircle() {
     var percent = document.querySelector(".goal-chart__percent");
     var radius = circle.getAttribute("r");
     var circleLength = (radius * 2) * Math.PI;
-
-    console.log(circleLength);
-
+    
     circle.style.strokeDasharray = circleLength;
     circle.style.strokeDashoffset = circleLength;
     circle.style.stroke = "#33b800";
