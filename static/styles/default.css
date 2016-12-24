@@ -62,8 +62,8 @@ html, body {
 }
 
 .goal-chart {
-  	height: 132px;
-  	width: 200px;
+  	min-height: 190px;
+  	max-width: 190px;
   	overflow: visible;
 }
 
@@ -81,24 +81,24 @@ html, body {
 
 .goal-chart__active {
   	fill: transparent;
-  	stroke: #33b800;
   	stroke-width: 16;
-  	stroke-dasharray: 502.55;
- 	stroke-dashoffset: 502.55;
- 	transition: 4s stroke-dashoffset;
+}
+
+.goal-chart__active._transition {
+	transition: 2s stroke-dashoffset;
 }
 
 .goal-chart__inactive {
   	fill: transparent;
   	stroke: #e5e5e5;
   	stroke-width: 16;
-  	stroke-dasharray: 502;
+  	stroke-dasharray: 0;
   	stroke-dashoffset: 0;
 }
 
 .goal-task {
-	list-style: none;
 	display: inline-block;
+	list-style: none;
 	padding: 0;
 }
 
