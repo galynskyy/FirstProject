@@ -11,7 +11,7 @@ gulp.task("build", ["styles", "html", "js", "assets", "fonts"]);
 
 gulp.task("styles", function() {
 	return gulp.src("./src/styles/**/*.css")
-		.pipe(concat("build.css"))
+		.pipe(concat("build.min.css"))
 		.pipe(postcss([autoprefixer, cssnano]))
 		.pipe(gulp.dest("./public/styles/"));
 });
