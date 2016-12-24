@@ -1,7 +1,7 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "# Authors",
+  "description": "<b>Authors:</b>",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/galynskyy/FirstProject#readme",
   "dependencies": {
+    "autoprefixer": "^6.6.0",
     "browser-sync": "^2.18.5",
+    "cssnano": "^3.9.1",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.1"
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^6.2.0"
   }
 }
