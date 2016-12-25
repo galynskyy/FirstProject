@@ -59,6 +59,7 @@ html, body {
 .goal-progress {
 	display: inline-block;
 	margin: 0 20px 0 0;
+	vertical-align: middle;
 }
 
 .goal-chart {
@@ -100,6 +101,7 @@ html, body {
 	display: inline-block;
 	list-style: none;
 	padding: 0;
+	vertical-align: top;
 }
 
 .goal-task__label {
