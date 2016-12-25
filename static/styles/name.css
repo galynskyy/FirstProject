@@ -1,14 +1,28 @@
-.contact__image,
-.contact__name{
+.contact-info__image,
+.contact-info__name{
 	display: inline-block;
 
 }
-.contact__name.gray{
+.contact-info{
+	display: block;
+}
+.contact-info__image{
+	min-width: 185px;
+	min-height: 185px;
+	border: 5px solid #d0d3d0;
+	border-radius: 50%;
+}
+.contact-info__image_photo{
+	width: 100%;
+}
+.contact-info__name_gray{
 	color: #d0d3d0;
 }
-h2{
+.contact-info__name_fio{
 	font-size: 18px;
+	margin: 0;
 }
-h3{
+.contact-info__name_inf{
 	font-size: 14px;
+	margin: 0;
 }
