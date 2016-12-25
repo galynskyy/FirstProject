@@ -192,18 +192,18 @@ input[type="checkbox"]:checked + label::before {
 	border-radius: 50%;
 }
 
-.disc__one {
+._disc-green {
 	background: #4ac241;
 }
 
-.disc__two {
+._disc-gray {
 	background: #90a7b2;
 }
 
 .disc__title {
 	position: relative;
 	bottom: 25%;
-	color: white;
+	color: #fff;
 	font: 11px "Lato-Regular", sans-serif;
 }
 
