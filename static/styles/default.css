@@ -156,6 +156,68 @@ html, body {
 	background: #46609b;
 }
 
+input[type=checkbox] {
+    display: none;
+}
+
+input[type="checkbox"] + label {
+	cursor: pointer;
+}
+
+input[type="checkbox"] + label::before {
+	vertical-align: bottom;
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 10px 10px 0;
+    background: url(../assets/sprite-checkbox.png) no-repeat -6px -5px;    
+}
+
+input[type="checkbox"]:checked + label::before {
+    background-position: -6px -35px;
+}
+
+.info__title {
+	font: 18px "Lato-Black", sans-serif;
+	margin: 0 0 30px;
+}
+
+.disc {
+	vertical-align: middle;
+	display: inline-block;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+}
+
+._disc-green {
+	background: #4ac241;
+}
+
+._disc-gray {
+	background: #90a7b2;
+}
+
+.disc__title {
+	position: relative;
+	bottom: 25%;
+	color: #fff;
+	font: 11px "Lato-Regular", sans-serif;
+}
+
+.fact {
+	display: inline-block;
+	font: 13px "Lato-Regular", sans-serif;
+	margin: 0 20px 0 0;
+}
+
+.check__list {
+	list-style: none;
+	font: 13px "Lato-Regular", sans-serif;
+}
+
 @media screen and (max-device-width: 768px) {
 	.auth {
 		min-width: 300px;
