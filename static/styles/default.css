@@ -3,19 +3,6 @@ html, body {
 	padding: 0;
 }
 
-ul{
-	list-style: none;
-}
-
-li {
-    list-style-type: none;
-}
-
-li {
-    display: list-item;
-    text-align: -webkit-match-parent;
-}
-
 .auth {
 	position: absolute;
 	top: 50%;
@@ -170,11 +157,10 @@ li {
 	position: absolute;
 	top: 300px;
 	left: 140px;
-	max-width: 1170px;
-	min-width: 1170px;
+	width: 1170px;
 	min-height: 180px;
 	background: #fff;
-	border: solid 0.5px #eef2f4;
+	border: solid .5px #eef2f4;
 }
 
 .tasks {
@@ -187,6 +173,13 @@ li {
 	display: block;
 	padding: 0;
 	max-width: 100%;
+	margin-top: 35px;
+}
+
+.tasks__list-item {
+	list-style-type: none;
+	display: list-item;
+	text-align: -webkit-match-parent;
 }
 
 .tasks__item-title {
@@ -201,6 +194,7 @@ li {
 .tasks__title-item {
 	font: 12px 'Lato-Regular', sans-serif;
 	color: #686867;
+	text-transform: uppercase;
 }
 
 .tasks__item-text {
@@ -214,7 +208,7 @@ li {
 	font: 13px 'Lato-Regular', sans-serif;
 }
 
-.tasks__item-button_down {
+.tasks__item-button._down {
 	display: inline-block;
 	width: 40px;
 	height: 40px;
@@ -222,6 +216,6 @@ li {
 	background-size: 40px;
 	cursor: pointer;
 }
-.tasks__item-button_down:hover {
+.tasks__item-button._down:hover {
 	opacity: .8;
 }
