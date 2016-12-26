@@ -182,6 +182,15 @@ html, body {
 	text-align: -webkit-match-parent;
 }
 
+.tasks__item-text {
+	cursor: pointer;
+}
+
+.tasks__item-text:hover {
+	background-color: #eef2f4;
+	opacity: .5;
+}
+
 .tasks__item-title {
 	background: #eef2f4;
 	height: 40px;
