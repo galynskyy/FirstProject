@@ -3,7 +3,7 @@ html, body {
 	padding: 0;
 }
 
-.wrapper{
+.wrapper {
 	max-width: 1280px;
 	margin: auto;
 }
@@ -20,6 +20,10 @@ html, body {
 .goal-indicators__item {
 	display: inline-block;
 	margin: 0 20px 0 0;
+}
+
+.goal-indicators__item:last-child {
+	margin: 0;
 }
 
 .goal-indicators__label {
@@ -208,6 +212,22 @@ html, body {
 @media screen and (max-device-width: 768px) {
 	.auth {
 		min-width: 300px;
+	}
+
+	.wrapper {
+		min-width: 300px;
+	}
+
+	.goal-indicators {
+		text-align: center;
+	}
+
+	.goal-detail {
+		text-align: center;
+	}
+
+	.goal-header__title {
+		text-align: center;
 	}
 
 	.login {
