@@ -194,7 +194,7 @@ html, body {
 .tasks__item-title {
 	background: #eef2f4;
 	height: 40px;
-	padding: 10px 10px 10px 20px;
+	padding: 10px 20px;
 	box-sizing: border-box;
 	min-width: 210px;
 	float: left;
@@ -221,7 +221,7 @@ html, body {
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	background: url('../img/down-arrow.svg') 100% 100% no-repeat;
+	background: url('../img/down-arrow.svg') center/cover no-repeat;
 	cursor: pointer;
 }
 .tasks__item-button._down:hover {
