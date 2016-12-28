@@ -210,7 +210,7 @@ html, body {
 	height: 35px;
 	border-bottom: solid 1px #eef2f4;
 	box-sizing: border-box;
-	padding: 5px 10px 5px 10px;
+	padding: 5px 10px;
 }
 
 .tasks__text-item {
@@ -221,8 +221,7 @@ html, body {
 	display: inline-block;
 	width: 40px;
 	height: 40px;
-	background: url('../img/down-arrow.svg') no-repeat;
-	background-size: 40px;
+	background: url('../img/down-arrow.svg') 100% 100% no-repeat;
 	cursor: pointer;
 }
 .tasks__item-button._down:hover {
