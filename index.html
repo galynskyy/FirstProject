@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>FirstProject / Index</title>
 	<link href="static/styles/default.css" rel="stylesheet">
 	<link href="static/styles/fonts.css" rel="stylesheet">
@@ -15,12 +17,66 @@
 		</div>
 		<div class="goal">
 			<div class="goal-info">
-
+				<div class="goal-header">
+					<h1 class="goal-header__title">Разработка рекламной компании на НГ</h1>
+				</div>
+				<ul class="goal-indicators">
+					<li class="goal-indicators__item">
+						<label class="goal-indicators__label _active">
+							<span class="goal-badge _active">2</span> Действующих
+						</label>
+					</li>
+					<li class="goal-indicators__item">
+						<label class="goal-indicators__label _complete">
+							<span class="goal-badge _complete">1</span> Выполненных
+						</label>
+					</li>
+				</ul>
 			</div>
 			<div class="goal-detail">
-
+				<div class="goal-progress">
+					<svg class="goal-chart">
+				  		<text x="50%" y="90" class="goal-chart__caption">Выполнено</text>
+				  		<text x="50%" y="125" class="goal-chart__percent">0%</text>
+					  	<circle r="80" cx="100" cy="100" class="goal-chart__inactive"></circle>
+					  	<circle r="80" cx="100" cy="100" class="goal-chart__active" transform="rotate(-90, 100, 100)"></circle>
+					</svg>
+				</div>
+				<ul class="goal-task">
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked">Наружная реклама</input>
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked">Баннеры для контекной рекламы</input>
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox" checked="checked">Баннеры для SMM</input>
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox">Лендинг для корпоратива</input>
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox">Креатив на афишу</input>
+						</label>
+					</li>
+					<li class="goal-task__item">
+						<label class="goal-task__label">
+							<input type="checkbox" class="goal-checkbox">Отрисовка баннеров</input>
+						</label>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
+	<script src="static/scripts/chart.js"></script>
 </body>
 </html>
