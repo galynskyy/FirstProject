@@ -1,13 +1,15 @@
-var gulp           = require('gulp'),
-	postcss        = require('gulp-postcss'),
-	autoprefixer   = require('autoprefixer'),
-	concat         = require('gulp-concat'),
-	uglify         = require('gulp-uglifyjs');
+const gulp = require('gulp');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglifyjs');
 
+//example
 gulp.task('default', function() {
 	console.log('Welcome to Gulp!');
 });
 
+//style
 gulp.task('css', function() {
 	var processors = [autoprefixer
 	];
@@ -16,15 +18,18 @@ gulp.task('css', function() {
 	.pipe(gulp.dest('./public/styles/'));
 });
 
+//html
 gulp.task('html', function() {
 	return gulp.src('*.html')
 	.pipe(gulp.dest('./public/'));
 });
 
+//watch
 gulp.task("watch", function() {
 	gulp.watch('./static/styles/**/*.css', ['css']);
 });
 
+//scripts
 gulp.task('scripts', function() {
 	return gulp.src([
 		'./src/index.js',
