@@ -1,55 +1,55 @@
 .contact-info__image,
-.contact-info__name{
+.contact-info__name {
 	display: inline-block;
 
 }
-.contact-info{
+.contact-info {
 	margin: 110px 0 70px 135px;
 	min-width: 640px;
 }
-.contact-info__name{
+.contact-info__name {
 	margin: 0 0 0 10px;
 	vertical-align: top;
 }
-.contact-info__image{
+.contact-info__image {
 	min-width: 85px;
 	min-height: 85px;
 	border: 5px solid #d0d3d0;
 	border-radius: 50%;
 }
-.contact-info__image_photo{
+.contact-info__image_photo {
 	width: 100%;
 }
-.contact-info__gray{
+.contact-info__gray {
 	color: #d0d3d0;
 }
-.contact-info__fio{
+.contact-info__fio {
 	font-family: 'Roboto-Regular';
 	font-weight: normal;	
 	font-size: 18px;
 	margin: 0 0 10px 0;
 }
-.contact-info__inf{
+.contact-info__inf {
 	font-family: 'Roboto-Regular';
 	font-weight: normal;
 	font-size: 14px;
 	margin: 0 0 5px 0;
 }
-.tasks{
+.tasks {
 	display: inline-block;
 	min-width: 700px;
 	margin: 0 0 0 135px;
 }
 .tasks__item_btn,
 .tasks__item_link,
-.tasks__item{
+.tasks__item {
 	display: inline-block;
 }
 
-.tasks__link{
+.tasks__link {
 	text-decoration: none;
 }
-.tasks__item_btn{
+.tasks__item_btn {
 	min-width: 170px;
 	min-height: 35px;
 	background: #3bc8f5;
@@ -59,10 +59,10 @@
 	font-family: 'Roboto-Regular';
 	color: #fff;
 }
-.tasks__item_link{
+.tasks__item_link {
 	margin: 0 0 0 90px;
 }
-.blue{
+.blue {
 	margin: 0 0 0 20px;
 	min-width: 30px;
 	min-height: 25px;
@@ -72,7 +72,7 @@
 	padding: 5px 0 0 0;
 	color: #fff;
 }
-.red{
+.red {
 	margin: 0 0 0 20px;
 	min-width: 30px;
 	min-height: 25px;
@@ -83,7 +83,7 @@
 	color: #fff;
 
 }
-.gray{
+.gray {
 	margin: 0 0 0 20px;
 	min-width: 30px;
 	min-height: 25px;
@@ -93,13 +93,13 @@
 	padding: 5px 0 0 0;
 	color: #fff;
 }
-.tasks__link_blue{
+.tasks__link_blue { 
 	color: #3bc8f5;
 
 }
-.tasks__link_red{
+.tasks__link_red {
 	color: #ff6762;
 }
-.tasks__link_gray{
+.tasks__link_gray {
 	color: #90a7b2;
 }
