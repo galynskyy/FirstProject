@@ -7,19 +7,20 @@ var gulp 			= require('gulp'),						// Подключение gulp
 	autoprefixer    = require('autoprefixer');				// Подключение библиотеки автодобавления префиксов
 	postcss 		= require("gulp-postcss");				// Подключение postCSS, для тех кто изучил
 
-gulp.task('css-libs', function() {							// Создаем таск css-libs
-	return gulp.src('src/styles/**/*.css')					// Задаем источник (откуда брать)
-		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))	// Создаем префиксы
-		.pipe(cssnano())									// Сжимаем
-		.pipe(rename({suffix: '.min'}))						// Добавляем суффикс .min в имени файла
-		.pipe(gulp.dest('src/styles/min'))					// Выгружаем результат в папку src/styles/min
-		.pipe(browserSync.reload({ stream: true }));		// Обновляем css на странице при изменении
+gulp.task('styles', function () { 							// Создаем таск styles
+	var processors = [ 										// Создаем переменную
+		autoprefixer({browsers: ['last 1 version']}), 		// Помещаем плагины в переменную
+		cssnano(), 
+	]; 
+	return gulp.src('src/styles/**/*.css') 					// Берем источник
+		.pipe(postcss(processors)) 							// Магия
+		.pipe(gulp.dest('src/styles')); 					// Выгружаем в src/styles
 });
 
 gulp.task('browser-sync', function(){						// Создаем таск browser-sync 
 	browserSync({											// Выполняем browser-sync
 		server: {											// Определяем параметры сервера
-			baseDir: 'src'									// Определяем папку сервера
+			baseDir: 'public'									// Определяем папку сервера
 		},
 		notify: false										// Отключение уведомлений об успешном коннекте
 	});
@@ -29,19 +30,18 @@ gulp.task('clean', function() {								// Создаем таск clean,
 	return del.sync('public');								// который чистит папку public перед сборкой
 });
 
-gulp.task('clear-cache', function() {
-	return cache.clearAll();
-});
-
-gulp.task('watch', ['browser-sync', 'css-libs'], function(){	// Создаем таск watch, внутри приоритетно запускаем таски browser-sync и css-libs
-	gulp.watch('src/styles/**/*.css', ['css-libs']);			// Наблюдение за css-файлами в папке styles
+gulp.task('watch', ['browser-sync', 'styles'], function(){	
+ /* Создаем таск watch, внутри приоритетно запускаем таски browser-sync и css-libs
+ 	 чтобы задать последовательность и применились изменения, если таковые были. 
+ 	 Необходимо для корректного отображения изменения на момент запуска сервера */ 	 
+	gulp.watch('src/styles/**/*.css', ['styles']);				// Наблюдение за css-файлами в папке styles
 	gulp.watch('src/*.html', browserSync.reload);				// Наблюдение за html-файлами в корне проекта
 	gulp.watch('src/js/**/*.js', browserSync.reload);			// Наблюдение за js-файлами в папке js
 });
 
 gulp.task('build', ['clean'], function() {						// Создаем таск build, предварительно запустив очистку папки public 
 	var buildCss = gulp.src([
-			'src/styles/**/*.min.css',							// Берем из источника минифицированные файлы стилей
+			'src/styles/build.min.css',							// Берем из источника минифицированные файлы стилей
 		])
 	.pipe(gulp.dest('public/styles'));							// Выгружаем в public/styles
 
@@ -49,6 +49,7 @@ gulp.task('build', ['clean'], function() {						// Создаем таск build
 	.pipe(gulp.dest('public/fonts'));							// Выгружаем в public/fonts
 
 	var buildJs = gulp.src('src/js/**/*')						// Собираем js-файлы
+	.pipe(concat("build.js"))
 	.pipe(gulp.dest('public/js'));								// Выгружаем в public/js
 
 	var buildHtml = gulp.src('src/*.html')						// Собираем html-файлы
