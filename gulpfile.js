@@ -1,5 +1,5 @@
 var gulp	  = require('gulp');
-	minifyCSS = require('gulp-minify-css');
+var minifyCSS = require('gulp-minify-css');
 
 
 gulp.task('mincss', function() {
