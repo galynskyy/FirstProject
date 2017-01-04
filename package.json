@@ -18,5 +18,14 @@
   "homepage": "https://github.com/galynskyy/FirstProject#readme",
   "dependencies": {
     "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "pixrem": "^3.0.2",
+    "postcss-color-rgba-fallback": "^2.2.0",
+    "postcss-opacity": "^4.0.0",
+    "postcss-pseudoelements": "^3.0.0",
+    "postcss-vmin": "^2.0.0",
+    "postcss-will-change": "^1.1.0"
   }
 }

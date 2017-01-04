@@ -26,6 +26,11 @@
 </li>
 ```
 
+Наименования классов идет в первую очередь:
+```html
+<input class="login__input" type="text" placeholder="Введите логин">
+```
+
 Атрибуты типа `required` оформлять в виде кода следующим образом:
 ```html
 <input type="..." required="required">
