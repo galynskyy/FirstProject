@@ -1,57 +1,57 @@
-'use strict';
+"use strict";
 
-const gulp = require('gulp'),
-	concatCss = require('gulp-concat-css'),
-	rename = require('gulp-rename'),
-	minifyCSS = require('gulp-minify-css'),
-	uglify = require('gulp-uglify'),
-	concat = require('gulp-concat'),
-	clean = require('gulp-clean'),
-	imagemin = require('gulp-imagemin'),
-	autoprefixer = require('gulp-autoprefixer');
+const gulp = require("gulp");
+const concatCss = require("gulp-concat-css");
+const rename = require("gulp-rename");
+const minifyCSS = require("gulp-minify-css");
+const uglify = require("gulp-uglify");
+const concat = require("gulp-concat");
+const clean = require("gulp-clean");
+const imagemin = require("gulp-imagemin");
+const autoprefixer = require("gulp-autoprefixer");
 
-gulp.task('css', function () {
-	return gulp.src('./static/styles/**/*.css')
-		.pipe(concatCss('bundle.css'))
+gulp.task("css", function () {
+	return gulp.src("./static/styles/**/*.css")
+		.pipe(concatCss("bundle.css"))
 		.pipe(autoprefixer({
-			browsers: ['last 2 versions'],
+			browsers: ["last 2 versions"],
 			cascade: false
 		}))
 		.pipe(minifyCSS())
-		.pipe(rename('bundle.min.css'))
-		.pipe(gulp.dest('app/css'));
+		.pipe(rename("bundle.min.css"))
+		.pipe(gulp.dest("public/styles"));
 });
 
-gulp.task('html', function () {
-	return gulp.src('*.html')
-		.pipe(gulp.dest('app'));
+gulp.task("html", function () {
+	return gulp.src("*.html")
+		.pipe(gulp.dest("public"));
 });
 
-gulp.task('fonts', function () {
+gulp.task("fonts", function () {
 	return gulp.src([
-		'./static/fonts/*',
+		"./static/fonts/*",
 	])
-		.pipe(gulp.dest('app/static/fonts'));
+		.pipe(gulp.dest("public/fonts"));
 });
 
-gulp.task('scripts', function () {
+gulp.task("scripts", function () {
 	return gulp.src([
-		'./src/index.js',
+		"./src/index.js",
 	])
-		.pipe(concat('min.js'))
+		.pipe(concat("min.js"))
 		.pipe(uglify())
-		.pipe(gulp.dest('app/js'));
+		.pipe(gulp.dest("public/scripts"));
 });
 
-gulp.task('images', function () {
-	gulp.src('./static/img/*')
+gulp.task("images", function () {
+	gulp.src("./static/img/*")
 		.pipe(imagemin())
-		.pipe(gulp.dest('app/static/img'))
+		.pipe(gulp.dest("public/icons"))
 });
 
-gulp.task('clean', function () {
-	return gulp.src('app/')
+gulp.task("clean", function () {
+	return gulp.src("public/")
 		.pipe(clean());
 });
 
-gulp.task('default', ['html', 'css', 'scripts', 'images', 'fonts']);
+gulp.task("default", ["html", "css", "scripts", "images", "fonts"]);
