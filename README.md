@@ -28,12 +28,12 @@
 
 Наименования классов идет в первую очередь:
 ```html
-<input class="login__input" type="text" placeholder="Введите логин">
+<input class="login__input" type="text" placeholder="Введите логин"></input>
 ```
 
 Атрибуты типа `required` оформлять в виде кода следующим образом:
 ```html
-<input type="..." required="required">
+<input type="..." required="required"></input>
 ```
 
 Явно указывать `doctype`, это гарантирует, что страница будет выглядеть единым образом во всех браузерах:
