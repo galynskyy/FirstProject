@@ -14,26 +14,26 @@
 ## Html:
 Закрывать одиночные теги (`<img>`, `<input>` и т.д.)
 ```html
-<img src="static/img/vk-min.svg" alt="111" class="social__image"></img>
+<img src="static/img/vk-min.svg" alt="111" class="social__image" />
 ```
 
 Не пропускать необязательные закрывающие теги (например, `<li>` или `<body>`):
 ```html
 <li class="social__item social__item__tw">
     <a href="#">
-        <img src="static/img/tweet-min.svg" alt="222" class="social__image"></img>
+        <img src="static/img/tweet-min.svg" alt="222" class="social__image" />
     </a>
 </li>
 ```
 
 Атрибут `class` у тега идет в первую очередь:
 ```html
-<input class="login__input" type="text" placeholder="Введите логин"></input>
+<input class="login__input" type="text" placeholder="Введите логин" />
 ```
 
 Атрибуты типа `required` оформлять в виде кода следующим образом:
 ```html
-<input type="..." required="required"></input>
+<input type="..." required="required" />
 ```
 
 Явно указывать `doctype`, это гарантирует, что страница будет выглядеть единым образом во всех браузерах:
