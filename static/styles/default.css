@@ -126,23 +126,26 @@ html, body {
 }
 
 .tasks__list {
-	display: block;
+	margin-top: 20px;
 	max-width: 100%;
 	padding: 0;
-	margin-top: 35px;
+	font-size: 0;
 }
 
 .task__item-title {
-	display: list-item;
-	text-align: match-parent;
 	list-style-type: none;
 }
 
 .task__item {
 	display: list-item;
-	text-align: match-parent;
+	height: 35px;
 	list-style-type: none;
 	border-bottom: solid 1px #eef2f4;
+}
+
+.task__item:hover {
+	background-color: #eef2f4;
+	opacity: .5;
 }
 
 .task__title {
@@ -155,21 +158,17 @@ html, body {
 .task__title._grey {
 	min-height: 40px;
 	min-width: 210px;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	box-sizing: border-box;
 	background: #eef2f4;
 }
 
 .task__text {
-	height: 35px;
-	padding: 5px 10px;
+	margin-left: 5px;
+	height: 40px;
+	line-height: 40px;
 	box-sizing: border-box;
 	cursor: pointer;
-}
-
-.task__text:hover {
-	background-color: #eef2f4;
-	opacity: .5;
 }
 
 .task__text._black {
@@ -185,7 +184,6 @@ html, body {
 	background: url('../img/down-arrow.min.svg')  center/cover no-repeat;
 	background-size: 50% 50%;
 	background-color: #686867;
-
 }
 
 .task__button._down:hover {
