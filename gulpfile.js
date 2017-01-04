@@ -5,7 +5,8 @@ var cssnano			= require('cssnano');
 var rename			= require('gulp-rename');
 var del				= require('del');
 var autoprefixer    = require('autoprefixer');
-var postcss 		= require("gulp-postcss");
+var postcss 		= require('gulp-postcss');
+var imagemin 		= require('gulp-imagemin');
 
 gulp.task('styles', function () {
 	var processors = [
@@ -53,6 +54,10 @@ gulp.task('build', ['clean'], function() {
 
 	var buildHtml = gulp.src('src/*.html')
 	.pipe(gulp.dest('public'));
+
+	var buildImg = gulp.src('src/assets/icons/*')
+	.pipe(imagemin())
+	.pipe(gulp.dest("public/icons"));
 });
 
 gulp.task("dev", ["build", "browser-sync", "watch"]);
