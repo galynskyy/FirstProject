@@ -1,29 +1,37 @@
-const gulp = require('gulp');
-const postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglifyjs');
+'use strict';
 
-gulp.task('default', function () {
-	console.log('Welcome to Gulp!');
-});
+const gulp = require('gulp'),
+	concatCss = require('gulp-concat-css'),
+	rename = require('gulp-rename'),
+	minifyCSS = require('gulp-minify-css'),
+	uglify = require('gulp-uglify'),
+	concat = require('gulp-concat'),
+	clean = require('gulp-clean'),
+	imagemin = require('gulp-imagemin'),
+	autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('css', function () {
-	var processors = [
-		autoprefixer
-	];
 	return gulp.src('./static/styles/**/*.css')
-		.pipe(postcss(processors))
-		.pipe(gulp.dest('./public/styles/'));
+		.pipe(concatCss('bundle.css'))
+		.pipe(autoprefixer({
+			browsers: ['last 2 versions'],
+			cascade: false
+		}))
+		.pipe(minifyCSS())
+		.pipe(rename('bundle.min.css'))
+		.pipe(gulp.dest('app/css'));
 });
 
 gulp.task('html', function () {
 	return gulp.src('*.html')
-		.pipe(gulp.dest('./public/'));
+		.pipe(gulp.dest('app'));
 });
 
-gulp.task('watch', function () {
-	gulp.watch('./static/styles/**/*.css', ['css']);
+gulp.task('fonts', function () {
+	return gulp.src([
+		'./static/fonts/*',
+	])
+		.pipe(gulp.dest('app/static/fonts'));
 });
 
 gulp.task('scripts', function () {
@@ -32,5 +40,18 @@ gulp.task('scripts', function () {
 	])
 		.pipe(concat('min.js'))
 		.pipe(uglify())
-		.pipe(gulp.dest('public/js'));
-})
+		.pipe(gulp.dest('app/js'));
+});
+
+gulp.task('images', function () {
+	gulp.src('./static/img/*')
+		.pipe(imagemin())
+		.pipe(gulp.dest('app/static/img'))
+});
+
+gulp.task('clean', function () {
+	return gulp.src('app/')
+		.pipe(clean());
+});
+
+gulp.task('default', ['html', 'css', 'scripts', 'images', 'fonts']);

@@ -233,4 +233,5 @@ html, body {
 
 .task__button._down:hover {
 	opacity: .8;
+	background: linear-gradient(45deg, #ccc, #666);
 }
