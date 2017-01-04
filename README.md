@@ -26,7 +26,7 @@
 </li>
 ```
 
-Наименования классов идет в первую очередь:
+Атрибут `class` у тега идет в первую очередь:
 ```html
 <input class="login__input" type="text" placeholder="Введите логин"></input>
 ```
