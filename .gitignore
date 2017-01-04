@@ -1,4 +1,5 @@
 # Ignore
 .idea/
 node_modules/
+public/
 gulpfile.js.*
