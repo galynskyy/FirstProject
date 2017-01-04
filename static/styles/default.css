@@ -108,8 +108,34 @@ html, body {
 	vertical-align: top;
 }
 
+.goal-task__item {
+	margin: 0 0 10px 0;
+}
+
+.goal-task__item:last-child {
+	margin: 0;
+}
+
 .goal-task__label {
 	font: 16px "Lato-Regular", sans-serif;
+}
+
+.goal-checkbox {
+	display:none;
+}
+.goal-checkbox + label span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 22px;
+    height: 22px;
+    margin: -1px 10px 0 0;
+    background: url("../img/checkboxes/inactive.svg") no-repeat;
+    background-size: 22px 22px;
+    cursor: pointer;
+}
+.goal-checkbox:checked + label span {
+    background: url("../img/checkboxes/active.svg") no-repeat;
+    background-size: 22px 22px;
 }
 
 .auth {
