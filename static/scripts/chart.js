@@ -1,7 +1,12 @@
-(function() {
+window.onload = function() {
     initCircle();
     eventItem();
-})();
+};
+
+/*(function() {
+    initCircle();
+    eventItem();
+})();*/
 
 function eventItem() {
     var item = document.querySelectorAll(".goal-checkbox");
@@ -19,13 +24,14 @@ function initCircle() {
     var radius = circle.getAttribute("r");
     var circleLength = (radius * 2) * Math.PI;
     
-    circle.style.strokeDasharray = circleLength;
+    /*circle.style.strokeDasharray = circleLength;
     circle.style.strokeDashoffset = circleLength;
-    circle.style.stroke = "#33b800";
+    circle.style.stroke = "#33b800";*/
 
-    setTimeout(function() {
-        percent.innerHTML = Math.ceil(100 * checkboxesChecked / checkboxesAll) + "%";
+    percent.innerHTML = Math.ceil(100 * checkboxesChecked / checkboxesAll) + "%";
         circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
         circle.classList.add("_transition");
-    }, 10);
+    /*setTimeout(function() {
+        
+    }, 10);*/
   }
