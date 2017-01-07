@@ -1,46 +1,46 @@
+
 .contact-info__image,
 .contact-info__name {
 	display: inline-block;
 
 }
 .contact-info {
-	margin: 110px 0 70px 135px;
+	// margin: 110px 0 70px 135px;
+	position: relative;
+	top: 110px;
+	left: 135px;
+	margin: 0 0 70px;
 	min-width: 640px;
 }
 .contact-info__name {
-	margin: 0 0 0 10px;
 	vertical-align: top;
 }
 .contact-info__image {
 	min-width: 85px;
 	min-height: 85px;
+	margin: 0 10px 0 0;
 	border: 5px solid #d0d3d0;
 	border-radius: 50%;
 }
-.contact-info__image_photo {
-	width: 100%;
-}
-.contact-info__gray {
+.contact-info__color._gray {
 	color: #d0d3d0;
 }
-.contact-info__fio {
-	font-family: 'Roboto-Regular';
-	font-weight: normal;	
-	font-size: 18px;
-	margin: 0 0 10px 0;
+.contact-info__item._fio {
+	font: normal 18px 'Roboto-Regular';
+	margin: 0 0 10px;
 }
-.contact-info__inf {
-	font-family: 'Roboto-Regular';
-	font-weight: normal;
-	font-size: 14px;
+.contact-info__item {
+	font: normal 14px 'Roboto-Regular';
 	margin: 0 0 5px 0;
 }
 .tasks {
+	position: relative;
+	top: 110px;
+	left: 135px;
 	display: inline-block;
-	min-width: 700px;
-	margin: 0 0 0 135px;
+	min-width: 960px;
 }
-.tasks__item_btn,
+.tasks__btn,
 .tasks__item_link,
 .tasks__item {
 	display: inline-block;
@@ -48,22 +48,19 @@
 
 .tasks__link {
 	text-decoration: none;
+
 }
-.tasks__item_btn {
+.tasks__btn {
+	margin: 0 90px 0 0;
+	font: normal 16px 'Roboto-Regular';
 	min-width: 170px;
 	min-height: 35px;
 	background: #3bc8f5;
+	border-style: none;
 	border-radius: 5px;
-	box-shadow: none;
-	font-size: 16px;
-	font-family: 'Roboto-Regular';
 	color: #fff;
 }
-.tasks__item_link {
-	margin: 0 0 0 90px;
-}
-.blue {
-	margin: 0 0 0 20px;
+.tasks__item._color_blue {
 	min-width: 30px;
 	min-height: 25px;
 	border-radius: 50%;
@@ -72,8 +69,7 @@
 	padding: 5px 0 0 0;
 	color: #fff;
 }
-.red {
-	margin: 0 0 0 20px;
+.tasks__item._color_red {
 	min-width: 30px;
 	min-height: 25px;
 	border-radius: 50%;
@@ -83,8 +79,7 @@
 	color: #fff;
 
 }
-.gray {
-	margin: 0 0 0 20px;
+.tasks__item._color_gray {
 	min-width: 30px;
 	min-height: 25px;
 	border-radius: 50%;
@@ -93,13 +88,15 @@
 	padding: 5px 0 0 0;
 	color: #fff;
 }
-.tasks__link_blue { 
+.tasks__link._blue { 
 	color: #3bc8f5;
+	margin: 0 20px 0 0;
 
 }
-.tasks__link_red {
+.tasks__link._red {
 	color: #ff6762;
+	margin: 0 20px 0 0;
 }
-.tasks__link_gray {
+.tasks__link._gray {
 	color: #90a7b2;
 }
