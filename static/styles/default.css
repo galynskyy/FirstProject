@@ -30,59 +30,15 @@ html, body {
 	outline: none;
 }
 
-::-webkit-input-placeholder {
-	color: #ccc;
-	text-indent: 0;
-	-webkit-transition: opacity .75s;
-	transition: opacity .75s;
-}
-
-::-moz-placeholder {
-	color: #ccc;
-	text-indent: 0;
-	-webkit-transition: opacity .75s;
-	transition: opacity .75s;
-}
-
-:-ms-input-placeholder {
-	color: #ccc;
-	text-indent: 0;
-	-webkit-transition: opacity .75s;
-	transition: opacity .75s;
-}
-
 ::placeholder {
 	color: #ccc;
 	text-indent: 0;
-	-webkit-transition: opacity .75s;
 	transition: opacity .75s;
-}
-
-:focus::-webkit-input-placeholder {
-	text-indent: 100%;
-	opacity: 0;
-	-webkit-transition: opacity .5s, text-indent 1s;
-	transition: opacity .5s, text-indent 1s;
-}
-
-:focus::-moz-placeholder {
-	text-indent: 100%;
-	opacity: 0;
-	-webkit-transition: opacity .5s, text-indent 1s;
-	transition: opacity .5s, text-indent 1s;
-}
-
-:focus:-ms-input-placeholder {
-	text-indent: 100%;
-	opacity: 0;
-	-webkit-transition: opacity .5s, text-indent 1s;
-	transition: opacity .5s, text-indent 1s;
 }
 
 :focus::placeholder {
 	text-indent: 100%;
 	opacity: 0;
-	-webkit-transition: opacity .5s, text-indent 1s;
 	transition: opacity .5s, text-indent 1s;
 }
 
@@ -170,23 +126,26 @@ html, body {
 }
 
 .tasks__list {
-	display: block;
+	margin-top: 20px;
 	max-width: 100%;
 	padding: 0;
-	margin-top: 35px;
+	font-size: 0;
 }
 
 .task__item-title {
-	display: list-item;
-	text-align: -webkit-match-parent;
 	list-style-type: none;
 }
 
 .task__item {
 	display: list-item;
-	text-align: -webkit-match-parent;
+	height: 35px;
 	list-style-type: none;
 	border-bottom: solid 1px #eef2f4;
+}
+
+.task__item:hover {
+	background-color: #eef2f4;
+	opacity: .5;
 }
 
 .task__title {
@@ -199,21 +158,17 @@ html, body {
 .task__title._grey {
 	min-height: 40px;
 	min-width: 210px;
-	padding: 10px 20px;
+	padding: 10px 10px;
 	box-sizing: border-box;
 	background: #eef2f4;
 }
 
 .task__text {
-	height: 35px;
-	padding: 5px 10px;
+	margin-left: 5px;
+	height: 40px;
+	line-height: 40px;
 	box-sizing: border-box;
 	cursor: pointer;
-}
-
-.task__text:hover {
-	background-color: #eef2f4;
-	opacity: .5;
 }
 
 .task__text._black {
@@ -226,12 +181,11 @@ html, body {
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
-	background: url('../img/down-arrow.min.svg') center/cover no-repeat;
+	background: url('../img/down-arrow.min.svg')  center/cover no-repeat;
+	background-size: 50% 50%;
 	background-color: #686867;
-
 }
 
 .task__button._down:hover {
 	opacity: .8;
-	background: linear-gradient(45deg, #ccc, #666);
 }
