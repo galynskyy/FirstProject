@@ -3,11 +3,6 @@ window.onload = function() {
     eventItem();
 };
 
-/*(function() {
-    initCircle();
-    eventItem();
-})();*/
-
 function eventItem() {
     var item = document.querySelectorAll(".goal-checkbox");
     
@@ -23,15 +18,8 @@ function initCircle() {
     var percent = document.querySelector(".goal-chart__percent");
     var radius = circle.getAttribute("r");
     var circleLength = (radius * 2) * Math.PI;
-    
-    /*circle.style.strokeDasharray = circleLength;
-    circle.style.strokeDashoffset = circleLength;
-    circle.style.stroke = "#33b800";*/
 
     percent.innerHTML = Math.ceil(100 * checkboxesChecked / checkboxesAll) + "%";
-        circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
-        circle.classList.add("_transition");
-    /*setTimeout(function() {
-        
-    }, 10);*/
-  }
+    circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
+    circle.classList.add("_transition");
+}
