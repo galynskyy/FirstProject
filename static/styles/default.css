@@ -123,19 +123,19 @@ html, body {
 .goal-checkbox {
 	display:none;
 }
+
 .goal-checkbox + label span {
     display: inline-block;
     vertical-align: middle;
-    width: 22px;
-    height: 22px;
-    margin: -1px 10px 0 0;
-    background: url("../img/checkboxes/inactive.svg") no-repeat;
-    background-size: 22px 22px;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 0 10px 0 0;
+    background: url("../img/checkboxes/inactive.svg") center/22px 22px no-repeat;
     cursor: pointer;
 }
+
 .goal-checkbox:checked + label span {
-    background: url("../img/checkboxes/active.svg") no-repeat;
-    background-size: 22px 22px;
+    background: url("../img/checkboxes/active.svg") center/22px 22px no-repeat;
 }
 
 .auth {
