@@ -109,7 +109,7 @@ html, body {
 }
 
 .goal-task__item {
-	margin: 0 0 10px 0;
+	margin: 0 0 10px;
 }
 
 .goal-task__item:last-child {
@@ -124,7 +124,8 @@ html, body {
 	display:none;
 }
 
-.goal-checkbox + label span {
+.goal-checkbox + .goal-task__label::before {
+	content: "";
     display: inline-block;
     vertical-align: middle;
     min-width: 22px;
@@ -134,7 +135,7 @@ html, body {
     cursor: pointer;
 }
 
-.goal-checkbox:checked + label span {
+.goal-checkbox:checked + .goal-task__label::before {
     background: url("../img/checkboxes/active.svg") center/22px 22px no-repeat;
 }
 
