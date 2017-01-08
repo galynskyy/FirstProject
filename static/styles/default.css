@@ -121,7 +121,7 @@ html, body {
 }
 
 .goal-checkbox {
-	display:none;
+	display: none;
 }
 
 .goal-checkbox + .goal-task__label::before {
