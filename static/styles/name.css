@@ -77,7 +77,6 @@
 	text-align: center;
 	padding: 8px 0 0;
 	color: #fff;
-
 }
 .tasks__item._color_gray {
 	font: 12px "Roboto-Regular";
@@ -93,7 +92,6 @@
 	font: 14px "Roboto-Regular";
 	color: #3bc8f5;
 	margin: 0 20px 0 0;
-
 }
 .tasks__link._red {
 	font: 14px "Roboto-Regular";
