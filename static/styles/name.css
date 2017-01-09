@@ -5,7 +5,6 @@
 
 }
 .contact-info {
-	// margin: 110px 0 70px 135px;
 	position: relative;
 	top: 110px;
 	left: 135px;
@@ -26,21 +25,19 @@
 	color: #d0d3d0;
 }
 .contact-info__item._fio {
-	font: normal 18px 'Roboto-Regular';
-	margin: 0 0 10px;
+	font: 16px "Roboto-Regular";
+	margin: 0 0 15px;
 }
 .contact-info__item {
-	font: normal 14px 'Roboto-Regular';
+	font: 12px "Roboto-Regular";
 	margin: 0 0 5px 0;
 }
 .tasks {
 	position: relative;
 	top: 110px;
 	left: 135px;
-	display: inline-block;
 	min-width: 960px;
 }
-.tasks__btn,
 .tasks__item_link,
 .tasks__item {
 	display: inline-block;
@@ -48,55 +45,62 @@
 
 .tasks__link {
 	text-decoration: none;
-
 }
 .tasks__btn {
 	margin: 0 90px 0 0;
-	font: normal 16px 'Roboto-Regular';
+	font: 14px "Roboto-Regular";
 	min-width: 170px;
 	min-height: 35px;
 	background: #3bc8f5;
+	padding: 10px 15px;
 	border: none;
 	border-radius: 5px;
 	color: #fff;
+	text-transform: uppercase;
 }
 .tasks__item._color_blue {
+	font: 12px "Roboto-Regular";
 	min-width: 30px;
-	min-height: 25px;
+	min-height: 23px;
 	border-radius: 50%;
 	background: #3bc8f5;
 	text-align: center;
-	padding: 5px 0 0 0;
+	padding: 8px 0 0;
 	color: #fff;
 }
 .tasks__item._color_red {
+	font: 12px "Roboto-Regular";
 	min-width: 30px;
-	min-height: 25px;
+	min-height: 23px;
 	border-radius: 50%;
 	background: #ff6762;
 	text-align: center;
-	padding: 5px 0 0 0;
+	padding: 8px 0 0;
 	color: #fff;
 
 }
 .tasks__item._color_gray {
+	font: 12px "Roboto-Regular";
 	min-width: 30px;
-	min-height: 25px;
+	min-height: 23px;
 	border-radius: 50%;
 	background: #90a7b2;
 	text-align: center;
-	padding: 5px 0 0 0;
+	padding: 8px 0 0;
 	color: #fff;
 }
-.tasks__link._blue { 
+.tasks__link._blue {
+	font: 14px "Roboto-Regular";
 	color: #3bc8f5;
 	margin: 0 20px 0 0;
 
 }
 .tasks__link._red {
+	font: 14px "Roboto-Regular";
 	color: #ff6762;
 	margin: 0 20px 0 0;
 }
 .tasks__link._gray {
+	font: 14px "Roboto-Regular";
 	color: #90a7b2;
 }
