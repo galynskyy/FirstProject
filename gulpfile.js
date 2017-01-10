@@ -1,12 +1,12 @@
-var gulp 				= require("gulp");
-var browserSync 		= require("browser-sync");
-var concat				= require("gulp-concat");
-var cssnano				= require("cssnano");
-var rename				= require("gulp-rename");
-var del					= require("del");
-var autoprefixer    	= require("autoprefixer");
-var postcss 			= require("gulp-postcss");
-var imagemin 			= require("gulp-imagemin");
+var gulp = require("gulp");
+var browserSync = require("browser-sync");
+var concat = require("gulp-concat");
+var cssnano = require("cssnano");
+var rename = require("gulp-rename");
+var del	= require("del");
+var autoprefixer = require("autoprefixer");
+var postcss = require("gulp-postcss");
+var imagemin = require("gulp-imagemin");
 
 gulp.task("styles", function() {
 	var processors = [
@@ -18,7 +18,7 @@ gulp.task("styles", function() {
 	return gulp.src("src/styles/**/*.css")
 		.pipe(postcss(processors))
 		.pipe(concat("build.min.css"))
-		.pipe(gulp.dest("src/styles"));
+		.pipe(gulp.dest("public/styles"));
 });
 
 gulp.task("fonts", function() {
@@ -46,7 +46,7 @@ gulp.task("img", function() {
 gulp.task("browser-sync", function() {
 	browserSync({
 		server: {
-			baseDir: "src"
+			baseDir: "public"
 		},
 		notify: false
 	});
