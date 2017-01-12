@@ -1,6 +1,6 @@
 # FirstProject
 
-# Authors
+<b>Authors:</b>
 
 - Andrey Shevtsov
 - Vladimir Galynsky
@@ -8,6 +8,7 @@
 - Ivan Opanasiuk
 - Aleksandr Chernenko
 - Anna Sychugina
+
 
 # Style Guide
 
@@ -135,3 +136,22 @@
 
 ## Наименование классов:
 В наименовании классов используется сокращенный вариант методологии [БЭМ](https://ru.bem.info/methodology/) : `блок__элемент _модификатор: socials__item _vk`
+
+<b>Install:</b>
+````
+git clone https://github.com/galynskyy/FirstProject.git
+cd FirstProject/
+git checkout gulp-env
+npm install
+````
+
+<b>Run Dev:</b>
+````
+gulp dev
+````
+
+<b>Run Production:</b>
+````
+gulp build
+````
+

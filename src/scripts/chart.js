@@ -1,5 +1,5 @@
 (function() {
-    initCircle();
+    reDraw();
     eventItem();
 })();
 
@@ -7,25 +7,35 @@ function eventItem() {
     var item = document.querySelectorAll(".goal-checkbox");
     
     for (var i = 0; i < item.length; i++) {
-        item[i].addEventListener("click", initCircle);
+        item[i].addEventListener("click", reDraw);
     }
 }
 
-function initCircle() {
+function reDraw() {
+    var all = document.querySelectorAll(".goal-checkbox").length;
+    var checked = document.querySelectorAll(".goal-checkbox:checked").length;
+    var pctCheck = parseInt(checked * 100 / all);
     var circle = document.querySelector(".goal-chart__active");
-    var checkboxesAll = document.querySelectorAll(".goal-checkbox").length;
-    var checkboxesChecked = document.querySelectorAll(".goal-checkbox:checked").length;
-    var percent = document.querySelector(".goal-chart__percent");
-    var radius = circle.getAttribute("r");
-    var circleLength = (radius * 2) * Math.PI;
-    
-    circle.style.strokeDasharray = circleLength;
-    circle.style.strokeDashoffset = circleLength;
-    circle.style.stroke = "#33b800";
+    var pctChart = document.querySelector(".goal-chart__percent");
 
-    setTimeout(function() {
-        percent.innerHTML = Math.ceil(100 * checkboxesChecked / checkboxesAll) + "%";
-        circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
-        circle.classList.add("_transition");
-    }, 10);
-  }
+    if (isNaN(pctCheck)) {
+        pctCheck = 100; 
+    } else {
+        var radius = circle.getAttribute("r");
+        var area = Math.PI * (radius * 2);
+   
+        if (pctCheck < 0) {
+            pctCheck = 0;
+        }
+
+        if (pctCheck > 100) {
+            pctCheck = 100;
+        }
+    
+        var inActive = ((100 - pctCheck) / 100) * area;
+    
+        circle.style.strokeDashoffset = inActive;
+    
+        pctChart.innerHTML = pctCheck + "%";
+    }
+}
