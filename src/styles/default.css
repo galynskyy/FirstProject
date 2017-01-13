@@ -86,7 +86,10 @@ html, body {
 
 .goal-chart__active {
   	fill: transparent;
+  	stroke-dasharray: 502;
+  	stroke-dashoffset: 502;
   	stroke-width: 16;
+  	stroke: #33b800;
 }
 
 .goal-chart__active._transition {
