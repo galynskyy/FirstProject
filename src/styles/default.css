@@ -108,8 +108,35 @@ html, body {
 	vertical-align: top;
 }
 
+.goal-task__item {
+	margin: 0 0 10px;
+}
+
+.goal-task__item:last-child {
+	margin: 0;
+}
+
 .goal-task__label {
 	font: 16px "Lato-Regular", sans-serif;
+}
+
+.goal-checkbox {
+	display: none;
+}
+
+.goal-checkbox + .goal-task__label::before {
+	content: "";
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 22px;
+    min-height: 22px;
+    margin: 0 10px 0 0;
+    background: url("../assets/icons/inactive.svg") center/22px 22px no-repeat;
+    cursor: pointer;
+}
+
+.goal-checkbox:checked + .goal-task__label::before {
+    background: url("../assets/icons/active.svg") center/22px 22px no-repeat;
 }
 
 .auth {
