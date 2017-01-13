@@ -1,13 +1,18 @@
-
+html,
+body{
+	margin: 0;
+}
+body{
+	padding: 110px 135px;
+}
 .contact-info__image,
-.contact-info__name {
+.contact-info__name,
+.tasks__item_link,
+.tasks__item {
 	display: inline-block;
 
 }
 .contact-info {
-	position: relative;
-	top: 110px;
-	left: 135px;
 	margin: 0 0 70px;
 	min-width: 640px;
 }
@@ -21,28 +26,22 @@
 	border: 5px solid #d0d3d0;
 	border-radius: 50%;
 }
-.contact-info__color._gray {
-	color: #d0d3d0;
-}
 .contact-info__item._fio {
 	font: 16px "Roboto-Regular";
-	margin: 0 0 15px;
+	margin: 0 0 10px;
 }
 .contact-info__item {
 	font: 12px "Roboto-Regular";
 	margin: 0 0 5px 0;
 }
+.contact-info__item._color_gray {
+	color: #d0d3d0;
+	font: 14px "Roboto-Regular";
+}
 .tasks {
-	position: relative;
-	top: 110px;
-	left: 135px;
 	min-width: 960px;
 }
-.tasks__item_link,
-.tasks__item {
-	display: inline-block;
-}
-
+.tasks__item,
 .tasks__link {
 	text-decoration: none;
 }
@@ -59,46 +58,47 @@
 	text-transform: uppercase;
 }
 .tasks__item._color_blue {
-	font: 12px "Roboto-Regular";
+	font: 14px "Roboto-Regular";
 	min-width: 30px;
 	min-height: 23px;
 	border-radius: 50%;
 	background: #3bc8f5;
 	text-align: center;
-	padding: 8px 0 0;
+	padding: 5px 0 0;
 	color: #fff;
 }
 .tasks__item._color_red {
-	font: 12px "Roboto-Regular";
+	font: 14px "Roboto-Regular";
 	min-width: 30px;
 	min-height: 23px;
 	border-radius: 50%;
 	background: #ff6762;
 	text-align: center;
-	padding: 8px 0 0;
-	color: #fff;
+	padding: 5px 0 0;
+	color: #fff;f
 }
 .tasks__item._color_gray {
-	font: 12px "Roboto-Regular";
+	font: 14px "Roboto-Regular";
 	min-width: 30px;
 	min-height: 23px;
 	border-radius: 50%;
 	background: #90a7b2;
 	text-align: center;
-	padding: 8px 0 0;
+	padding: 5px 0 0;
 	color: #fff;
 }
-.tasks__link._blue {
+
+.tasks__item._link_blue {
 	font: 14px "Roboto-Regular";
 	color: #3bc8f5;
 	margin: 0 20px 0 0;
 }
-.tasks__link._red {
+.tasks__item._link_red {
 	font: 14px "Roboto-Regular";
 	color: #ff6762;
 	margin: 0 20px 0 0;
 }
-.tasks__link._gray {
+.tasks__item._link_gray {
 	font: 14px "Roboto-Regular";
 	color: #90a7b2;
 }
