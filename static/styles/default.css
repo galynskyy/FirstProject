@@ -133,9 +133,7 @@ html, body {
 	float: left;
 	min-width: 250px;
 	padding: 35px 0 18px 0;
-	border-color: #eef2f4;
-	border-style: solid;
-	border-width: 0 3px 0 0;
+	border-right: 3px solid #eef2f4;
 	box-sizing: border-box;
 }
 
@@ -150,22 +148,21 @@ html, body {
 }
 
 .task__item:hover {
-	background-color: #eef2f4;
+	background: #eef2f4;
 	opacity: .5;
 }
 
 .task__title {
 	display: block;
-	padding-left: 15px;
+	padding: 0 0 0 15px;
 	text-decoration: none;
-	font: 12px 'Lato-Regular', sans-serif;
+	font: 12px/40px 'Lato-Regular', sans-serif;
 	color: #686867;
-	line-height: 40px;
 }
 
 .task__title._grey {
 	position: relative;
-	padding-right: 40px;
+	padding: 0 40px 0 0;
 	text-transform: uppercase;
 	box-sizing: border-box;
 	background: #eef2f4;
@@ -182,7 +179,7 @@ html, body {
 	display: block;
 	width: 40px;
 	height: 40px;
-	background-color: #dce3e7;
+	background: #dce3e7;
 }
 
 .task__btn:after {
@@ -194,8 +191,8 @@ html, body {
     display: block;
     width: 8px;
     height: 8px;
-    border-bottom: 2px solid #ffffff;
-    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
 }
 
 .task__text {
@@ -204,13 +201,10 @@ html, body {
 	font: 13px 'Lato-Regular', sans-serif;
 }
 
-
-
-
 .calendar {
 	float: left;
 	width: 924px;
-	overflow-y: hidden;
+	overflow: hidden;
 	overflow-x: scroll;
 }
 
@@ -222,11 +216,11 @@ html, body {
 
 .calendar__month-title {
 	text-align: center;
-	font: 13px 'Lato-Regular', sans-serif;
-	line-height: 35px;
+	font: 13px/35px 'Lato-Regular', sans-serif;
 }
 
 .calendar__days {
+
 }
 
 .calendar__day {
@@ -239,10 +233,9 @@ html, body {
 	border-style: solid;
 	border-width: 0 1px 0 1px;
 	box-sizing: border-box;
-	font: 11px 'Lato-Regular', sans-serif;
-	line-height: 40px;
+	font: 11px/40px 'Lato-Regular', sans-serif;
 	color: #90a7b2;
-	background-color: #fff;
+	background: #fff;
 }
 
 .calendar__day:before {
@@ -253,7 +246,7 @@ html, body {
 	display: none;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(255, 239, 62, 0.1);
+	background: rgba(255, 239, 62, .1);
 }
 
 .calendar__day._weekend:before {
@@ -264,7 +257,7 @@ html, body {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(238, 242, 244, 0.4);
+	background: rgba(238, 242, 244, .4);
 }
 
 .calendar__day:hover:before{
@@ -273,7 +266,7 @@ html, body {
 
 .calendar__date {
 	width: 100%;
-	background-color: #e1f3f9;
+	background: #e1f3f9;
 }
 
 .calendar__progress {
@@ -283,7 +276,7 @@ html, body {
 	display: block;
 	width: 500%;
 	height: 20px;
-	background-color: #3bc8f5;
+	background: #3bc8f5;
 	z-index: 10;
 }
 
