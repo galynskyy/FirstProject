@@ -9,6 +9,10 @@ html, body {
 	padding: 110px 135px;
 }
 
+.user {
+	margin: 0 0 40px 0;
+}
+
 .goal-header__title {
 	font: bold 18px "Lato-Black", sans-serif;
 }
