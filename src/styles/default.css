@@ -593,11 +593,11 @@ html, body {
 }
 
 .calendar::-webkit-scrollbar-button:end:increment {
-	background: #eef2f4 url('../assets/images/scrollbar-arrow_right.png') center no-repeat;
+	background: #eef2f4 url('../assets/icons/scrollbar-arrow_right.png') center no-repeat;
 }
 
 .calendar::-webkit-scrollbar-button:start:decrement {
-	background: #eef2f4 url('../assets/images/scrollbar-arrow_left.png') center no-repeat;
+	background: #eef2f4 url('../assets/icons/scrollbar-arrow_left.png') center no-repeat;
 }
 
 .calendar__inner {
