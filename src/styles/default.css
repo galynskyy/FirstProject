@@ -321,7 +321,7 @@ html, body {
 }
 
 .contact-info__image {
-	background: url(/src/assets/images/maykol-djeksan-55823-large.jpg) no-repeat;
+	background: url(../assets/images/maykol-djeksan-55823-large.jpg) no-repeat;
 	background-size: contain;
 	width: 85px;
 	height: 85px;
