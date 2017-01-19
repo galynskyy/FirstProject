@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="styles/build.min.css" rel="stylesheet">
+		<link href="styles/default.css" rel="stylesheet">
+		<link href="styles/fonts.css" rel="stylesheet">
 		<title>FirstProject / Index</title>
 	</head>
 	<body>
@@ -39,14 +40,32 @@
 				</div>
 				<div class="tasks">
 					<button class="tasks__btn" type="submit">+ добавить задачу</button>
-					<div class="tasks__item_link">
+					<ul class="tasks-type">
+						<li class="tasks-type__item">
+							<a class="tasks-type__link _proc" href="#">
+								<span class="tasks-badge _proc">3</span> Действующих
+							</a>
+						</li>
+						<li class="tasks-type__item">
+							<a class="tasks-type__link _delay" href="#">
+								<span class="tasks-badge _delay">1</span> Просроченных
+							</a>
+						</li>
+						<li class="tasks-type__item">
+							<a class="tasks-type__link _done" href="#">
+								<span class="tasks-badge _done">3</span> Выполненных
+							</a>
+						</li>
+					</ul>
+
+					<!--<div class="tasks__item_link">
 						<a class="tasks__item _color_blue" href="#">3</a>
 						<a class="tasks__item _link_blue" href="#">Действующих</a>
 						<a class="tasks__item _color_red" href="#">1</a>
 						<a class="tasks__item _link_red" href="#">Просроченных</a>
 						<a class="tasks__item _color_gray" href="#">3</a>
 						<a class="tasks__item _link_gray" href="#">Выполненых</a>
-					</div>
+					</div>-->
 				</div>
 			</div>
 			<div class="tasks-calendar">
@@ -57,7 +76,7 @@
 							<span class="tasks-list__btn"></span>
 						</a>
 					</li>
-					<li class="tasks-list__item" data-progress:"_done">
+					<li class="tasks-list__item" data-progress="_done">
 						<a class="tasks-list__title" href="#">
 							<span class="tasks-list__text">Лендинг для корпоратива</span>
 						</a>
@@ -67,7 +86,7 @@
 							<span class="tasks-list__text">Креатив на афишу</span>
 						</a>
 					</li>
-					<li class="tasks-list__item" data-progress:"_proc">
+					<li class="tasks-list__item" data-progress="_proc">
 						<a class="tasks-list__title" href="#">
 							<span class="tasks-list__text">Отрисовка баннеров</span>
 						</a>
@@ -334,7 +353,7 @@
 							<span class="calendar__progress _delay"></span>
 						</div>
 						<div class="calendar__task-line _index_3">
-							<div class="calendar__progress _proc"></div>
+							<span class="calendar__progress _proc"></span>
 						</div>
 					</div>
 				</div>
@@ -397,5 +416,6 @@
 			</div>
 		</div>
 		<script src="scripts/chart.js"></script>
+		<script src="scripts/tasks.js"></script>
 	</body>
 </html>
