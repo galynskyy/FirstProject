@@ -34,7 +34,7 @@ var tasksModule = (function() {
             task.classList.add("hide");
         }
         for (var calendar of _calendarDelay) {
-             calendar.parentNode.classList.remove("show");
+            calendar.parentNode.classList.remove("show");
             calendar.parentNode.classList.add("hide");
         }
         for (var task of _tasksDone) {
@@ -42,7 +42,7 @@ var tasksModule = (function() {
             task.classList.add("hide");
         }
         for (var calendar of _calendarDone) {
-             calendar.parentNode.classList.remove("show");
+            calendar.parentNode.classList.remove("show");
             calendar.parentNode.classList.add("hide");
         }
     };
