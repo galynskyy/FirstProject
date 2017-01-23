@@ -321,8 +321,8 @@ html, body {
 }
 
 .contact-info__image {
-	background: url(../assets/images/maykol-djeksan-55823-large.jpg) no-repeat;
-	background-size: contain; 
+	background: url(../assets/icons/mack.jpg) no-repeat;
+	background-size: cover; 
 	width: 85px;
 	height: 85px;
 	margin: 0 10px 0 0;
@@ -386,7 +386,7 @@ html, body {
 	background: #ff6762;
 	text-align: center;
 	padding: 5px 0 0;
-	color: #fff;f
+	color: #fff;
 }
 
 .tasks__item._color_gray {
