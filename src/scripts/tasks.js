@@ -30,15 +30,19 @@ var tasksModule = (function() {
             calendar.parentNode.classList.add("show");
         }
         for (var task of _tasksDelay) {
+            task.classList.remove("show");
             task.classList.add("hide");
         }
         for (var calendar of _calendarDelay) {
+             calendar.parentNode.classList.remove("show");
             calendar.parentNode.classList.add("hide");
         }
         for (var task of _tasksDone) {
+            task.classList.remove("show");
             task.classList.add("hide");
         }
         for (var calendar of _calendarDone) {
+             calendar.parentNode.classList.remove("show");
             calendar.parentNode.classList.add("hide");
         }
     };
