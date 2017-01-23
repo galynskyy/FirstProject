@@ -321,8 +321,10 @@ html, body {
 }
 
 .contact-info__image {
-	min-width: 85px;
-	min-height: 85px;
+	background: url(../assets/icons/mack.jpg) no-repeat;
+	background-size: cover; 
+	width: 85px;
+	height: 85px;
 	margin: 0 10px 0 0;
 	border: 5px solid #d0d3d0;
 	border-radius: 50%;
