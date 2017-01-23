@@ -22,64 +22,77 @@ var tasksModule = (function() {
 
     var _showProc = function() {
         for (var task of _tasksProc) {
-            task.style.display = "block";
+            task.classList.remove("hide");
+            task.classList.add("show");
         }
         for (var calendar of _calendarProc) {
-            calendar.parentNode.style.display = "block";
+            calendar.parentNode.classList.remove("hide");
+            calendar.parentNode.classList.add("show");
         }
         for (var task of _tasksDelay) {
-            task.style.display = "none";
+            task.classList.add("hide");
         }
         for (var calendar of _calendarDelay) {
-            calendar.parentNode.style.display = "none";
+            calendar.parentNode.classList.add("hide");
         }
         for (var task of _tasksDone) {
-            task.style.display = "none";
+            task.classList.add("hide");
         }
         for (var calendar of _calendarDone) {
-            calendar.parentNode.style.display = "none";
+            calendar.parentNode.classList.add("hide");
         }
     };
 
     var _showDelay = function() {
         for (var task of _tasksDelay) {
-            task.style.display = "block";
+            task.classList.remove("hide");
+            task.classList.add("show");
         }
         for (var calendar of _calendarDelay) {
-            calendar.parentNode.style.display = "block";
+            calendar.parentNode.classList.remove("hide");
+            calendar.parentNode.classList.add("show");
         }
         for (var task of _tasksProc) {
-            task.style.display = "none";
+            task.classList.remove("show");
+            task.classList.add("hide");
         }
         for (var calendar of _calendarProc) {
-            calendar.parentNode.style.display = "none";
+            calendar.parentNode.classList.add("hide");
         }
         for (var task of _tasksDone) {
-            task.style.display = "none";
+            task.classList.remove("show");
+            task.classList.add("hide");
         }
         for (var calendar of _calendarDone) {
-            calendar.parentNode.style.display = "none";
+            calendar.parentNode.classList.remove("show");
+            calendar.parentNode.classList.add("hide");
         }
     };
 
     var _showDone = function() {
         for (var task of _tasksDone) {
-            task.style.display = "block";
+            task.classList.remove("hide");
+            task.classList.add("show");
         }
         for (var calendar of _calendarDone) {
-            calendar.parentNode.style.display = "block";
+            calendar.parentNode.classList.remove("hide");
+            calendar.parentNode.classList.add("show");
         }
         for (var task of _tasksDelay) {
-            task.style.display = "none";
+            task.classList.remove("show");
+            task.classList.add("hide");
         }
         for (var calendar of _calendarDelay) {
-            calendar.parentNode.style.display = "none";
+            calendar.parentNode.classList.remove("show");
+            calendar.parentNode.classList.add("hide");
         }
         for (var task of _tasksProc) {
-            task.style.display = "none";
+            task.classList.remove("show");
+            task.classList.add("hide");
         }
         for (var calendar of _calendarProc) {
-            calendar.parentNode.style.display = "none";
+            calendar.parentNode.classList.remove("show");
+            calendar.parentNode.classList.add("hide");
         }
     };
 

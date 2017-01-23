@@ -337,6 +337,14 @@ html, body {
 	color: #90a7b2;
 }
 
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
 .tasks-badge {
  	display: inline-block;
  	margin: 0 5px 0 0;
@@ -352,15 +360,15 @@ html, body {
 }
 
 .tasks-badge._proc {
-	background-color: #3bc8f5;
+	background: #3bc8f5;
 }
 
 .tasks-badge._delay {
-	background-color: #ff6762;
+	background: #ff6762;
 }
 
 .tasks-badge._done {
-	background-color: #90a7b2;
+	background: #90a7b2;
 }
 
 .contact-info__image,
