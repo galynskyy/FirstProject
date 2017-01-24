@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<h2>Внимание: варианты выравнивания через padding и т.п. в данном примере не рассматривается, так как мы уже взрослые ребятки :)</h2>
+	<h2>Центрирование по горизонтали</h2>
+	<div class="desc">
+	  <h3>inline или inline-block элементы внутри родительского можно центрировать так:</h3>
+	  <pre>
+	    .wrap {
+	      text-align: center;
+	    }
+	  </pre>
+	  <div class="wrap _var-1">
+	    <div class="item _inline"></div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>Блочные элементы можно центрировать так, задав им свойство:</h3>
+	  <pre>
+	    .wrap {
+	      margin: 0 auto;
+	    }
+	  </pre>
+	  <div class="wrap _var-2">
+	    <div class="item _block"></div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>Любые (блочные, строчные и т.д.) элементы можно центрировать с помощью flexbox, указав родителю:</h3>
+	  <pre>
+	    .wrap {
+	      display: flex;
+	      justify-content: center;
+	    }
+	  </pre>
+	  <div class="wrap _var-3">
+	    <div class="item"></div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>Центрирование внутри таблиц для inline элементов:</h3>
+	  <pre>
+	    .wrap {
+	      display: table;
+	    }
+	    
+	    .table-cell {
+	      display: table-cell;
+	      text-align: center;
+	    }
+	  </pre>
+	  <div class="wrap _var-4">
+	    <div class="table-cell">
+	      <div class="item _inline"></div>
+	    </div>
+	  </div>
+	</div>
+
+	<h2>Центрирование по вертикали</h2>
+
+	<div class="desc">
+	  <h3>Любые (блочные, строчные и т.д.) элементы можно центрировать с помощью flexbox, указав родителю:</h3>
+	  <pre>
+	    .wrap {
+	      display: flex;
+	      justify-content: center;
+	      align-items: center;
+	    }
+	  </pre>
+	  <div class="wrap _var-5">
+	    <div class="item"></div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>С помощью line-height (если текст элемента в одну строку 100%)</h3>
+	  <pre>
+	    .wrap {
+	      text-align: center;
+	    }
+	    
+	    .item {
+	      display: inline-block;
+	      line-height: 200px;
+	    }
+	  </pre>
+	  <div class="wrap _var-6">
+	    <div class="item">Text</div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>inline, inline-block элементы с помощью элемента призрака (например текста > 1 строки)</h3>
+	  <pre>
+	    .wrap {
+	      text-align: center;
+	      
+	      &:before {
+	        content: '';
+	        display: inline-block;
+	        height: 100%;
+	        vertical-align: middle;
+	      }
+	    }
+	    
+	    .item {
+	      display: inline-block;
+	      vertical-align: middle;
+	    }
+	  </pre>
+	  <div class="wrap _var-7">
+	    <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>Выравнивание по вертикали с помощью таблиц:</h3>
+	  <pre>
+	    .wrap {
+	      display: table;
+	    }
+	    
+	    .table-cell {
+	      display: table-cell;
+	      text-align: center;
+	      vertical-align: middle;
+	    }
+	  </pre>
+	  <div class="wrap _var-8">
+	    <div class="table-cell">
+	      <div class="item _inline"></div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>Выравние с помощью absolute и т.п. и CSS3</h3>
+	  <pre>
+	    .wrap {
+	      position: relative;
+	    }
+	    
+	    .item {
+	      position: absolute;
+	      top: 50%;
+	      left: 50%;
+	      transform: translate(-50%, -50%);
+	    }
+	  </pre>
+	  <div class="wrap _var-9">
+	    <div class="item"></div>
+	  </div>
+	</div>
+
+	<div class="desc">
+	  <h3>Выравние с помощью absolute и т.п. и CSS (если известны размеры элемента)</h3>
+	  <pre>
+	    .wrap {
+	      position: relative;
+	    }
+	    
+	    .item {
+	      position: absolute;
+	      top: 50%;
+	      left: 50%;
+	      transform: translate(-50%, -50%);
+	    }
+	  </pre>
+	  <div class="wrap _var-10">
+	    <div class="item"></div>
+	  </div>
+	</div>
+	
+</body>
+</html>

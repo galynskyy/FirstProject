@@ -1,0 +1,132 @@
+pre {
+  padding: 10px;
+  border-radius: 4px;
+  background: #E0E0E0;
+  color: #F44336;
+}
+
+h2 {
+  text-decoration: underline;
+  text-align: center;
+  color: #F44336;
+}
+
+.table-cell {
+  display: table-cell;
+  text-align: center;
+}
+
+.wrap {
+  width: 100%;
+  height: 200px;
+  margin: 25px 0 50px 0;
+  border: 2px solid black;
+}
+
+.wrap._var-1 {
+    text-align: center;
+}
+
+.wrap._var-3 {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.wrap._var-4 {
+    display: table;
+}
+
+.wrap._var-5 {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.wrap._var-6 {
+    text-align: center;
+}
+
+.wrap._var-6 .item {
+    display: inline-block;
+    line-height: 200px;
+    width: auto;
+    height: auto;
+    background: transparent;
+}
+
+.wrap._var-7 {
+    text-align: center;
+}
+
+.wrap._var-7:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.wrap._var-7 .item {
+    display: inline-block;
+    vertical-align: middle;
+    background: transparent;
+}
+
+.wrap._var-8 {
+    display: table;
+}
+
+.wrap._var-8 .table-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.wrap._var-9 {
+    position: relative;
+}
+
+.wrap._var-9 .item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.wrap._var-10 {
+    position: relative;
+}
+
+.wrap._var-10 .item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -40px;
+    margin-left: -70px;
+}
+
+.item {
+  width: 140px;
+  height: 80px;
+  background: #009688;
+}
+
+.item._inline {
+    display: inline-block;
+}
+
+.item._block {
+    display: block;
+    margin: 0 auto;
+}
