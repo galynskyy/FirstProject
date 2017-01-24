@@ -415,8 +415,6 @@ html, body {
 	color: #90a7b2;
 }
 
-/* Tasks-calendar Style begin */
-
 .tasks-calendar {
 	width: 1180px;
 	margin: 0 0 60px 0;
@@ -691,8 +689,6 @@ html, body {
 .calendar__progress._proc:before {
 	width: 70%;
 }
-
-/* Tasks-calendar Style END */
 
 @media screen and (max-device-width: 768px) {
 	.auth {
