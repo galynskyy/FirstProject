@@ -7,6 +7,7 @@ var del	= require("del");
 var autoprefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
+var jshintStylish = require("jshint-stylish");
 
 gulp.task("styles", function() {
 	var processors = [
@@ -28,10 +29,16 @@ gulp.task("fonts", function() {
 });
 
 gulp.task("js", function() {
-    return gulp.src("src/scripts/**/*")
-    	.pipe(concat("chart.js"))
+    return gulp.src("src/scripts/**/*.js")
+    	.pipe(concat("min.js"))
 		.pipe(gulp.dest("public/scripts"))
 		.pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task("jshint", function() {
+	return gulp.src("src/scripts/**/*.js")
+		.pipe(jshint())
+		.pipe(jshint.reporter("jshint-stylish"));
 });
 
 gulp.task("html", function() {
@@ -65,7 +72,7 @@ gulp.task("watch", ["browser-sync", "styles", "html", "js"], function() {
 	gulp.watch("src/scripts/**/*.js", ["js"]);
 });
 
-gulp.task("build", ["clean", "styles", "fonts", "js", "html", "img"], function() {
+gulp.task("build", ["clean", "styles", "fonts", "jshint", "js", "html", "img"], function() {
 	return gulp.src("src/styles/*min.css")
 		.pipe(gulp.dest("public/styles"));
 });
