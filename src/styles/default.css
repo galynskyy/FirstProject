@@ -3,6 +3,43 @@ html, body {
 	padding: 0;
 }
 
+.fixed-wrap__modal {
+    text-align: center;
+}
+
+.fixed-wrap__modal::after {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+    content: '';
+}
+
+.fixed-wrap {
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.modal-container {
+    background-color: #fff;
+    margin: 50px;
+    padding: 20px;
+    color: #000;
+    min-width: 200px;
+    text-align: left;
+    white-space: normal;    
+}
+
 .wrapper {
 	max-width: 1280px;
 	margin: auto;
@@ -418,6 +455,8 @@ html, body {
 /* Tasks-calendar Style begin */
 
 .tasks-calendar {
+    display: none;
+
 	width: 1180px;
 	margin: 0 0 60px 0;
 	background: #fff;
