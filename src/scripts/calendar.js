@@ -1,22 +1,22 @@
-(function() {
+(function () {
 	function TaskList(config) {
 		var tasks = [];
 		var container_id = (config || {}).container_id || 'tasks';
 		var container = document.getElementById(container_id);
 
-		this.add = function(task) {
+		this.add = function (task) {
 			tasks.push(task);
 			this.draw(task);
 		};
 
-		this.redraw = function() {
-			container.innerHTML='';
+		this.redraw = function () {
+			container.innerHTML = '';
 			for (var task in tasks) {
 				this.draw(task);
 			}
 		};
 
-		this.draw = function(task) {
+		this.draw = function (task) {
 			var li = document.createElement('li');
 			var a = document.createElement('a');
 			var span = document.createElement('span');
@@ -26,7 +26,7 @@
 			span.classList.add('tasks-list__text');
 
 			span.innerText = task.name;
-			a.href="#";
+			a.href = "#";
 
 			a.appendChild(span);
 			li.appendChild(a);
@@ -35,18 +35,27 @@
 	}
 
 	var taskList = new TaskList();
-	taskList.add({name: 'Лендинг для корпоратива'});
-	taskList.add({name: 'Креатив на афишу'});
-	taskList.add({name: 'Отрисовка баннеров'});
 
-	document.addEventListener('DOMContentLoaded', function() {
-		taskList.add({name: 'Новая задача'});
+	taskList.add({
+		name: 'Лендинг для корпоратива'
 	});
+	taskList.add({
+		name: 'Креатив на афишу'
+	});
+	taskList.add({
+		name: 'Отрисовка баннеров'
+	});
+
+	function addOnLoad() {
+		taskList.add({name: 'Новая задача'});
+	};
+
+	function addOnCLick() {
+		taskList.add({name: 'Новая задача1'});
+	};
+	document.addEventListener('DOMContentLoaded', addOnLoad);
 
 	var btn = document.getElementById('add');
-
-	btn.addEventListener( "click" , function() {
-		taskList.add({name: 'Новая задача1'});
-	});
+	btn.addEventListener("click", addOnCLick);
 }());
 
