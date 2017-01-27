@@ -304,6 +304,73 @@ html, body {
 	background: #46609b;
 }
 
+.tasks-type {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+}
+
+.tasks-type__item {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+
+.tasks-type__item:last-child {
+	margin: 0;
+}
+
+.tasks-type__link {
+	font: 14px "Lato-Regular", sans-serif;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.tasks-type__link._proc {
+	color: #3bc8f5;
+}
+
+.tasks-type__link._delay {
+	color: #ff6762;
+}
+
+.tasks-type__link._done {
+	color: #90a7b2;
+}
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.tasks-badge {
+ 	display: inline-block;
+ 	margin: 0 5px 0 0;
+  	min-width: 12px;
+  	padding: 2px 10px;
+  	font: bold 14px "Lato-Regular", sans-serif;
+  	line-height: 2;
+  	color: #fff;
+  	text-align: center;
+  	white-space: nowrap;
+  	vertical-align: middle;
+  	border-radius: 30px;
+}
+
+.tasks-badge._proc {
+	background: #3bc8f5;
+}
+
+.tasks-badge._delay {
+	background: #ff6762;
+}
+
+.tasks-badge._done {
+	background: #90a7b2;
+}
+
 .contact-info__image,
 .contact-info__name,
 .tasks__item_link,
