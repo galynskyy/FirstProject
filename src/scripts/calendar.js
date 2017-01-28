@@ -1,4 +1,5 @@
-(function () {
+var btn = document.getElementById('add');
+var calendModule = (function () {
 	function TaskList(config) {
 		var tasks = [];
 		var container_id = (config || {}).container_id || 'tasks';
@@ -6,17 +7,10 @@
 
 		this.add = function (task) {
 			tasks.push(task);
-			this.draw(task);
+			_draw(task);
 		};
 
-		this.redraw = function () {
-			container.innerHTML = '';
-			for (var task in tasks) {
-				this.draw(task);
-			}
-		};
-
-		this.draw = function (task) {
+		var _draw = function (task) {
 			var li = document.createElement('li');
 			var a = document.createElement('a');
 			var span = document.createElement('span');
@@ -55,7 +49,6 @@
 	};
 	document.addEventListener('DOMContentLoaded', addOnLoad);
 
-	var btn = document.getElementById('add');
 	btn.addEventListener("click", addOnCLick);
 }());
 
