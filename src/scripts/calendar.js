@@ -28,7 +28,6 @@ var CalendarModule = (function () {
 		if (!index) {
 			index = 1;
 		}
-		;
 
 		container.appendChild(_getTask(task));
 		calendar.appendChild(_getCalendar(index));
@@ -56,7 +55,6 @@ var CalendarModule = (function () {
 
 		return li;
 	};
-
 
 	var _getCalendar = function (index, calendar) {
 		var div = document.createElement("div");
