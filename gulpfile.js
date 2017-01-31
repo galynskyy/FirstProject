@@ -29,7 +29,7 @@ gulp.task("fonts", function() {
 
 gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
-    	.pipe(concat("chart.js"))
+    	.pipe(concat("build.js"))
 		.pipe(gulp.dest("public/scripts"))
 		.pipe(browserSync.reload({stream: true}));
 });

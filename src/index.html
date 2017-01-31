@@ -8,7 +8,7 @@
 	</head>
 	<body>
 
-	<div class="fixed-wrap fixed-wrap__modal">
+	<div class="fixed-wrap fixed-wrap__modal" id="hideShow">
     	<div class="modal">
         	<div class="modal-container">    
         	</div>
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="tasks">
-					<button class="tasks__btn" type="submit">+ добавить задачу</button>
+					<button class="tasks__btn" type="submit" onclick="showModal()">+ добавить задачу</button>
 					<div class="tasks__item_link">
 						<a class="tasks__item _color_blue" href="#">3</a>
 						<a class="tasks__item _link_blue" href="#">Действующих</a>
@@ -405,6 +405,6 @@
 				</div>
 			</div>
 		</div>
-		<script src="scripts/chart.js"></script>
+		<script src="scripts/build.js"></script>
 	</body>
 </html>
