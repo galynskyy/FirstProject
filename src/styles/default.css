@@ -1,3 +1,13 @@
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  
+  to {
+    opacity: 1;
+  }
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -7,7 +17,8 @@ html, body {
 	display: none;
 }
 
-.fixed-wrap {	
+.fixed-wrap {
+	display: none;
     position: fixed;
     overflow: auto;
     left: 0;
@@ -15,6 +26,11 @@ html, body {
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.6);
+}
+
+.fixed-wrap._show {
+	display: block;
+	animation: show 4s;
 }
 
 .fixed-wrap__modal {

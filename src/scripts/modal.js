@@ -1,8 +1,6 @@
 function showModal() {
-	var div = document.getElementById("hideShow");
-		if (div.style.display == "none") {
-			div.style.display == "block";
-		}
+	var popup = document.getElementsByClassName("fixed-wrap")[0];
+	popup.classList.add("_show");
 }
 
 function closeModal() {
