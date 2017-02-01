@@ -1,184 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Демки</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1 class="title">Центрирование по горизонтали</h1>
+  <div class="attention">Здесь не рассмотрены варианты выравнивания по вертикали с помощью: padding and margin!</div>
+  <div class="desc">
+    <h2 class="subtitle">inline или inline-block элементы внутри родительского можно центрировать так:</h2>
+    <pre>
+      <span class="selector">.wrap</span> {
+        <span class="property">text-align</span>: center;
+      }
+  </pre>
+  <div class="wrap _var-1">
+    <div class="item _inline"></div>
+  </div>
+</div>
 
-	<h2>Внимание: варианты выравнивания через padding и т.п. в данном примере не рассматривается, так как мы уже взрослые ребятки :)</h2>
-	<h2>Центрирование по горизонтали</h2>
-	<div class="desc">
-	  <h3>inline или inline-block элементы внутри родительского можно центрировать так:</h3>
-	  <pre>
-	    .wrap {
-	      text-align: center;
-	    }
-	  </pre>
-	  <div class="wrap _var-1">
-	    <div class="item _inline"></div>
-	  </div>
-	</div>
+<div class="desc">
+  <h2 class="subtitle">Блочные элементы можно центрировать так, задав им свойство:</h2>
+  <pre>
+    <span class="selector">.item</span> {
+      <span class="property">margin</span>: 0 auto;
+    }
+</pre>
+<div class="wrap _var-2">
+  <div class="item _block"></div>
+</div>
+</div>
 
-	<div class="desc">
-	  <h3>Блочные элементы можно центрировать так, задав им свойство:</h3>
-	  <pre>
-	    .wrap {
-	      margin: 0 auto;
-	    }
-	  </pre>
-	  <div class="wrap _var-2">
-	    <div class="item _block"></div>
-	  </div>
-	</div>
+<div class="desc">
+  <h2 class="subtitle">Любые (блочные, строчные и т.д.) элементы можно центрировать с помощью flexbox, указав родителю:</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">display</span>: flex;
+      <span class="property">justify-content</span>: center;
+    }
+</pre>
+<div class="wrap _var-3">
+  <div class="item"></div>
+</div>
+</div>
 
-	<div class="desc">
-	  <h3>Любые (блочные, строчные и т.д.) элементы можно центрировать с помощью flexbox, указав родителю:</h3>
-	  <pre>
-	    .wrap {
-	      display: flex;
-	      justify-content: center;
-	    }
-	  </pre>
-	  <div class="wrap _var-3">
-	    <div class="item"></div>
-	  </div>
-	</div>
+<div class="desc">
+  <h2 class="subtitle">Центрирование внутри таблиц для inline элементов:</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">display</span>: table;
+    }
 
-	<div class="desc">
-	  <h3>Центрирование внутри таблиц для inline элементов:</h3>
-	  <pre>
-	    .wrap {
-	      display: table;
-	    }
-	    
-	    .table-cell {
-	      display: table-cell;
-	      text-align: center;
-	    }
-	  </pre>
-	  <div class="wrap _var-4">
-	    <div class="table-cell">
-	      <div class="item _inline"></div>
-	    </div>
-	  </div>
-	</div>
+    <span class="selector">.inner</span> {
+      <span class="property">display</span>: table-cell;
+      <span class="property">text-align</span>: center;
+    }
+</pre>
+<div class="wrap _var-4">
+  <div class="inner">
+    <div class="item _inline"></div>
+  </div>
+</div>
+</div>
 
-	<h2>Центрирование по вертикали</h2>
+<div class="desc">
+  <h2 class="subtitle">Выравние с помощью любого позиционирования отличного от default, например: absolute:</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property"></span>position: relative;
+    }
 
-	<div class="desc">
-	  <h3>Любые (блочные, строчные и т.д.) элементы можно центрировать с помощью flexbox, указав родителю:</h3>
-	  <pre>
-	    .wrap {
-	      display: flex;
-	      justify-content: center;
-	      align-items: center;
-	    }
-	  </pre>
-	  <div class="wrap _var-5">
-	    <div class="item"></div>
-	  </div>
-	</div>
+    <span class="selector">.item</span> {
+      <span class="property">position</span>: absolute;
+      <span class="property">top</span>: 0;
+      <span class="property">right</span>: 0;
+      <span class="property">bottom</span>: 0;
+      <span class="property">left</span>: 0;
+      <span class="property">width</span>: 140px;
+      <span class="property">height</span>: 80px;
+      <span class="property">margin</span>: 0 auto;
+    }
+</pre>
+<div class="wrap _var-12">
+  <div class="item"></div>
+</div>
+</div>
 
-	<div class="desc">
-	  <h3>С помощью line-height (если текст элемента в одну строку 100%)</h3>
-	  <pre>
-	    .wrap {
-	      text-align: center;
-	    }
-	    
-	    .item {
-	      display: inline-block;
-	      line-height: 200px;
-	    }
-	  </pre>
-	  <div class="wrap _var-6">
-	    <div class="item">Text</div>
-	  </div>
-	</div>
+<h1 class="title">Центрирование по вертикали</h1>
 
-	<div class="desc">
-	  <h3>inline, inline-block элементы с помощью элемента призрака (например текста > 1 строки)</h3>
-	  <pre>
-	    .wrap {
-	      text-align: center;
-	      
-	      &:before {
-	        content: '';
-	        display: inline-block;
-	        height: 100%;
-	        vertical-align: middle;
-	      }
-	    }
-	    
-	    .item {
-	      display: inline-block;
-	      vertical-align: middle;
-	    }
-	  </pre>
-	  <div class="wrap _var-7">
-	    <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
-	  </div>
-	</div>
+<div class="desc">
+  <h2 class="subtitle">Любые (блочные, строчные и т.д.) элементы можно центрировать с помощью flexbox, указав родителю:</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">display</span>: flex;
+      <span class="property">justify-content</span>: center;
+      <span class="property">align-items</span>: center;
+    }
+</pre>
+<div class="wrap _var-5">
+  <div class="item"></div>
+</div>
+</div>
 
-	<div class="desc">
-	  <h3>Выравнивание по вертикали с помощью таблиц:</h3>
-	  <pre>
-	    .wrap {
-	      display: table;
-	    }
-	    
-	    .table-cell {
-	      display: table-cell;
-	      text-align: center;
-	      vertical-align: middle;
-	    }
-	  </pre>
-	  <div class="wrap _var-8">
-	    <div class="table-cell">
-	      <div class="item _inline"></div>
-	    </div>
-	  </div>
-	</div>
+<div class="desc">
+  <h2 class="subtitle">С помощью line-height если однострочный текст (можно еще добавить white-space)</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">text-align</span>: center;
+    }
 
-	<div class="desc">
-	  <h3>Выравние с помощью absolute и т.п. и CSS3</h3>
-	  <pre>
-	    .wrap {
-	      position: relative;
-	    }
-	    
-	    .item {
-	      position: absolute;
-	      top: 50%;
-	      left: 50%;
-	      transform: translate(-50%, -50%);
-	    }
-	  </pre>
-	  <div class="wrap _var-9">
-	    <div class="item"></div>
-	  </div>
-	</div>
+    <span class="selector">.item</span> {
+      <span class="property">display</span>: inline-block;
+      <span class="property">line-height</span>: 200px;
+    }
+</pre>
+<div class="wrap _var-6">
+  <div class="item">Lorem ipsum dolor sit amet.</div>
+</div>
+</div>
 
-	<div class="desc">
-	  <h3>Выравние с помощью absolute и т.п. и CSS (если известны размеры элемента)</h3>
-	  <pre>
-	    .wrap {
-	      position: relative;
-	    }
-	    
-	    .item {
-	      position: absolute;
-	      top: 50%;
-	      left: 50%;
-	      transform: translate(-50%, -50%);
-	    }
-	  </pre>
-	  <div class="wrap _var-10">
-	    <div class="item"></div>
-	  </div>
-	</div>
-	
+<div class="desc">
+  <h2 class="subtitle">С помощью line-height для многострочного текста (если высота родителя известна, а центрируемого элемента – нет)</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">height</span>: 200px;
+      <span class="property">line-height</span>: 200px;
+      <span class="property">text-align</span>: center;
+    }
+
+    <span class="selector">.item</span> {
+      <span class="property">display</span>: inline-block;
+      <span class="property">vertical-align</span>: middle;
+      <span class="property">line-height</span>: normal;
+    }
+</pre>
+<div class="wrap _var-6-2">
+  <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis iure quia harum vero deserunt soluta libero fugit quis quasi optio eveniet, pariatur sunt autem voluptatibus tempore perspiciatis vel, impedit doloribus.</div>
+</div>
+</div>
+
+<div class="desc">
+  <h2 class="subtitle">inline, inline-block элементы с помощью элемента призрака (:before, :after) (например: текста > 1 строки)</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">text-align</span>: center;
+
+      <span class="selector">&:before</span> {
+        <span class="property">content</span>: '';
+        <span class="property">display</span>: inline-block;
+        <span class="property">height</span>: 100%;
+        <span class="property">vertical-align</span>: middle;
+      }
+    }
+
+    <span class="selector">.item</span> {
+      <span class="property">display</span>: inline-block;
+      <span class="property">vertical-align</span>: middle;
+    }
+</pre>
+<div class="wrap _var-7">
+  <div class="item">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+</div>
+</div>
+
+<div class="desc">
+  <h2 class="subtitle">Выравнивание по вертикали с помощью имитации таблицы:</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">display</span>: table; /* table нужен, чтобы не задавить явный размер у table-cell. */
+    }
+
+    <span class="selector">.table-cell</span> {
+      <span class="property">display</span>: table-cell;
+      <span class="property">text-align</span>: center;
+      <span class="property">vertical-align</span>: middle;
+    }
+</pre>
+<div class="wrap _var-8">
+  <div class="table-cell">
+    <div class="item _inline"></div>
+  </div>
+</div>
+</div>
+
+<div class="desc">
+  <h2 class="subtitle">Выравние, если неизвестны размеры блока, с помощью любого позиционирования отличного от default, например: absolute</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">position</span>: relative;
+    }
+
+    <span class="selector">.item</span> {
+      <span class="property">position</span>: absolute;
+      <span class="property">top</span>: 50%;
+      <span class="property">left</span>: 50%;
+      <span class="property">transform</span>: translate(-50%, -50%);
+    }
+</pre>
+<div class="wrap _var-9">
+  <div class="item"></div>
+</div>
+</div>
+
+<div class="desc">
+  <h2 class="subtitle">Выравние с помощью любого позиционирования отличного от default, например: absolute (если известны размеры элемента):</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">position</span>: relative;
+    }
+
+    <span class="selector">.item</span> {
+      <span class="property">position</span>: absolute;
+      <span class="property">top</span>: 50%;
+      <span class="property">left</span>: 50%;
+      <span class="property">width</span>: 140px;
+      <span class="property">height</span>: 80px;
+      <span class="property">margin-top</span>: -40px;
+      <span class="property">margin-left</span>: -70px;
+    }
+</pre>
+<div class="wrap _var-10">
+  <div class="item"></div>
+</div>
+</div>
+
+<div class="desc">
+  <h2 class="subtitle">Выравние с помощью любого позиционирования отличного от default, например: absolute:</h2>
+  <pre>
+    <span class="selector">.wrap</span> {
+      <span class="property">position</span>: relative;
+    }
+
+    <span class="selector">.item</span> {
+      <span class="property">position</span>: absolute;
+      <span class="property">top</span>: 0;
+      <span class="property">right</span>: 0;
+      <span class="property">bottom</span>: 0;
+      <span class="property">left</span>: 0;
+      <span class="property">width</span>: 140px;
+      <span class="property">height</span>: 80px;
+      <span class="property">margin</span>: auto;
+    }
+</pre>
+<div class="wrap _var-11">
+  <div class="item"></div>
+</div>
+</div>
+
 </body>
 </html>
