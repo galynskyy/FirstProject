@@ -73,4 +73,10 @@ var CalendarModule = (function () {
 	}
 })();
 
-btn && CalendarModule.init({tasks: [{name: "Лендинг для корпоратива"}, {name: "Креатив на афишу"}, {name: "Отрисовка баннеров"}]});
+btn && CalendarModule.init({
+	tasks: [
+		{name: "Лендинг для корпоратива"},
+		{name: "Креатив на афишу"},
+		{name: "Отрисовка баннеров"}
+	]
+});
