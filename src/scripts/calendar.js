@@ -1,6 +1,6 @@
 var btn = document.getElementById("add");
 
-var CalendarModule = (function () {
+var CalendarModule = (function() {
 	var _init = function (config) {
 		_eventListener();
 		if (config && config.tasks) {
@@ -8,37 +8,39 @@ var CalendarModule = (function () {
 		}
 	};
 
-	var _eventListener = function () {
+	var _eventListener = function() {
 		btn.addEventListener("click", _addOnCLick);
 	};
 
 	var _addOnCLick = function addOnCLick() {
-		_draw({name: "Новая задача"});
+		_draw({
+			name: "Новая задача"
+		});
 	};
 
-	var _draw = function (task) {
+	var _draw = function(task) {
 		var container_id = "tasks";
 		var task_calendar_id = "task-calendar";
 
-		var container = document.getElementById(container_id);
-		var calendar = document.getElementById(task_calendar_id);
+		var task_container = document.getElementById(container_id);
+		var calendar_container = document.getElementById(task_calendar_id);
 
-		var index = calendar.getAttribute("data-calendar-index");
+		var index = calendar_container.getAttribute("data-calendar-index");
 
 		if (!index) {
 			index = 1;
 		}
 
-		container.appendChild(_getTask(task));
-		calendar.appendChild(_getCalendar(index));
+		task_container.appendChild(_getTask(task));
+		calendar_container.appendChild(_getCalendar(index));
 
 		index++;
 
-		calendar.setAttribute("data-calendar-index", index);
+		calendar_container.setAttribute("data-calendar-index", index);
 	};
 
 
-	var _getTask = function (task) {
+	var _getTask = function(task) {
 		var li = document.createElement("li");
 		var a = document.createElement("a");
 		var span = document.createElement("span");
@@ -56,7 +58,7 @@ var CalendarModule = (function () {
 		return li;
 	};
 
-	var _getCalendar = function (index, calendar) {
+	var _getCalendar = function(index, calendar_container) {
 		var div = document.createElement("div");
 		var span = document.createElement('span');
 
@@ -75,8 +77,14 @@ var CalendarModule = (function () {
 
 btn && CalendarModule.init({
 	tasks: [
-		{name: "Лендинг для корпоратива"},
-		{name: "Креатив на афишу"},
-		{name: "Отрисовка баннеров"}
+		{
+			name: "Лендинг для корпоратива"
+		},
+		{
+			name: "Креатив на афишу"
+		},
+		{
+			name: "Отрисовка баннеров"
+		}
 	]
 });
