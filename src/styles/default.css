@@ -416,6 +416,7 @@ html, body {
 }
 
 .tasks-calendar {
+	position: relative;
 	width: 1180px;
 	margin: 0 0 60px 0;
 	background: #fff;
@@ -500,6 +501,10 @@ html, body {
 
 .calendar {
 	display: inline-block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
 	width: 924px;
 	vertical-align: top;
 	overflow: hidden;
