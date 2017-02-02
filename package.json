@@ -17,12 +17,16 @@
   },
   "homepage": "https://github.com/galynskyy/FirstProject#readme",
   "dependencies": {
-    "autoprefixer": "^6.6.0",
-    "browser-sync": "^2.18.5",
-    "cssnano": "^3.9.1",
+    "autoprefixer": "^6.7.2",
+    "browser-sync": "^2.18.7",
+    "cssnano": "^3.10.0",
+    "del": "^2.2.2",
     "gulp": "^3.9.1",
+    "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "^2.6.1",
-    "gulp-postcss": "^6.2.0"
+    "gulp-imagemin": "^3.1.1",
+    "gulp-postcss": "^6.3.0",
+    "gulp-rename": "^1.2.2"
   },
   "devDependencies": {
     "cssnano": "^3.9.1",
