@@ -74,7 +74,7 @@ gulp.task("watch", ["browser-sync", "styles"], function() {
 	gulp.watch("src/scripts/**/*.js", browserSync.reload);
 });
 
-gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "img"], function() {
+gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "html", "img"], function() {
 	return gulp.src("src/styles/*min.css")
 		.pipe(gulp.dest("public/styles"));
 });
