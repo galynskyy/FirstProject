@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Documentation Index</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.cerulean.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="chartModule.html">chartModule</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+
+
+
+    <section class="readme-section">
+        <article><h1>FirstProject</h1><p><b>Authors:</b></p>
+<ul>
+<li>Andrey Shevtsov</li>
+<li>Vladimir Galynsky</li>
+<li>Timur Chumakov</li>
+<li>Ivan Opanasiuk</li>
+<li>Aleksandr Chernenko</li>
+<li>Anna Sychugina</li>
+</ul>
+<h1>Style Guide</h1><h2>Html:</h2><p>Закрывать одиночные теги (<code>&lt;img&gt;</code>, <code>&lt;input&gt;</code> и т.д.)</p>
+<pre class="prettyprint source lang-html"><code>&lt;img src=&quot;static/img/vk-min.svg&quot; alt=&quot;111&quot; class=&quot;social__image&quot; /></code></pre><p>Не пропускать необязательные закрывающие теги (например, <code>&lt;li&gt;</code> или <code>&lt;body&gt;</code>):</p>
+<pre class="prettyprint source lang-html"><code>&lt;li class=&quot;social__item social__item__tw&quot;>
+    &lt;a href=&quot;#&quot;>
+        &lt;img src=&quot;static/img/tweet-min.svg&quot; alt=&quot;222&quot; class=&quot;social__image&quot; />
+    &lt;/a>
+&lt;/li></code></pre><p>Атрибут <code>class</code> у тега идет в первую очередь:</p>
+<pre class="prettyprint source lang-html"><code>&lt;input class=&quot;login__input&quot; type=&quot;text&quot; placeholder=&quot;Введите логин&quot; /></code></pre><p>Атрибуты типа <code>required</code> оформлять в виде кода следующим образом:</p>
+<pre class="prettyprint source lang-html"><code>&lt;input type=&quot;...&quot; required=&quot;required&quot; /></code></pre><p>Явно указывать <code>doctype</code>, это гарантирует, что страница будет выглядеть единым образом во всех браузерах:</p>
+<pre class="prettyprint source lang-html"><code>&lt;!DOCTYPE html></code></pre><p>Явно указывать кодировку, чтобы обеспечить корректное отображение текста:</p>
+<pre class="prettyprint source lang-html"><code>&lt;meta charset=&quot;UTF-8&quot;></code></pre><p>Все стилевые файлы проекта подключать внутри <code>&lt;head&gt;</code> при помощи <code>&lt;link&gt;</code>. Атрибут <code>type</code> для <code>&lt;link&gt;</code> не указывать:</p>
+<pre class="prettyprint source lang-html"><code>&lt;head>
+    &lt;meta charset=&quot;UTF-8&quot;>
+    &lt;title>FirstProgect / Login&lt;/title>
+    &lt;link href=&quot;static/styles/default.css&quot; rel=&quot;stylesheet&quot;>
+    &lt;link href=&quot;static/styles/fonts.css&quot; rel=&quot;stylesheet&quot;>
+&lt;/head></code></pre><p>Значения атрибутов, отвечающих за логику (например, <code>checked</code>, <code>disabled</code> ) не указывать, а сами атрибуты указывать последними.</p>
+<p>Явно указывать размеры изображений с помощью атрибута в пикселях или процентах.</p>
+<h2>CSS:</h2><p>Каждое объявление писать на новой строке:</p>
+<pre class="prettyprint source lang-css"><code>.login__item {
+    width: 400px;
+    height: 40px;
+    overflow: hidden;
+    margin: 0 auto 19px;
+}</code></pre><p>Для отступов внутри правил использовать 1 tab.</p>
+<p>Во всех случаях в стилях использовать двойные кавычки.</p>
+<p>После двоеточия помещать один пробел. Перед двоеточием пробел не ставить.</p>
+<p>Перед открывающейся фигурной скобкой ставить один пробел. После скобки производить запись с новой строки.</p>
+<p>Закрывающую фигурную скобку размещать на новой строке и без отступа. После этого помещать пустую строку.</p>
+<h2>Задание цвета:</h2><p><strong>Использование формата RGBA:</strong>
+в случае создания блоков с полупрозрачным фоном. Для этого последним элементом указываем значение прозрачности:</p>
+<pre class="prettyprint source lang-css"><code>.opacity {
+  background: rgba(0, 0, 0, 0.5);
+}</code></pre><p><strong>Использование формата RGB/HEX:</strong>
+Использовать во всех случаях, не входящих в описанные выше.</p>
+<p><strong>RGB</strong> использовать преимущественно в тех случаях, когда требуется указать цвет в процентах. Например, <code>rgb(100%,0%,0%)</code></p>
+<p><strong>HEX</strong> использовать в виде <code>#rrggbb</code>:</p>
+<pre class="prettyprint source lang-css"><code>.social__item__tw {
+    background: #55acef;
+}</code></pre><pre class="prettyprint source lang-css"><code>.login__link {
+    padding: 5px;
+    font: 16px &quot;Roboto-Regular&quot;, sans-serif;
+    color: #3a8bc0;
+}</code></pre><p> <strong>Но</strong> использовать запись вида <code>#rgb</code> в случае, когда в HEX-числе имеется три пары одинаковых символов. Например:</p>
+<pre class="prettyprint source"><code>#ffdd66    #fd6
+#cccccc    #ccc</code></pre><h2>JS:</h2><pre class="prettyprint source"><code>&quot;no-tabs&quot; : 0,
+&quot;strict&quot; : 0,
+&quot;arrow-body-style&quot;: [0],
+&quot;padded-blocks&quot;: 0,
+&quot;indent&quot;: [4, &quot;tab&quot;, {&quot;SwitchCase&quot;: 1}],
+&quot;class-methods-use-this&quot;: 0,
+&quot;no-underscore-dangle&quot;: 0,
+&quot;func-names&quot; : 0,
+&quot;no-trailing-spaces&quot;: 0,
+&quot;prefer-template&quot;: 0,
+&quot;no-extra-semi&quot;: 0,
+&quot;semi&quot;: 0,
+&quot;no-undef&quot;: 0,
+&quot;comma-dangle&quot;: 0,
+&quot;no-multiple-empty-lines&quot;: 0,
+&quot;no-mixed-spaces-and-tabs&quot;: 0,
+&quot;no-useless-escape&quot;: 0,</code></pre><h2>Наименование классов:</h2><p>В наименовании классов используется сокращенный вариант методологии <a href="https://ru.bem.info/methodology/">БЭМ</a> : <code>блок__элемент _модификатор: socials__item _vk</code></p>
+<p><b>Install:</b></p>
+<pre class="prettyprint source"><code>git clone https://github.com/galynskyy/FirstProject.git
+cd FirstProject/
+git checkout gulp-env
+npm install</code></pre><p><b>Run Dev:</b></p>
+<pre class="prettyprint source"><code>gulp dev</code></pre><p><b>Run Production:</b></p>
+<pre class="prettyprint source"><code>gulp build</code></pre></article>
+    </section>
+
+
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.3</a>
+	
+		on February 3rd 2017, 9:30:00 pm
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+
+</body>
+</html>

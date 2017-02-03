@@ -69,7 +69,7 @@ gulp.task("clean", function() {
 	return del.sync("public/*");
 });
 
-gulp.task("doc", function (cb) {
+gulp.task("doc", function(cb) {
 	gulp.src(["README.md", "src/scripts/**/*.js"], {read: false})
 		.pipe(jsdoc(cb));
 });
