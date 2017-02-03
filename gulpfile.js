@@ -8,6 +8,7 @@ var autoprefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
 var handlebars = require("gulp-compile-handlebars");
+var jsdoc = require('gulp-jsdoc3');
 
 gulp.task("styles", function() {
 	var processors = [
@@ -29,7 +30,7 @@ gulp.task("fonts", function() {
 
 gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
-    	.pipe(concat("chart.js"))
+    	.pipe(concat("min.js"))
 		.pipe(gulp.dest("public/scripts"));
 });
 
@@ -38,7 +39,7 @@ gulp.task("html", function() {
 		.pipe(gulp.dest("public"));
 });
 
-gulp.task("handlebars", function () {
+gulp.task("handlebars", function() {
     var options = {
         batch : ["src/partials"]
     };
@@ -68,13 +69,18 @@ gulp.task("clean", function() {
 	return del.sync("public/*");
 });
 
+gulp.task("doc", function (cb) {
+	gulp.src(["README.md", "src/scripts/**/*.js"], {read: false})
+		.pipe(jsdoc(cb));
+});
+
 gulp.task("watch", ["browser-sync", "styles"], function() {
 	gulp.watch("src/styles/**/*.css", ["styles"]);
 	gulp.watch("src/*.html", browserSync.reload);
 	gulp.watch("src/scripts/**/*.js", browserSync.reload);
 });
 
-gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "img"], function() {
+gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "img", "doc"], function() {
 	return gulp.src("src/styles/*min.css")
 		.pipe(gulp.dest("public/styles"));
 });
