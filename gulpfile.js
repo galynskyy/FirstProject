@@ -19,7 +19,9 @@ gulp.task("styles", function() {
 		.pipe(postcss(processors))
 		.pipe(concat("build.min.css"))
 		.pipe(gulp.dest("public/styles"))
-		.pipe(browserSync.reload({stream: true}));
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 gulp.task("fonts", function() {
