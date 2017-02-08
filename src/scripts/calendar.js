@@ -65,14 +65,15 @@ var CalendarModule = (function() {
 		div.className = "calendar__task-line";
 		div.id = "index_" + index;
 
-        // var elem = document.getElementById("index_2");
-        //
-        // elem.style.top = (parseInt(document.getElementById("index_1").style.top) + 40) + "px";
+        var elem = document.getElementById(div.id);
 
+        elem.style.top = (parseInt(document.getElementById("index_1").style.top) + 40) + "px";
 
 		span.className = "calendar__progress _done";
 
 		div.appendChild(span);
+
+
 
 		return div;
 	};

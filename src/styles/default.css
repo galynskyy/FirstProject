@@ -624,6 +624,10 @@ html, body {
 	top: 40px;
 }
 
+#index_2 {
+	top: 80px;
+}
+
 .calendar__progress {
 	position: absolute;
 	top: 50%;
