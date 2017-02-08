@@ -363,6 +363,7 @@ html, body {
 	border-radius: 5px;
 	color: #fff;
 	text-transform: uppercase;
+	outline: none;
 }
 
 .tasks__item._color_blue {
