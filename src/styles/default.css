@@ -620,16 +620,8 @@ html, body {
 	z-index: 5;
 }
 
-.calendar__task-line._index_1  {
+#index_1 {
 	top: 40px;
-}
-
-.calendar__task-line._index_2  {
-	top: 80px;
-}
-
-.calendar__task-line._index_3  {
-	top: 120px;
 }
 
 .calendar__progress {
