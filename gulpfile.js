@@ -70,8 +70,11 @@ gulp.task("clean", function() {
 });
 
 gulp.task("doc", function(cb) {
-	gulp.src(["README.md", "src/scripts/**/*.js"], {read: false})
-		.pipe(jsdoc(cb));
+    gulp.src(["README.md", "src/scripts/**/*.js"],
+	    {
+            read: false
+        })
+        .pipe(jsdoc(cb));
 });
 
 gulp.task("watch", ["browser-sync", "styles"], function() {
