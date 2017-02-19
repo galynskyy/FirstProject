@@ -14,7 +14,7 @@ html, body {
     background: rgba(0, 0, 0, .6);
     opacity: 0;
     visibility: hidden;
-    transition: 3000ms;
+    transition: 1000ms;
 }
 
 .fixed-wrap._show {

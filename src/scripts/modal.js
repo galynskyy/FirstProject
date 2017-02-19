@@ -1,36 +1,38 @@
-var btn = document.querySelector('.tasks__btn');
-console.log(btn);
+var modalButton = document.querySelector(".tasks__btn");
+var modalOverlay = document.querySelector(".fixed-wrap");
 
-btn.addEventListener('click', function(){
-	var modal = document.querySelector('.fixed-wrap');
-	console.log(modal);
-	modal.classList.toggle("_show");
-});
+var modalWindow = (function() {
 
+		var _init = function() {
+			_eventListener();
+			_initModal();
+			_closeModal();
+		};
 
-/*
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelector(".tasks__btn").addEventListener("click", function() {
-        var popup = document.querySelector(".fixed-wrap");
-        	popup.classList.toggle("_show");
-    })
-});
-*/
+		var _eventListener = function() {			
+			modalButton.addEventListener("click", _initModal);
+		};
 
-/*document.addEventListener("DOMContentLoaded", function() {
-	var btnPopup = document.getElementsByClassName("tasks__btn")[0].addEventListener("click", function() {
-		var popup =	document.getElementsByClassName("fixed-wrap")[0];
-		window.setTimeout(function() {
-            popup.classList.add("_show")
-        }, 0)
-		popup.classList.add("_show");
-	})
-});*/
+		var _initModal = function() {
+			var modal = document.querySelector(".fixed-wrap");		
+			modal.classList.add("_show");
+		};
 
-/*
-function() {
-	var popup = document.getElementsByClassName("tasks__btn")[0].addEventListener("click", function() {
-		document.getElementsByClassName("fixed-wrap")[0].classList.add("_show");
-	});
+		var _closeModal = function() {
+			var overlay = document.querySelector(".fixed-wrap");		
+			overlay.classList.remove("_show");
+		}
+
+	return {
+		init: _init,
+		close: _closeModal
+	};
+})();
+
+modalButton.onclick = function() {
+	modalWindow.init();
 };
-*/
+
+modalOverlay.onclick = function() {
+	modalWindow.close();
+};
