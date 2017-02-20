@@ -620,13 +620,6 @@ html, body {
 	z-index: 5;
 }
 
-#index_1 {
-	top: 40px;
-}
-
-#index_2 {
-	top: 80px;
-}
 
 .calendar__progress {
 	position: absolute;

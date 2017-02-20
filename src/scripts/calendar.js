@@ -29,14 +29,42 @@ var CalendarModule = (function() {
 
 		if (!index) {
 			index = 1;
-		}
+			//  index = takeLastIdxed();
+            // var lines = document.querySelectorAll('.calendar__task-line');
+            // var lastIndex = lines[lines.length - 1].id // data-attr? 
+
+        }
+
+		index++;
+		// takeLastIdxed
 
 		task_container.appendChild(_getTask(task));
 		calendar_container.appendChild(_getCalendar(index));
 
-		index++;
+        var lines = document.querySelectorAll('.calendar__task-line');
+
+        // узнаем последний индекс
+         var lastIndex = lines[lines.length - 1].id;
+        //
+        // берем последний элемент
+         var elem = document.getElementById(lastIndex);
+
+         elem.style.top = '40px';
+
+        //debugger;
+        //elem.style.top = (parseInt(document.getElementById(prev).style.top) + 40) + "px";
+
+
+
+
+        // var topVal = parseInt(elem.style.top, 10);
+        // elem.style.top = (topVal + 40) + "px";
+
+
+
 
 		calendar_container.setAttribute("data-calendar-index", index);
+
 	};
 
 
@@ -51,29 +79,22 @@ var CalendarModule = (function() {
 
 		span.innerText = task.name;
 		a.href = "#";
-
 		a.appendChild(span);
 		li.appendChild(a);
 
 		return li;
 	};
 
-	var _getCalendar = function(index, calendar_container) {
+	var _getCalendar = function(index, calendarContainer) {
 		var div = document.createElement("div");
 		var span = document.createElement('span');
 
 		div.className = "calendar__task-line";
 		div.id = "index_" + index;
 
-        var elem = document.getElementById(div.id);
-
-        elem.style.top = (parseInt(document.getElementById("index_1").style.top) + 40) + "px";
-
 		span.className = "calendar__progress _done";
 
 		div.appendChild(span);
-
-
 
 		return div;
 	};
@@ -83,7 +104,8 @@ var CalendarModule = (function() {
 	}
 })();
 
-btn && CalendarModule.init({
+btn && CalendarModule.init();
+	{
 	tasks: [
 		{
 			name: "Лендинг для корпоратива"
@@ -95,4 +117,4 @@ btn && CalendarModule.init({
 			name: "Отрисовка баннеров"
 		}
 	]
-});
+}
