@@ -7,6 +7,131 @@
 		<title>FirstProject / Index</title>
 	</head>
 	<body>
+
+	<div class="fixed-wrap fixed-wrap__modal">
+    	<div class="modal">
+        	<div class="modal-container">
+        		<div class="move-container"></div>
+        		<input class="modal__input" type="text" placeholder="Введите название цели">
+				<button class="modal__btn" type="submit" id="add">Поставить задачу</button>
+				<div class="wrapper-calendar">
+					<div class="calendar-table">
+						<div class="calendar-table__item">
+							<table class="calendar-month">
+								<caption>
+									<h5 class="calendar--month__caption">Февраль</h5>
+								</caption>
+								<thead>
+									<tr class="calendar-month__head">
+									<th class="calendar-month__head-item">Пн</th>
+									<th class="calendar-month__head-item">Вт</th>
+									<th class="calendar-month__head-item">Ср</th>
+									<th class="calendar-month__head-item">Чт</th>
+									<th class="calendar-month__head-item">Пт</th>
+									<th class="calendar-month__head-item">Сб</th>
+									<th class="calendar-month__head-item">Вс</th>
+									</tr>
+								</thead>
+
+								<tbody class="calendar-month__body">
+								<tr class="calendar-month__body-item">
+									<td class="calendar-month__body-item__day calendar-month__body-item__day_empty">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>0</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day calendar-month__body-item__day_empty">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>0</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>1</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>2</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>3</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>4</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>5</span>
+										</div>
+									</td>
+								</tr>
+
+								<tr class="calendar-month__body-item">
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>6</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>7</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>8</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>9</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>10</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>11</span>
+										</div>
+									</td>
+									<td class="calendar-month__body-item__day">
+										<div class="b-rel">
+											<div class="day_event">М</div>
+											<span>12</span>
+										</div>
+									</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+        	</div>
+    	</div>
+	</div>
+
 		<div class="wrapper">
 			<div class="user">
 				<div class="contact-info">
@@ -38,7 +163,7 @@
 					</div>
 				</div>
 				<div class="tasks">
-					<button class="tasks__btn" type="submit" id="add">+ добавить задачу</button>
+					<button class="tasks__btn" type="submit">+ добавить задачу</button>
 					<div class="tasks__item_link">
 						<a class="tasks__item _color_blue" href="#">3</a>
 						<a class="tasks__item _link_blue" href="#">Действующих</a>
@@ -373,6 +498,6 @@
 				</div>
 			</div>
 		</div>
-		<script src="scripts/chart.js"></script>
+		<script src="scripts/build.js"></script>
 	</body>
 </html>
