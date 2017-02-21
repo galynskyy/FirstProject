@@ -1,8 +1,16 @@
 var btn = document.querySelector('.tasks__btn');
-console.log(btn);
 
 btn.addEventListener('click', function(){
 	var modal = document.querySelector('.fixed-wrap');
-	console.log(modal);
 	modal.classList.toggle("_show");
+    var elem = document.getElementsByClassName('fixed-wrap fixed-wrap__modal _show')[0];
+    elem.style.display="block";
+});
+
+
+var closeBtn = document.getElementById('close');
+
+closeBtn.addEventListener('click', function(){
+    var elem = document.getElementsByClassName('fixed-wrap fixed-wrap__modal _show')[0];
+    elem.style.display="none";
 });
