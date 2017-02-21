@@ -12,9 +12,12 @@ var CalendarModule = (function() {
 		btn.addEventListener("click", _addOnCLick);
 	};
 
+
+
 	var _addOnCLick = function addOnCLick() {
+		var text = document.getElementById("input-form").value;
 		_draw({
-			name: "Новая задача"
+			name: text
 		});
 	};
 
