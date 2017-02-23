@@ -16,8 +16,11 @@ var CalendarModule = (function() {
 
 	var _addOnCLick = function addOnCLick() {
 		var text = document.getElementById("input-form").value;
+        var d = $('#datetimepicker').datetimepicker('getValue');
+        console.log(d);
 		_draw({
-			name: text
+			name: text,
+            enddate: d
 		});
 	};
 
@@ -42,7 +45,7 @@ var CalendarModule = (function() {
 		// takeLastIdxed
 
 		task_container.appendChild(_getTask(task));
-		calendar_container.appendChild(_getCalendar(index));
+		calendar_container.appendChild(_getCalendar(index, task));
 
         var lines = document.querySelectorAll('.calendar__task-line');
 
@@ -57,13 +60,8 @@ var CalendarModule = (function() {
         //debugger;
         //elem.style.top = (parseInt(document.getElementById(prev).style.top) + 40) + "px";
 
-
-
-
         // var topVal = parseInt(elem.style.top, 10);
         // elem.style.top = (topVal + 40) + "px";
-
-
 
 
 		calendar_container.setAttribute("data-calendar-index", index);
@@ -88,14 +86,29 @@ var CalendarModule = (function() {
 		return li;
 	};
 
-	var _getCalendar = function(index, calendarContainer) {
+	var _getCalendar = function(index, task) {
 		var div = document.createElement("div");
 		var span = document.createElement('span');
+
+        var now = moment();
+        var endDate = moment(task.enddate);
+
+        // разница
+        var days = endDate.diff(now, 'days');
+        console.log(days);
+
+        var width = days * 50 +'px';
+
 
 		div.className = "calendar__task-line";
 		div.id = "index_" + index;
 
-		span.className = "calendar__progress _done";
+		span.className = "calendar__progress";
+
+		if (task.isDone) {
+			span.className += " _done";
+		}
+		span.style.width = width;
 
 		div.appendChild(span);
 
@@ -110,13 +123,17 @@ var CalendarModule = (function() {
 btn && CalendarModule.init({
     tasks: [
         {
-            name: "Лендинг для корпоратива"
+            name: "Лендинг для корпоратива",
+	        enddate: moment('2017-02-28').toString(),
+	        isDone: true
         },
         {
-            name: "Креатив на афишу"
+            name: "Креатив на афишу",
+            enddate: moment('2017-02-28').toString()
         },
         {
-            name: "Отрисовка баннеров"
+            name: "Отрисовка баннеров",
+            enddate: moment('2017-02-28').toString()
         }
     ]
 });

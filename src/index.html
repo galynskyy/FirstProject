@@ -4,10 +4,11 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="styles/build.min.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
 		<title>FirstProject / Index</title>
 	</head>
 	<body>
-
 	<div class="fixed-wrap fixed-wrap__modal">
     	<div class="modal">
         	<div class="modal-container">
@@ -16,118 +17,8 @@
         		<input class="modal__input" required="required" type="text" id="input-form"  placeholder="Введите название цели">
 				<button class="modal__btn" type="submit" id="add">Поставить задачу</button>
 				<div class="wrapper-calendar">
-					<div class="calendar-table">
-						<div class="calendar-table__item">
-							<table class="calendar-month">
-								<caption>
-									<h5 class="calendar--month__caption">Февраль</h5>
-								</caption>
-								<thead>
-									<tr class="calendar-month__head">
-									<th class="calendar-month__head-item">Пн</th>
-									<th class="calendar-month__head-item">Вт</th>
-									<th class="calendar-month__head-item">Ср</th>
-									<th class="calendar-month__head-item">Чт</th>
-									<th class="calendar-month__head-item">Пт</th>
-									<th class="calendar-month__head-item">Сб</th>
-									<th class="calendar-month__head-item">Вс</th>
-									</tr>
-								</thead>
-
-								<tbody class="calendar-month__body">
-								<tr class="calendar-month__body-item">
-									<td class="calendar-month__body-item__day calendar-month__body-item__day_empty">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>0</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day calendar-month__body-item__day_empty">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>0</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>1</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>2</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>3</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>4</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>5</span>
-										</div>
-									</td>
-								</tr>
-
-								<tr class="calendar-month__body-item">
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>6</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>7</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>8</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>9</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>10</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>11</span>
-										</div>
-									</td>
-									<td class="calendar-month__body-item__day">
-										<div class="b-rel">
-											<div class="day_event">М</div>
-											<span>12</span>
-										</div>
-									</td>
-								</tr>
-								</tbody>
-							</table>
-						</div>
-					</div>
+					<p class="calendar__deadline">Крайний срок</p>
+					<input type="text" id="datetimepicker">
 				</div>
         	</div>
     	</div>
@@ -500,5 +391,13 @@
 			</div>
 		</div>
 		<script src="scripts/build.js"></script>
+	<script>
+        $( function() {
+            $( "#datetimepicker" ).datetimepicker({
+                format:'d.m.Y H:i',
+                lang:'ru'
+            });
+        } );
+	</script>
 	</body>
 </html>
