@@ -37,33 +37,33 @@ var CalendarModule = (function() {
 			index = 1;
 			//  index = takeLastIdxed();
             // var lines = document.querySelectorAll('.calendar__task-line');
-            // var lastIndex = lines[lines.length - 1].id // data-attr? 
-
+            // var lastIndex = lines[lines.length - 1].id // data-attr?
         }
 
 		index++;
 		// takeLastIdxed
 
+        // узнаем последний индекс
+        var lastIndex = lines[lines.length - 1].id;
+        //
+        // берем последний элемент
+        var elem = document.getElementById(lastIndex);
+        // elem.style.top = '40px';
+        var top = elem.style.top + 40 +'px';
+        console.log(top);
+
 		task_container.appendChild(_getTask(task));
-		calendar_container.appendChild(_getCalendar(index, task));
+		calendar_container.appendChild(_getCalendar(index, task, top));
 
         var lines = document.querySelectorAll('.calendar__task-line');
 
-        // узнаем последний индекс
-         var lastIndex = lines[lines.length - 1].id;
-        //
-        // берем последний элемент
-         var elem = document.getElementById(lastIndex);
 
-         elem.style.top = '40px';
 
         //debugger;
         //elem.style.top = (parseInt(document.getElementById(prev).style.top) + 40) + "px";
 
         // var topVal = parseInt(elem.style.top, 10);
         // elem.style.top = (topVal + 40) + "px";
-
-
 		calendar_container.setAttribute("data-calendar-index", index);
 
 	};
@@ -86,19 +86,16 @@ var CalendarModule = (function() {
 		return li;
 	};
 
-	var _getCalendar = function(index, task) {
+	var _getCalendar = function(index, task, top) {
 		var div = document.createElement("div");
 		var span = document.createElement('span');
-
         var now = moment();
         var endDate = moment(task.enddate);
-
         // разница
         var days = endDate.diff(now, 'days');
         console.log(days);
 
         var width = days * 50 +'px';
-
 
 		div.className = "calendar__task-line";
 		div.id = "index_" + index;
@@ -109,6 +106,8 @@ var CalendarModule = (function() {
 			span.className += " _done";
 		}
 		span.style.width = width;
+
+		span.style.top = top;
 
 		div.appendChild(span);
 
@@ -124,7 +123,7 @@ btn && CalendarModule.init({
     tasks: [
         {
             name: "Лендинг для корпоратива",
-	        enddate: moment('2017-02-28').toString(),
+	        enddate: moment('2017-03-26').toString(),
 	        isDone: true
         },
         {
