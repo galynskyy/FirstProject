@@ -4,7 +4,15 @@
   "description": "<b>Authors:</b>",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp build",
+    "info": "npm-scripts-info"
+  },
+  "scripts-info": {
+    "build": "Build project with Gulp",
+    "eslint": "Checkout codestyle",
+    "info": "Watch information about current scripts",
+    "test": "unit testing"
   },
   "repository": {
     "type": "git",
@@ -22,7 +30,8 @@
     "cssnano": "^3.9.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
-    "gulp-postcss": "^6.2.0"
+    "gulp-postcss": "^6.2.0",
+    "npm-scripts-info": "^0.3.6"
   },
   "devDependencies": {
     "cssnano": "^3.9.1",
