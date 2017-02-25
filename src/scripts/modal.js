@@ -3,9 +3,8 @@ var modalWnd = (function() {
 		var _init = function() {
 			_eventsListener();
 		};
-
-		var modal = document.querySelector(".modal");
-		var modalBtn = document.querySelector(".tasks__btn");
+		
+		var modal = document.querySelector(".modal");		
 		var modalOverlay = document.querySelector(".fixed-wrap");
 
 		var _eventsListener = function() {
@@ -33,4 +32,10 @@ var modalWnd = (function() {
 	};
 })();
 
-modalWnd.init();
+
+var modalBtn = document.querySelector(".tasks__btn");
+	if (!modalBtn) {
+		console.log("меня нет на странице");
+	} else {
+		modalWnd.init();
+	}
