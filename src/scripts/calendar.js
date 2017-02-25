@@ -14,7 +14,7 @@ var CalendarModule = (function () {
 
     var _addOnCLick = function addOnCLick() {
         var text = document.getElementById("input-form").value;
-        var d = $('#datetimepicker').datetimepicker('getValue');
+        var d = $('#datetimepicker').datetimepicker("getValue");
 
         _draw({
             name: text,
@@ -34,13 +34,11 @@ var CalendarModule = (function () {
         }
         index++;
         task_container.appendChild(_getTask(task));
-        var lines = document.querySelectorAll('.calendar__task-line');
+        var lines = document.querySelectorAll(".calendar__task-line");
         var lastIndex = lines[lines.length - 1].id;
         var elem = document.getElementById(lastIndex);
-
-        elem.style.top = '40px';
-        var top = parseInt(elem.style.top) + 40 +'px';
-
+        elem.style.top = "40px";
+        var top = parseInt(elem.style.top) + 40 +"px";
         calendar_container.appendChild(_getCalendar(index, task, top));
         calendar_container.setAttribute("data-calendar-index", index);
     };
@@ -64,10 +62,10 @@ var CalendarModule = (function () {
 
     var _getCalendar = function (index, task, top) {
         var div = document.createElement("div");
-        var span = document.createElement('span');
+        var span = document.createElement("span");
         var now = moment();
         var endDate = moment(task.enddate);
-        var days = endDate.diff(now, 'days');
+        var days = endDate.diff(now, "days");
         var dayCalendar = document.querySelector(".calendar__day");
         var width = days * parseInt(window.getComputedStyle(dayCalendar).width) + "px";
 
@@ -93,17 +91,17 @@ btn && CalendarModule.init({
     tasks: [
         {
             name: "Лендинг для корпоратива",
-            enddate: moment('2017-02-28').toString(),
+            enddate: moment("2017-02-28").toString(),
             isDone: true
         },
         {
             name: "Креатив на афишу",
-            enddate: moment('2017-02-29').toString(),
+            enddate: moment("2017-02-29").toString(),
             isDone: true
         },
         {
             name: "Отрисовка баннеров",
-            enddate: moment('2017-02-28').toString()
+            enddate: moment("2017-02-28").toString()
         }
     ]
 });
