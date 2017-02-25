@@ -3,10 +3,11 @@ var browserSync = require("browser-sync");
 var concat = require("gulp-concat");
 var cssnano = require("cssnano");
 var rename = require("gulp-rename");
-var del	= require("del");
+var del = require("del");
 var autoprefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
+
 
 gulp.task("styles", function() {
     var processors = [
@@ -32,14 +33,18 @@ gulp.task("fonts", function() {
 gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
         .pipe(concat("build.js"))
-        .pipe(gulp.dest("public/scripts"))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+        .pipe(gulp.dest("public/scripts"));
 });
 
 gulp.task("html", function() {
     return gulp.src("src/*.html")
-        .pipe(gulp.dest("public"))
-        .pipe(browserSync.reload({stream: true}));
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+        .pipe(gulp.dest("public"));
 });
 
 gulp.task("img", function() {
