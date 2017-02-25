@@ -1,38 +1,36 @@
-var modalButton = document.querySelector(".tasks__btn");
-var modalOverlay = document.querySelector(".fixed-wrap");
-
-var modalWindow = (function() {
+var modalWnd = (function() {
 
 		var _init = function() {
-			_eventListener();
-			_initModal();
-			_closeModal();
+			_eventsListener();
 		};
 
-		var _eventListener = function() {			
-			modalButton.addEventListener("click", _initModal);
+		var modal = document.querySelector(".modal");
+		var modalBtn = document.querySelector(".tasks__btn");
+		var modalOverlay = document.querySelector(".fixed-wrap");
+
+		var _eventsListener = function() {
+			modalBtn.addEventListener("click", _showModal, false);
+			modalOverlay.addEventListener("click", _closeModal, false);
+			modal.addEventListener("click", _stopProp, false);
 		};
 
-		var _initModal = function() {
-			var modal = document.querySelector(".fixed-wrap");		
-			modal.classList.add("_show");
+		var _stopProp = function(event) {
+			event.stopPropagation();
+		};
+
+		var _showModal = function() {
+			modalOverlay.classList.add("_show");
 		};
 
 		var _closeModal = function() {
-			var overlay = document.querySelector(".fixed-wrap");		
-			overlay.classList.remove("_show");
-		}
+			modalOverlay.classList.remove("_show");
+		};
 
 	return {
 		init: _init,
+		show: _showModal,
 		close: _closeModal
 	};
 })();
 
-modalButton.onclick = function() {
-	modalWindow.init();
-};
-
-modalOverlay.onclick = function() {
-	modalWindow.close();
-};
+modalWnd.init();

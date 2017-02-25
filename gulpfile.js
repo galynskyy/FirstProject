@@ -33,13 +33,17 @@ gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
     	.pipe(concat("build.js"))
 		.pipe(gulp.dest("public/scripts"))
-		.pipe(browserSync.reload({stream: true}));
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 gulp.task("html", function() {
 	return gulp.src("src/*.html")
 		.pipe(gulp.dest("public"))
-		.pipe(browserSync.reload({stream: true}));
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 gulp.task("img", function() {
