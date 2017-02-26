@@ -1,4 +1,6 @@
 var btn = document.getElementById("add");
+var taskContainer = document.getElementById("tasks");
+var list = document.querySelector(".tasks-list");
 
 var CalendarModule = (function () {
     var _init = function (config) {
@@ -34,11 +36,19 @@ var CalendarModule = (function () {
         }
         index++;
         task_container.appendChild(_getTask(task));
-        var lines = document.querySelectorAll(".calendar__task-line");
+
+        var countLi = list.getElementsByTagName("li").length;
+
+        if (countLi >= 1) {
+            var elemLi = document.getElementsByClassName("tasks-list__no-tasks")[0];
+            taskContainer.removeChild(elemLi);
+        }
+
+        // var lines = document.querySelectorAll(".calendar__task-line");
         // var lastIndex = lines[lines.length - 1].id;
         // var elem = document.getElementById(lastIndex);
         // elem.style.top = "40px";
-        var top = parseInt(elem.style.top) + 40 +"px";
+        // var top = parseInt(elem.style.top) + 40 +"px";
         calendar_container.appendChild(_getCalendar(index, task));
         calendar_container.setAttribute("data-calendar-index", index);
     };
