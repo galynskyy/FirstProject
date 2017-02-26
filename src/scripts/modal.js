@@ -8,7 +8,7 @@ var modalWnd = (function() {
 		var modalOverlay = document.querySelector(".fixed-wrap");
 
 		var _eventsListener = function() {
-			modalElem.addEventListener("click", _showModal, false);
+			modalBtn.addEventListener("click", _showModal, false);
 			modalOverlay.addEventListener("click", _closeModal, false);
 			modal.addEventListener("click", _stopProp, false);
 		};
@@ -32,22 +32,9 @@ var modalWnd = (function() {
 	};
 })();
 
-var modalElem = document.querySelector(".tasks__btn");
-var checkElem = function(modalElem) {
-	switch(document.querySelector) {
-		case ".tasks__btn":
-			modalWnd.init();
-			break;
-		case ".fixed-wrap":
-			modalWnd.init();
-			break;
-		case ".modal":
-			modalWnd.init();
-			break;
-		case ".modal-container":
-			modalWnd.init();
-			break;
-		default: 
-			console.log("Модальное окно не найдено");
+var modalBtn = document.querySelector(".tasks__btn");
+	if (!modalBtn) {
+		console.log("меня нет на странице");
+	} else {
+		modalWnd.init();
 	}
-};

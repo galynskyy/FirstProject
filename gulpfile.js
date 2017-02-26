@@ -7,6 +7,7 @@ var del	= require("del");
 var autoprefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
+var handlebars = require("gulp-compile-handlebars");
 
 gulp.task("styles", function() {
 	var processors = [
