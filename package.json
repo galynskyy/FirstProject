@@ -4,7 +4,9 @@
   "description": "<b>Authors:</b>",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "eslint": "eslint public/scripts/min.js || true",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "repository": {
     "type": "git",
@@ -16,25 +18,24 @@
     "url": "https://github.com/galynskyy/FirstProject/issues"
   },
   "homepage": "https://github.com/galynskyy/FirstProject#readme",
+  "pre-commit": [
+    "precommit-msg",
+    "eslint"
+  ],
   "dependencies": {
-    "autoprefixer": "^6.7.2",
-    "browser-sync": "^2.18.7",
+    "autoprefixer": "^6.7.5",
+    "browser-sync": "^2.18.8",
     "cssnano": "^3.10.0",
     "del": "^2.2.2",
+    "eslint": "^3.16.1",
     "gulp": "^3.9.1",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^3.1.1",
-    "gulp-postcss": "^6.3.0",
-    "gulp-rename": "^1.2.2"
-  },
-  "devDependencies": {
-    "cssnano": "^3.9.1",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-imagemin": "^3.1.1",
     "gulp-jsdoc3": "^1.0.1",
+    "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglifyjs": "^0.6.2"
+    "gulp-uglifyjs": "^0.6.2",
+    "pre-commit": "^1.2.2"
   }
 }
