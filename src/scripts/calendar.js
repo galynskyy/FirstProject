@@ -35,11 +35,11 @@ var CalendarModule = (function () {
         index++;
         task_container.appendChild(_getTask(task));
         var lines = document.querySelectorAll(".calendar__task-line");
-        var lastIndex = lines[lines.length - 1].id;
-        var elem = document.getElementById(lastIndex);
-        elem.style.top = "40px";
+        // var lastIndex = lines[lines.length - 1].id;
+        // var elem = document.getElementById(lastIndex);
+        // elem.style.top = "40px";
         var top = parseInt(elem.style.top) + 40 +"px";
-        calendar_container.appendChild(_getCalendar(index, task, top));
+        calendar_container.appendChild(_getCalendar(index, task));
         calendar_container.setAttribute("data-calendar-index", index);
     };
 
@@ -60,7 +60,7 @@ var CalendarModule = (function () {
         return li;
     };
 
-    var _getCalendar = function (index, task, top) {
+    var _getCalendar = function (index, task) {
         var div = document.createElement("div");
         var span = document.createElement("span");
         var now = moment();
@@ -76,7 +76,7 @@ var CalendarModule = (function () {
             span.className += " _done";
         }
         span.style.width = width;
-        span.style.top = top;
+        // span.style.top = top;
         div.appendChild(span);
 
         return div;
@@ -89,19 +89,19 @@ var CalendarModule = (function () {
 
 btn && CalendarModule.init({
     tasks: [
-        {
-            name: "Лендинг для корпоратива",
-            enddate: moment("2017-02-28").toString(),
-            isDone: true
-        },
-        {
-            name: "Креатив на афишу",
-            enddate: moment("2017-02-29").toString(),
-            isDone: true
-        },
-        {
-            name: "Отрисовка баннеров",
-            enddate: moment("2017-02-28").toString()
-        }
+        // {
+        //     name: "Лендинг для корпоратива",
+        //     enddate: moment("2017-02-28").toString(),
+        //     isDone: true
+        // },
+        // {
+        //     name: "Креатив на афишу",
+        //     enddate: moment("2017-02-29").toString(),
+        //     isDone: true
+        // },
+        // {
+        //     name: "Отрисовка баннеров",
+        //     enddate: moment("2017-02-28").toString()
+        // }
     ]
 });
