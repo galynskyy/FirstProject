@@ -606,11 +606,11 @@ html, body {
 }
 
 .calendar {
-	display: inline-block;
 	position: absolute;
 	top: 0;
-	bottom: 0;
 	right: 0;
+	height: 100%;
+	display: inline-block;
 	width: 924px;
 	vertical-align: top;
 	overflow: hidden;
@@ -629,54 +629,47 @@ html, body {
 
 .calendar__days {
 	position: relative;
-	display: inline-block;
-	height: 100%;
-	white-space: nowrap;
-	font-size: 0;
+	width: 100%;
+	table-layout: fixed;
+	text-align: center;
+	border: none;
+	border-collapse:collapse;
 }
 
 .calendar__day {
-	position: relative;
-	display: inline-block;
 	width: 50px;
-	text-align: center;
-	border-left: 1px solid #eef2f4;
+	height: 40px;
 	border-right: 1px solid #eef2f4;
-	box-sizing: border-box;
-	color: #90a7b2;
-	background: #fff;
-	z-index: 1;
+	z-index: 5;
 }
 
-.calendar__day:before {
+.calendar__day:hover:before {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: 0;
-	display: none;
-	width: 100%;
-	height: 100%;
+	bottom: 0;
+	display: block;
+	width: 50px;
 	background: rgba(255, 239, 62, .1);
+	z-index: 15;
 }
 
 .calendar__day._weekend:before {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: 0;
+	bottom: 0;
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 50%;
 	background: rgba(238, 242, 244, .4);
 	z-index: 2;
 }
 
-.calendar__day:hover:before{
-	display: block;
-}
-
 .calendar__date {
-	width: 100%;
+	width: 50px;
+	height: 40px;
+	padding: 0;
+	border-right: 1px solid #dce3e7;
 	font: 11px/40px 'Lato-Regular', sans-serif;
 	background: #e1f3f9;
 }
@@ -711,17 +704,19 @@ html, body {
 .calendar__inner {
 	position: relative;
 	width: 100%;
-	height: 122px;
+	height: 100%;
+	z-index: 2;
 }
 
 .calendar__task-line {
 	position: absolute;
-	left: 1px;
-	right: 1px;
+	top: 0;
+	left: -1px;
+	right: -1px;
 	height: 41px;
 	padding: 10px 0;
 	box-sizing: border-box;
-	z-index: 1;
+	z-index: 5;
 }
 
 
@@ -761,7 +756,7 @@ html, body {
 }
 
 .calendar__progress._delay {
-	left: 100px;
+	left: 0;
 	width: 158px;
 }
 
@@ -782,7 +777,7 @@ html, body {
 }
 
 .calendar__progress._proc {
-	left: 200px;
+	left: 0;
 	width: 550px;
 }
 
