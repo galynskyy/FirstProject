@@ -4,7 +4,9 @@
   "description": "<b>Authors:</b>",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js",
+    "autoprefixer": "postcss -u autoprefixer -r public/styles/*",
+    "build": "npm run test && npm run autoprefixer"
   },
   "repository": {
     "type": "git",
