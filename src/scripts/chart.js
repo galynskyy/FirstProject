@@ -24,8 +24,7 @@ var chartModule = (function () {
 	var _eventListeners = function () {
 		for (var checkbox of checkboxes) {
 			checkbox.addEventListener("click", _initChart);
-		}
-		;
+		};
 	};
 
 	/**

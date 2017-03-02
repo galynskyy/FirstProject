@@ -9,6 +9,7 @@ var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
 var handlebars = require("gulp-compile-handlebars");
 var jsdoc = require('gulp-jsdoc3');
+var userContext = require('./src/data.json');
 
 gulp.task("styles", function() {
 	var processors = [
@@ -45,7 +46,7 @@ gulp.task("handlebars", function() {
     };
  
     return gulp.src("src/index.hbs")
-        .pipe(handlebars({}, options))
+        .pipe(handlebars(userContext, options))
         .pipe(rename("index.html"))
         .pipe(gulp.dest("public"));
 });
@@ -77,9 +78,12 @@ gulp.task("doc", function(cb) {
         .pipe(jsdoc(cb));
 });
 
-gulp.task("watch", ["browser-sync", "styles"], function() {
+gulp.task("watch", ["browser-sync", "styles", "handlebars"], function() {
+    gulp.watch("src/partials/*.hbs", ["handlebars"]);
 	gulp.watch("src/styles/**/*.css", ["styles"]);
-	gulp.watch("src/*.html", browserSync.reload);
+    gulp.watch("src/data.json", browserSync.reload);
+    gulp.watch("src/tasks.json", browserSync.reload);
+    gulp.watch("src/*.html", browserSync.reload);
 	gulp.watch("src/scripts/**/*.js", browserSync.reload);
 });
 
