@@ -1,7 +1,18 @@
- {
+{
    "name": "John",
    "sureName": "Doe",
    "company": "Microsoft",
    "countTasks": "5",
-   "countGoals": "1"
- }
+   "countGoals": "1",
+   "tasks": [
+      {
+         "task": "Лендинг для корпоратива"
+      },
+      {
+         "task": "Креатив на афишу"
+      },
+      {
+         "task": "Отрисовка баннеров"
+      }
+   ]
+}
