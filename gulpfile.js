@@ -42,7 +42,12 @@ gulp.task("html", function() {
 
 gulp.task("handlebars", function() {
     var options = {
-        batch : ["src/partials"]
+        batch : ["src/partials"],
+	    helpers: {
+            'checked': function(currentValue) {
+                return currentValue == '1' ? ' checked="checked"' : '';
+            }
+	    }
     };
  
     return gulp.src("src/index.hbs")
