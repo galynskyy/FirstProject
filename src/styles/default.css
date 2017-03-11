@@ -620,7 +620,7 @@ html, body {
 
 .calendar__year-month {
 	display: inline-block;
-	width: 1550px;
+	/*width: 1560px;*/
 	text-align: left;
 	border-left: 1px solid #eef2f4;
 	border-right: 1px solid #eef2f4;
