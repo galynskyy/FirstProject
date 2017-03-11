@@ -1,6 +1,5 @@
 {
-   "name": "John",
-   "sureName": "Doe",
+   "name": "John Doe",
    "company": "Microsoft",
    "countTasks": "5",
    "countGoals": "1",
@@ -15,7 +14,10 @@
          "task": "Отрисовка баннеров"
       }
    ],
-   "checkbox1" : "1",
-   "checkbox2" : "1",
-   "checkbox3" : "1"
+   "checkbox1" : "true",
+   "checkbox2" : "true",
+   "checkbox3" : "true",
+   "checkbox4" : "false",
+   "checkbox5" : "false",
+   "checkbox6" : "false"
 }

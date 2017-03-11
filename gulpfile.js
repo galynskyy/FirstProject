@@ -31,7 +31,7 @@ gulp.task("fonts", function() {
 
 gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
-    	.pipe(concat("min.js"))
+    	.pipe(concat("script.min.js"))
 		.pipe(gulp.dest("public/scripts"));
 });
 
@@ -45,7 +45,7 @@ gulp.task("handlebars", function() {
         batch : ["src/partials"],
 	    helpers: {
             'checked': function(currentValue) {
-                return currentValue == '1' ? ' checked="checked"' : '';
+                return currentValue == 'true' ? ' checked="checked"' : '';
             }
 	    }
     };
