@@ -23,23 +23,16 @@ var CalendarModule = (function () {
     };
 
     var _draw = function (task) {
-
-
         var container_id = "tasks";
-        var task_calendar_id = "task-calendar";
+        var task_calendar_id = "task-table";
         var task_container = document.getElementById(container_id);
         var calendar_container = document.getElementById(task_calendar_id);
-        var index = calendar_container.getAttribute("data-calendar-index");
+        var tr = document.createElement("tr");
 
-        if (!index) {
-            index = 1;
-        }
-        index++;
+        tr.className = "calendar__columns";
+        calendar_container.appendChild(tr);
         task_container.appendChild(_getTask(task));
-        var lines = document.querySelectorAll(".calendar__task-line");
-
-        calendar_container.appendChild(_getCalendar(index, task));
-        calendar_container.setAttribute("data-calendar-index", index);
+        _getCalendar(tr, task);
     };
 
 
@@ -59,39 +52,44 @@ var CalendarModule = (function () {
         return li;
     };
 
-    var _getCalendar = function (index, task) {
+    var _getCalendar = function (tr, task) {
 
-
-        // <td class="calendar__day">
-        //     <div class="calendar__inner">
-        //     <div class="calendar__task-line _index_1">
-        //     <span class="calendar__progress _done"></span>
-        //     </div>
-        //     </div>
-        //     </td>
         var td = document.createElement("td");
         var divInner = document.createElement("div");
         var div = document.createElement("div");
         var span = document.createElement("span");
         var now = moment();
         var endDate = moment(task.enddate);
-        var days = endDate.diff(now, "days");
-        var dayCalendar = document.querySelector(".calendar__day");
-        var width = days * parseInt(window.getComputedStyle(dayCalendar).width) + "px";
+        var startDate = moment(task.startdate);
+        var daysStart = moment({
+            year: now.year(),
+            month: now.month(),
+            days: 1
+        }).diff(startDate, "days");
 
+        var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
+
+        if (daysStart < 0) {
+            var td2 = document.createElement("td");
+            tr.appendChild(td2);
+            td2.colSpan = Math.abs(daysStart);
+        }
+
+        td.className = "calendar__day";
+        td.colSpan = daysEnd;
         divInner.className = "calendar__inner";
         div.className = "calendar__task-line";
-        div.id = "index_" + index;
         span.className = "calendar__progress";
         if (task.isDone) {
             span.className += " _done";
+        } else {
+            span.className += " _proc";
         }
-        span.style.width = width;
+
         div.appendChild(span);
         divInner.appendChild(div);
         td.appendChild(divInner);
-
-        return td;
+        tr.appendChild(td);
     };
 
     return {
@@ -103,17 +101,16 @@ btn && CalendarModule.init({
     tasks: [
         {
             name: "Лендинг для корпоратива",
-            enddate: moment("2017-02-28").toString(),
-            isDone: true
+            enddate: moment("2017-03-28").toString(),
+            isDone: true,
+            progress: 2,
+            startdate: moment("2017-03-11").toString()
         },
         {
             name: "Креатив на афишу",
-            enddate: moment("2017-02-29").toString(),
-            isDone: true
-        },
-        {
-            name: "Отрисовка баннеров",
-            enddate: moment("2017-02-28").toString()
+            enddate: moment("2017-03-27").toString(),
+            isDone: true,
+            startdate: moment("2017-03-10").toString()
         }
     ]
 });

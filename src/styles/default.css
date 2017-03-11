@@ -637,7 +637,6 @@ html, body {
 }
 
 .calendar__day {
-	width: 50px;
 	height: 40px;
 	border-right: 1px solid #eef2f4;
 	z-index: 5;
@@ -649,7 +648,6 @@ html, body {
 	top: 0;
 	bottom: 0;
 	display: block;
-	width: 50px;
 	background: rgba(255, 239, 62, .1);
 	z-index: 15;
 }
@@ -660,7 +658,6 @@ html, body {
 	top: 0;
 	bottom: 0;
 	display: block;
-	width: 50%;
 	background: rgba(238, 242, 244, .4);
 	z-index: 2;
 }
@@ -703,22 +700,17 @@ html, body {
 
 .calendar__inner {
 	position: relative;
-	width: 100%;
 	height: 100%;
-	z-index: 2;
+	z-index: 0;
 }
 
 .calendar__task-line {
-	position: absolute;
-	top: 0;
-	left: -1px;
-	right: -1px;
+	position: relative;
 	height: 41px;
 	padding: 10px 0;
 	box-sizing: border-box;
 	z-index: 5;
 }
-
 
 .calendar__progress {
 	position: absolute;
@@ -727,15 +719,15 @@ html, body {
 	display: block;
 	height: 20px;
 	border-top: 1px solid #eef2f4;
-	border-right: 4px solid #ff6762;
 	border-bottom: 1px solid #eef2f4;
 	box-sizing: border-box;
 	z-index: 1;
+	left: 0;
+	right: 0;
 }
 
 .calendar__progress._done {
-	left: 0;
-	width: 250px;
+	border-right: 4px solid #ff6762;
 }
 
 .calendar__progress._done:before,
@@ -756,12 +748,11 @@ html, body {
 }
 
 .calendar__progress._delay {
-	left: 0;
-	width: 158px;
+
 }
 
 .calendar__progress._delay:before {
-	width: 100%;
+
 }
 
 .calendar__progress._delay:after {
@@ -770,19 +761,17 @@ html, body {
 	top: 0;
 	left: calc(100% + 4px);
 	display: block;
-	width: 150px;
 	height: 100%;
 	background: #fbadaa;
 	z-index: 2;
 }
 
 .calendar__progress._proc {
-	left: 0;
-	width: 550px;
+
 }
 
 .calendar__progress._proc:before {
-	width: 70%;
+
 }
 
 /* Tasks-calendar Style END */
