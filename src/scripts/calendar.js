@@ -23,6 +23,8 @@ var CalendarModule = (function () {
     };
 
     var _draw = function (task) {
+
+
         var container_id = "tasks";
         var task_calendar_id = "task-calendar";
         var task_container = document.getElementById(container_id);
@@ -35,10 +37,7 @@ var CalendarModule = (function () {
         index++;
         task_container.appendChild(_getTask(task));
         var lines = document.querySelectorAll(".calendar__task-line");
-        // var lastIndex = lines[lines.length - 1].id;
-        // var elem = document.getElementById(lastIndex);
-        // elem.style.top = "40px";
-        //var top = parseInt(elem.style.top) + 40 +"px";
+
         calendar_container.appendChild(_getCalendar(index, task));
         calendar_container.setAttribute("data-calendar-index", index);
     };
@@ -61,6 +60,17 @@ var CalendarModule = (function () {
     };
 
     var _getCalendar = function (index, task) {
+
+
+        // <td class="calendar__day">
+        //     <div class="calendar__inner">
+        //     <div class="calendar__task-line _index_1">
+        //     <span class="calendar__progress _done"></span>
+        //     </div>
+        //     </div>
+        //     </td>
+        var td = document.createElement("td");
+        var divInner = document.createElement("div");
         var div = document.createElement("div");
         var span = document.createElement("span");
         var now = moment();
@@ -69,6 +79,7 @@ var CalendarModule = (function () {
         var dayCalendar = document.querySelector(".calendar__day");
         var width = days * parseInt(window.getComputedStyle(dayCalendar).width) + "px";
 
+        divInner.className = "calendar__inner";
         div.className = "calendar__task-line";
         div.id = "index_" + index;
         span.className = "calendar__progress";
@@ -76,10 +87,11 @@ var CalendarModule = (function () {
             span.className += " _done";
         }
         span.style.width = width;
-        //span.style.top = top;
         div.appendChild(span);
+        divInner.appendChild(div);
+        td.appendChild(divInner);
 
-        return div;
+        return td;
     };
 
     return {
