@@ -45,7 +45,7 @@ gulp.task("handlebars", function() {
         batch : ["src/partials"],
 	    helpers: {
             'checked': function(currentValue) {
-                return currentValue == 'true' ? ' checked="checked"' : '';
+                return currentValue ? ' checked="checked"' : '';
             }
 	    }
     };

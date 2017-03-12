@@ -14,10 +14,10 @@
          "task": "Отрисовка баннеров"
       }
    ],
-   "checkbox1" : "true",
-   "checkbox2" : "true",
-   "checkbox3" : "true",
-   "checkbox4" : "false",
-   "checkbox5" : "false",
-   "checkbox6" : "false"
+   "checkbox1" : true,
+   "checkbox2" : true,
+   "checkbox3" : true,
+   "checkbox4" : false,
+   "checkbox5" : false,
+   "checkbox6" : false
 }
