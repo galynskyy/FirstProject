@@ -43,7 +43,7 @@ gulp.task("handlebars", function() {
     var options = {
         batch : ["src/partials"]
     };
- 
+
     return gulp.src("src/index.hbs")
         .pipe(handlebars({}, options))
         .pipe(rename("index.html"))
@@ -65,7 +65,7 @@ gulp.task("browser-sync", function() {
 	});
 });
 
-gulp.task("clean", function() { 
+gulp.task("clean", function() {
 	return del.sync("public/*");
 });
 
@@ -79,7 +79,7 @@ gulp.task("doc", function(cb) {
 
 gulp.task("watch", ["browser-sync", "styles"], function() {
 	gulp.watch("src/styles/**/*.css", ["styles"]);
-	gulp.watch("src/*.html", browserSync.reload);
+	gulp.watch("src/partials/**/*.hbs", ["handlebars"]);
 	gulp.watch("src/scripts/**/*.js", browserSync.reload);
 });
 

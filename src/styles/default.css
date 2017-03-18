@@ -373,6 +373,10 @@ html, body {
 	min-width: 640px;
 }
 
+.contact-info__item._bold {
+	font: bold 16px "Lato-Regular", sans-serif;
+}
+
 .contact-info__name {
 	vertical-align: top;
 }
@@ -386,18 +390,18 @@ html, body {
 }
 
 .contact-info__item._fio {
-	font: 16px "Roboto-Regular";
+	font: bold 16px "Lato-Regular";
 	margin: 0 0 10px;
 }
 
 .contact-info__item {
-	font: 12px "Roboto-Regular";
+	font: 12px "Lato-Regular";
 	margin: 0 0 5px 0;
 }
 
 .contact-info__item._color_gray {
 	color: #d0d3d0;
-	font: 14px "Roboto-Regular";
+	font: 14px "Lato-Regular";
 }
 
 .tasks {
@@ -411,7 +415,7 @@ html, body {
 
 .tasks__btn {
 	margin: 0 90px 0 0;
-	font: 14px "Roboto-Regular";
+	font: bold 14px "Roboto-Regular";
 	min-width: 170px;
 	min-height: 35px;
 	background: #3bc8f5;
@@ -474,7 +478,7 @@ html, body {
 }
 
 .tasks-calendar {
-	width: 1180px;
+	min-width: 1180px;
 	margin: 0 0 60px 0;
 	background: #fff;
 	box-sizing: border-box;
@@ -763,6 +767,19 @@ html, body {
 		margin: 0 0 20px;
 	}
 
+	.tasks-calendar {
+		min-width: 300px;
+		background: #c3c9cd;
+	}
+
+	.tasks-list__item:first-child {
+		display: none;
+	}
+
+	.calendar {
+		display: none;
+	}
+
 	.user {
 		margin: 20px 0 40px;
 		text-align: center;
@@ -772,13 +789,8 @@ html, body {
 		min-width: 300px;
 	}
 
-	.tasks-type__list {
-		display: block;
-	}
-
 	.tasks-type__item {
-		display: block;
-		text-align: center;
+		display: flex;
 		margin: 0 0 10px;
 	}
 
@@ -789,6 +801,10 @@ html, body {
 
 	.goal-indicators {
 		text-align: center;
+	}
+
+	.goal-task {
+		text-align: left;
 	}
 
 	.goal-detail {
@@ -813,5 +829,9 @@ html, body {
 
 	.auth__action {
 		margin: 0 0 15px;
+	}
+
+	.contact-info__name {
+		text-align: left;
 	}
 }
