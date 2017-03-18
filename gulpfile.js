@@ -9,9 +9,11 @@ var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
 var handlebars = require("gulp-compile-handlebars");
 var eslint = require("eslint");
+var stylelint = require("stylelint");
 
 gulp.task("styles", function() {
 	var processors = [
+		stylelint,
 		autoprefixer({
 			browsers: ["last 3 version"]
 		}),
