@@ -774,15 +774,13 @@ html, body {
 
 }
 
-
-
-.x-mark {
+.tasks-list__close {
 	width: 16px;
 	height: 16px;
 	position: relative;
 	transition: .3s;
 }
-.x-mark span {
+.tasks-list__close span {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -797,7 +795,7 @@ html, body {
 	transform: rotate(-45deg);
 	transition: .3s;
 }
-.x-mark span:last-child {
+.tasks-list__close span:last-child {
 	transform: rotate(45deg);
 }
 

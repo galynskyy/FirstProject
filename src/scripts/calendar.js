@@ -8,21 +8,39 @@ var CalendarModule = (function () {
         }
     };
 
-    var _eventListener = function () {
+    var _eventListener = function() {
         btn.addEventListener("click", _addOnCLick);
     };
 
     var _addOnCLick = function addOnCLick() {
-        var text = document.getElementById("input-form").value;
+
+
+        var taskName = document.getElementById("input-form").value;
+
+        if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
+            return;
+        }
+
         var d = $('#datetimepicker').datetimepicker("getValue");
 
         _draw({
-            name: text,
+            name: taskName,
             enddate: d
         });
     };
 
-    var _draw = function (task) {
+    var _checkIfTaskAlreadyExists = function(taskName) {
+        var task_container = document.getElementById("tasks");
+        var taskElements = task_container.querySelectorAll('.tasks-list__text');
+        var namesList = Array.prototype.map.call(taskElements, function(element) {
+
+            return element.textContent;
+        });
+
+        return namesList.indexOf(taskName) > -1;
+    };
+
+    var _draw = function(task) {
         var container_id = "tasks";
         var task_calendar_id = "task-table";
         var task_container = document.getElementById(container_id);
@@ -49,9 +67,8 @@ var CalendarModule = (function () {
         span.classList.add("tasks-list__text");
         span.innerText = task.name;
         a.href = "#";
-        button.classList.add("x-mark");
         button.href = "#";
-        // button close
+
         button.classList.add("tasks-list__close");
         a.appendChild(span);
         button.appendChild(span1);
@@ -113,7 +130,6 @@ btn && CalendarModule.init({
         {
             name: "Лендинг для корпоратива",
             enddate: moment("2017-03-28").toString(),
-            isDone: true,
             progress: 2,
             startdate: moment("2017-03-11").toString()
         },
