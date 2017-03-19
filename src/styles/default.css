@@ -73,7 +73,7 @@ html, body {
 }
 
 .user {
-	margin: 0 0 40px 0;
+	margin: 0 40px;
 }
 
 .goal-header__title {
@@ -398,7 +398,7 @@ html, body {
 
 .contact-info__item {
 	font: 12px "Roboto-Regular";
-	margin: 0 0 5px 0;
+	margin: 0 5px;
 }
 
 .contact-info__item._color_gray {
@@ -482,18 +482,18 @@ html, body {
 .tasks-calendar {
 	display: none;
 	width: 1180px;
-	margin: 0 0 60px 0;
+	margin: 0 60px;
 	background: #fff;
 	box-sizing: border-box;
 	border: solid #eef2f4;
-	border-width: 1px 3px 1px 3px;
+	border-width: 1px 3px;
 	font-size: 0;
 }
 
 .tasks-list {
 	display: inline-block;
 	min-width: 250px;
-	padding: 35px 0 15px 0;
+	padding: 35px 15px;
 	border-right: 3px solid #eef2f4;
 	box-sizing: border-box;
 	vertical-align: top;
@@ -544,7 +544,7 @@ html, body {
 	background: #dce3e7;
 }
 
-.tasks-list__btn:after {
+.tasks-list__btn::after {
 	content: '';
 	position: absolute;
 	top: 50%;
@@ -602,7 +602,7 @@ html, body {
 	z-index: 5;
 }
 
-.calendar__day:before {
+.calendar__day::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -613,7 +613,7 @@ html, body {
 	background: rgba(255, 239, 62, .1);
 }
 
-.calendar__day._weekend:before {
+.calendar__day._weekend::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -625,7 +625,7 @@ html, body {
 	z-index: 2;
 }
 
-.calendar__day:hover:before{
+.calendar__day:hover::before {
 	display: block;
 }
 
@@ -678,15 +678,15 @@ html, body {
 	z-index: 5;
 }
 
-.calendar__task-line._index_1  {
+.calendar__task-line._index_1 {
 	top: 40px;
 }
 
-.calendar__task-line._index_2  {
+.calendar__task-line._index_2 {
 	top: 80px;
 }
 
-.calendar__task-line._index_3  {
+.calendar__task-line._index_3 {
 	top: 120px;
 }
 
@@ -708,9 +708,9 @@ html, body {
 	width: 250px;
 }
 
-.calendar__progress._done:before,
-.calendar__progress._delay:before,
-.calendar__progress._proc:before {
+.calendar__progress._done::before,
+.calendar__progress._delay::before,
+.calendar__progress._proc::before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -721,7 +721,7 @@ html, body {
 	box-sizing: border-box;
 }
 
-.calendar__progress._done:before {
+.calendar__progress._done::before {
 	width: 100%;
 }
 
@@ -730,11 +730,11 @@ html, body {
 	width: 158px;
 }
 
-.calendar__progress._delay:before {
+.calendar__progress._delay::before {
 	width: 100%;
 }
 
-.calendar__progress._delay:after {
+.calendar__progress._delay::after {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -751,7 +751,7 @@ html, body {
 	width: 550px;
 }
 
-.calendar__progress._proc:before {
+.calendar__progress._proc::before {
 	width: 70%;
 }
 
