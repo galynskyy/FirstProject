@@ -44,6 +44,19 @@ gulp.task("handlebars", function() {
     var options = {
         batch : ["src/partials"],
 	    helpers: {
+            'list': function(context, options) {
+                // return currentValue = currentValue ? ' checked="checked"' : '';
+                //
+                // if(id = )
+                // <ul class="goal-task">
+	            var elem = "<ul class='goal-task'>";
+	            for (var i = 0, j = context.length; i < j; i++) {
+
+	            	elem = elem + "<li class='goal-task__item'>" + options.fn(context[i]) + "</li>";
+	            }
+	            return elem + "</ul>";
+
+            },
             'checked': function(currentValue) {
                 return currentValue ? ' checked="checked"' : '';
             }

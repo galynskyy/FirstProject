@@ -14,10 +14,27 @@
          "task": "Отрисовка баннеров"
       }
    ],
-   "checkbox1" : true,
-   "checkbox2" : true,
-   "checkbox3" : true,
-   "checkbox4" : false,
-   "checkbox5" : false,
-   "checkbox6" : false
+
+
+   "chart": [
+      {
+         "id": "checkbox1", "tittle": "Наружная реклама"
+      },
+      {
+         "id": "checkbox2", "tittle": "Баннеры для контекной рекламы"
+      },
+      {
+         "id": "checkbox3", "tittle": "Баннеры для SMM"
+      },
+      {
+         "id": "checkbox4", "tittle": "Лендинг для корпоратива"
+      },
+      {
+         "id": "checkbox5", "tittle": "Креатив на афишу"
+      },
+      {
+         "id": "checkbox6", "tittle": "Отрисовка баннеров"
+      }
+   ]
+
 }
