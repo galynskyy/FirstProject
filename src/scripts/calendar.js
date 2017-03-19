@@ -18,6 +18,7 @@ var CalendarModule = (function () {
         var taskName = document.getElementById("input-form").value;
 
         if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
+            alert("Задача с таким названием уже существует");
             return;
         }
 
