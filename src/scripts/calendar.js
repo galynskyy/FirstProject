@@ -40,14 +40,25 @@ var CalendarModule = (function () {
         var li = document.createElement("li");
         var a = document.createElement("a");
         var span = document.createElement("span");
+        var button = document.createElement("a");
+        var span1 = document.createElement("span");
+        var span2 = document.createElement("span");
 
         li.classList.add("tasks-list__item");
         a.classList.add("tasks-list__title");
         span.classList.add("tasks-list__text");
         span.innerText = task.name;
         a.href = "#";
+        button.classList.add("x-mark");
+        button.href = "#";
+        // button close
+        button.classList.add("tasks-list__close");
         a.appendChild(span);
+        button.appendChild(span1);
+        button.appendChild(span2);
+
         li.appendChild(a);
+        a.appendChild(button);
 
         return li;
     };
@@ -81,9 +92,9 @@ var CalendarModule = (function () {
         div.className = "calendar__task-line";
         span.className = "calendar__progress";
         if (task.isDone) {
-            span.className += " _done";
+            span.className += " _delay";
         } else {
-            span.className += " _proc";
+            span.className += " _done";
         }
 
         div.appendChild(span);
