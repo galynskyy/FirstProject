@@ -44,21 +44,28 @@ gulp.task("handlebars", function() {
     var options = {
         batch : ["src/partials"],
 	    helpers: {
-            'list': function(context, options) {
-                // return currentValue = currentValue ? ' checked="checked"' : '';
-                //
-                // if(id = )
-                // <ul class="goal-task">
+            "list": function(context, options) {
 	            var elem = "<ul class='goal-task'>";
-	            for (var i = 0, j = context.length; i < j; i++) {
 
+	            for (var i = 0, j = context.length; i < j; i++) {
 	            	elem = elem + "<li class='goal-task__item'>" + options.fn(context[i]) + "</li>";
 	            }
+
 	            return elem + "</ul>";
 
             },
-            'checked': function(currentValue) {
+            "checked": function(currentValue) {
                 return currentValue ? ' checked="checked"' : '';
+            },
+
+            "listDays": function(context, options) {
+                var elem = "<div class='calendar__days'>";
+
+                for (var i = 0; i < context.length; i++) {
+                    elem = elem + "<div class='calendar__day'>" + options.fn(context[i]) + "</div>"
+                }
+
+                return elem + "</div>";
             }
 	    }
     };
