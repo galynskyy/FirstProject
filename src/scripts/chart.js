@@ -24,16 +24,22 @@ var chartModule = (function() {
 		circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
 		circle.classList.add("_transition");
 
-		_getDoneTasks(checkboxesChecked, checkboxesAll);
+		var percentCount = percent.innerHTML;
+		_getDoneTasks(percentCount);
 	};
 
-	var _getDoneTasks = function(countChecked, countAll) {
-		if (countChecked === countAll) {
+	var _getDoneTasks = function(percentCount) {
+		if (percentCount === "100%") {
 			var activeTasks = document.querySelectorAll(".calendar__progress._done");
-			
+
 			[...activeTasks].forEach(function(task) {
 				task.className = "calendar__progress _delay";
-			});
+			})
+		} else {
+			var closeTasks = document.querySelectorAll(".calendar__progress._delay");
+			[...closeTasks].forEach(function(task) {
+				task.className = "calendar__progress _done";
+			})
 		}
 	};
 

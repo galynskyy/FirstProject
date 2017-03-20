@@ -1,8 +1,5 @@
 var btn = document.getElementById("add");
 
-
-var checkboxesChecked = document.querySelectorAll(".goal-checkbox:checked").length;
-console.log(checkboxesChecked);
 var calendarModule = (function() {
 	var _init = function(config) {
 		_eventListener();
@@ -19,7 +16,7 @@ var calendarModule = (function() {
 		var taskName = document.getElementById("input-form").value;
 
 		if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
-			alert("Задача с таким названием уже существует");
+			alert("Задача с таким названием уже существует или поле пустое");
 			return;
 		}
 
@@ -42,6 +39,15 @@ var calendarModule = (function() {
 		});
 
 		return namesList.indexOf(taskName) > -1;
+	};
+
+	var _checkFillingOfChart = function() {
+
+
+		var percent = document.querySelector(".goal-chart__percent");
+
+
+		return percent.textContent === "100%";
 	};
 
 	var _draw = function(task) {
@@ -94,7 +100,7 @@ var calendarModule = (function() {
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
 
-		(task.isDone) ? span.className += " _delay" : span.className += " _done";
+		(task.isDone || (_checkFillingOfChart() === true)) ? span.className += " _delay" : span.className += " _done";
 
 		div.appendChild(span);
 		divInner.appendChild(div);
@@ -112,7 +118,6 @@ btn && calendarModule.init({
 		{
 			name: "Лендинг для корпоратива",
 			enddate: moment("2017-03-28").toString(),
-			progress: 2,
 			isDone: false,
 			startdate: moment("2017-03-11").toString()
 		},
