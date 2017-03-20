@@ -106,7 +106,7 @@ var calendarModule = (function() {
 
 	return {
 		init: _init
-	}
+	};
 })();
 
 btn && calendarModule.init({

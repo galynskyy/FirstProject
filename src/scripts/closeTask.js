@@ -3,12 +3,10 @@ var taskContainer = document.getElementById("tasks");
 var removeTaskModule = (function() {
 	var _init = function() {
 		_eventListener();
-
 	};
 
 	var _eventListener = function() {
 		taskContainer.addEventListener("click", _onListOfTasksClick);
-
 	};
 
 	var _onListOfTasksClick = function(e) {
@@ -30,8 +28,7 @@ var removeTaskModule = (function() {
 
 	return {
 		init: _init
-	}
-
+	};
 })();
 
 taskContainer && removeTaskModule.init();
