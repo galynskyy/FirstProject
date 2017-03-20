@@ -10,7 +10,6 @@ var chartModule = (function() {
 		for (var checkbox of checkboxes) {
 			checkbox.addEventListener("click", _initChart);
 		}
-		;
 	};
 
 	var _initChart = function() {
@@ -24,7 +23,23 @@ var chartModule = (function() {
 		percent.innerHTML = Math.ceil(100 * checkboxesChecked / checkboxesAll) + "%";
 		circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
 		circle.classList.add("_transition");
+
+		_getDoneTasks(checkboxesChecked, checkboxesAll);
 	};
+
+	var _getDoneTasks = function(countChecked, countAll) {
+
+		if (countChecked === countAll) {
+			console.log("OK");
+			// получаем все элементы тасков и ставим им статус isDone = true
+
+
+		}
+	};
+
+
+
+
 
 	return {
 		init: _init

@@ -25,7 +25,8 @@ var calendarModule = (function() {
 
 		_draw({
 			name: taskName,
-			enddate: d
+			enddate: d,
+			isDone: false
 		});
 	};
 
@@ -50,8 +51,6 @@ var calendarModule = (function() {
 
 
 		taskContainer.appendChild(_getTask(task));
-
-
 		_getCalendar(tr, task);
 	};
 
@@ -92,11 +91,8 @@ var calendarModule = (function() {
 		divInner.className = "calendar__inner";
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
-		if (task.isDone) {
-			span.className += " _delay";
-		} else {
-			span.className += " _done";
-		}
+
+		(task.isDone) ? span.className += " _delay" : span.className += " _done";
 
 		div.appendChild(span);
 		divInner.appendChild(div);
@@ -115,6 +111,7 @@ btn && calendarModule.init({
 			name: "Лендинг для корпоратива",
 			enddate: moment("2017-03-28").toString(),
 			progress: 2,
+			isDone: false,
 			startdate: moment("2017-03-11").toString()
 		},
 		{
