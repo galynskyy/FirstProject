@@ -1,7 +1,7 @@
 var btn = document.getElementById("add");
 
 
-var CalendarModule = (function() {
+var calendarModule = (function() {
 	var _init = function(config) {
 		_eventListener();
 		if (config && config.tasks) {
@@ -109,7 +109,7 @@ var CalendarModule = (function() {
 	}
 })();
 
-btn && CalendarModule.init({
+btn && calendarModule.init({
 	tasks: [
 		{
 			name: "Лендинг для корпоратива",
