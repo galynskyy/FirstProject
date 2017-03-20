@@ -1,15 +1,20 @@
-// var taskList = document.getElementById("tasks");
 //
-// var count = taskList.querySelectorAll(".tasks-list__item").length;
 //
-// if (count <= 1) {
-// 	var templateElement = document.getElementById('taskTemplate');
-// 	var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
-// 	var newTask = templateContainer.querySelector('.tasks-list__item').cloneNode(true);
-// 	newTask.querySelector('.tasks-list__text').textContent = "Активных задач нет";
+// var taskContainer = document.getElementById("tasks");
 //
+//
+//
+// if (taskContainer.children.length <= 2) {
+// 	var li = document.createElement("li");
+// 	var a = document.createElement("a");
+// 	var span = document.createElement("span");
+//
+// 	li.classList.add("tasks-list__no-tasks");
+// 	a.classList.add("tasks-list__title");
+// 	span.classList.add("tasks-list__text");
+// 	span.innerText = "Активных задач нет";
+// 	a.href = "#";
+// 	a.appendChild(span);
+// 	li.appendChild(a);
+// 	taskContainer.appendChild(li);
 // }
-
-
-var checkboxesChecked = document.querySelectorAll(".goal-checkbox:checked").length;
-console.log(checkboxesChecked);

@@ -28,18 +28,14 @@ var chartModule = (function() {
 	};
 
 	var _getDoneTasks = function(countChecked, countAll) {
-
 		if (countChecked === countAll) {
-			console.log("OK");
-			// получаем все элементы тасков и ставим им статус isDone = true
-
-
+			var activeTasks = document.querySelectorAll(".calendar__progress._done");
+			
+			[...activeTasks].forEach(function(task) {
+				task.className = "calendar__progress _delay";
+			});
 		}
 	};
-
-
-
-
 
 	return {
 		init: _init

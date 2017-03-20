@@ -1,6 +1,8 @@
 var btn = document.getElementById("add");
 
 
+var checkboxesChecked = document.querySelectorAll(".goal-checkbox:checked").length;
+console.log(checkboxesChecked);
 var calendarModule = (function() {
 	var _init = function(config) {
 		_eventListener();
@@ -22,17 +24,18 @@ var calendarModule = (function() {
 		}
 
 		var d = $('#datetimepicker').datetimepicker("getValue");
-
-		_draw({
+		var task = {
 			name: taskName,
 			enddate: d,
 			isDone: false
-		});
+		};
+
+		_draw(task);
 	};
 
 	var _checkIfTaskAlreadyExists = function(taskName) {
-		var task_container = document.getElementById("tasks");
-		var taskElements = task_container.querySelectorAll('.tasks-list__text');
+		var taskContainer = document.getElementById("tasks");
+		var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
 		var namesList = Array.prototype.map.call(taskElements, function(element) {
 
 			return element.textContent;
@@ -53,7 +56,6 @@ var calendarModule = (function() {
 		taskContainer.appendChild(_getTask(task));
 		_getCalendar(tr, task);
 	};
-
 
 	var _getTask = function(task) {
 		var templateElement = document.getElementById('taskTemplate');
