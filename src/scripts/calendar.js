@@ -1,4 +1,6 @@
 var btn = document.getElementById("add");
+var templateElement = document.getElementById('taskTemplate');
+var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
 
 var CalendarModule = (function() {
 	var _init = function(config) {
@@ -40,43 +42,26 @@ var CalendarModule = (function() {
 	};
 
 	var _draw = function(task) {
-		var container_id = "tasks";
-		var task_calendar_id = "task-table";
-		var task_container = document.getElementById(container_id);
-		var calendar_container = document.getElementById(task_calendar_id);
+		var task_container = document.getElementById("tasks");
+		var calendar_container = document.getElementById("task-table");
 		var tr = document.createElement("tr");
 
 		tr.className = "calendar__columns";
 		calendar_container.appendChild(tr);
+
+
 		task_container.appendChild(_getTask(task));
+
+
 		_getCalendar(tr, task);
 	};
 
 
 	var _getTask = function(task) {
-		var li = document.createElement("li");
-		var a = document.createElement("a");
-		var span = document.createElement("span");
-		var button = document.createElement("a");
-		var span1 = document.createElement("span");
-		var span2 = document.createElement("span");
+		var newTask = templateContainer.querySelector('.tasks-list__item').cloneNode(true);
+		newTask.querySelector('.tasks-list__text').textContent = task.name;
 
-		li.classList.add("tasks-list__item");
-		a.classList.add("tasks-list__title");
-		span.classList.add("tasks-list__text");
-		span.innerText = task.name;
-		a.href = "#";
-		button.href = "#";
-
-		button.classList.add("tasks-list__close");
-		a.appendChild(span);
-		button.appendChild(span1);
-		button.appendChild(span2);
-
-		li.appendChild(a);
-		a.appendChild(button);
-
-		return li;
+		return newTask;
 	};
 
 	var _getCalendar = function(tr, task) {

@@ -555,6 +555,23 @@ html, body {
 	opacity: .5;
 }
 
+
+/*кнопка удалить*/
+
+.tasks-list__close {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	color: red;
+	font-size: 12px;
+	visibility: hidden;
+}
+
+.tasks-list__item .tasks-list__close {
+	visibility: visible;
+}
+
 .tasks-list__title {
 	display: block;
 	padding: 0 0 0 15px;
@@ -774,34 +791,37 @@ html, body {
 
 }
 
-.tasks-list__close {
-	width: 16px;
-	height: 16px;
-	position: relative;
-	transition: .3s;
-}
-.tasks-list__close span {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top: -2px;
-	margin-left: -8px;
-	display: block;
-	width: 16px;
-	height: 4px;
-	border-radius: 4px;
-	background: #c4c4c4;
-	transform-origin: 50%;
-	transform: rotate(-45deg);
-	transition: .3s;
-}
-.tasks-list__close span:last-child {
-	transform: rotate(45deg);
-}
+/*.tasks-list__close {*/
+	/*width: 16px;*/
+	/*height: 16px;*/
+	/*position: relative;*/
+	/*transition: .3s;*/
+/*}*/
+/*.tasks-list__close span {*/
+	/*position: absolute;*/
+	/*top: 50%;*/
+	/*left: 50%;*/
+	/*margin-top: -2px;*/
+	/*margin-left: -8px;*/
+	/*display: block;*/
+	/*width: 16px;*/
+	/*height: 4px;*/
+	/*border-radius: 4px;*/
+	/*background: #c4c4c4;*/
+	/*transform-origin: 50%;*/
+	/*transform: rotate(-45deg);*/
+	/*transition: .3s;*/
+/*}*/
+/*.tasks-list__close span:last-child {*/
+	/*transform: rotate(45deg);*/
+/*}*/
 
-.tasks-list__close {
-	padding: 0 0 0 20px;
-}
+/*.tasks-list__close {*/
+	/*padding: 0 0 0 20px;*/
+/*}*/
+
+
+
 /* Tasks-calendar Style END */
 
 @media screen and (max-device-width: 768px) {
