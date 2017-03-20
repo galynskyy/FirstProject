@@ -554,15 +554,12 @@ html, body {
 	background: rgba(238, 242, 244, .5);
 }
 
-
-/*кнопка удалить*/
-
 .tasks-list__close {
 	position: absolute;
 	right: 5px;
 	top: 50%;
 	transform: translateY(-50%);
-	color: red;
+	color: #ff0000;
 	font-size: 12px;
 	visibility: hidden;
 }
