@@ -1,6 +1,5 @@
 var btn = document.getElementById("add");
-var templateElement = document.getElementById('taskTemplate');
-var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
+
 
 var CalendarModule = (function() {
 	var _init = function(config) {
@@ -42,7 +41,7 @@ var CalendarModule = (function() {
 	};
 
 	var _draw = function(task) {
-		var task_container = document.getElementById("tasks");
+		var taskContainer = document.getElementById("tasks");
 		var calendar_container = document.getElementById("task-table");
 		var tr = document.createElement("tr");
 
@@ -50,7 +49,7 @@ var CalendarModule = (function() {
 		calendar_container.appendChild(tr);
 
 
-		task_container.appendChild(_getTask(task));
+		taskContainer.appendChild(_getTask(task));
 
 
 		_getCalendar(tr, task);
@@ -58,6 +57,8 @@ var CalendarModule = (function() {
 
 
 	var _getTask = function(task) {
+		var templateElement = document.getElementById('taskTemplate');
+		var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
 		var newTask = templateContainer.querySelector('.tasks-list__item').cloneNode(true);
 		newTask.querySelector('.tasks-list__text').textContent = task.name;
 
@@ -81,9 +82,9 @@ var CalendarModule = (function() {
 		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
 
 		if (daysStart < 0) {
-			var td2 = document.createElement("td");
-			tr.appendChild(td2);
-			td2.colSpan = Math.abs(daysStart);
+			var tdEmpty = document.createElement("td");
+			tr.appendChild(tdEmpty);
+			tdEmpty.colSpan = Math.abs(daysStart);
 		}
 
 		td.className = "calendar__day";

@@ -551,8 +551,7 @@ html, body {
 }
 
 .tasks-list__item:hover {
-	background: #eef2f4;
-	opacity: .5;
+	background: rgba(238, 242, 244, .5);
 }
 
 
@@ -560,7 +559,7 @@ html, body {
 
 .tasks-list__close {
 	position: absolute;
-	right: 10px;
+	right: 5px;
 	top: 50%;
 	transform: translateY(-50%);
 	color: red;
@@ -568,14 +567,16 @@ html, body {
 	visibility: hidden;
 }
 
-.tasks-list__item .tasks-list__close {
+.tasks-list__item:hover .tasks-list__close {
 	visibility: visible;
 }
 
 .tasks-list__title {
+	position: relative;
 	display: block;
 	padding: 0 0 0 15px;
 	text-decoration: none;
+	white-space: nowrap;
 	font: 12px/40px 'Lato-Regular', sans-serif;
 	color: #686867;
 }
@@ -620,6 +621,7 @@ html, body {
 	height: 40px;
 	box-sizing: border-box;
 	font: 13px 'Lato-Regular', sans-serif;
+	white-space: nowrap;
 }
 
 .calendar {
