@@ -13,7 +13,7 @@ var calendarModule = (function() {
 	};
 
 	var _addOnCLick = function addOnCLick() {
-		var taskName = document.getElementById("input-form").value;
+		var taskName = document.getElementById("input-form").value.trim();
 
 		if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
 			alert("Задача с таким названием уже существует или поле пустое");
@@ -27,7 +27,17 @@ var calendarModule = (function() {
 			isDone: false
 		};
 
+		_removeMessageBlock();
 		_draw(task);
+	};
+
+	var _removeMessageBlock = function() {
+		var activeBlock = document.getElementById("activeBlock");
+		var blockForMessage = document.querySelector(".message");
+
+		if (activeBlock) {
+			blockForMessage.removeChild(activeBlock);
+		}
 	};
 
 	var _checkIfTaskAlreadyExists = function(taskName) {
@@ -42,10 +52,7 @@ var calendarModule = (function() {
 	};
 
 	var _checkFillingOfChart = function() {
-
-
 		var percent = document.querySelector(".goal-chart__percent");
-
 
 		return percent.textContent === "100%";
 	};
@@ -57,8 +64,6 @@ var calendarModule = (function() {
 
 		tr.className = "calendar__columns";
 		calendar_container.appendChild(tr);
-
-
 		taskContainer.appendChild(_getTask(task));
 		_getCalendar(tr, task);
 	};
@@ -114,18 +119,18 @@ var calendarModule = (function() {
 })();
 
 btn && calendarModule.init({
-	// tasks: [
-	// 	{
-	// 		name: "Лендинг для корпоратива",
-	// 		enddate: moment("2017-03-28").toString(),
-	// 		isDone: false,
-	// 		startdate: moment("2017-03-11").toString()
-	// 	},
-	// 	{
-	// 		name: "Креатив на афишу",
-	// 		enddate: moment("2017-03-27").toString(),
-	// 		isDone: true,
-	// 		startdate: moment("2017-03-10").toString()
-	// 	}
-	// ]
+	tasks: [
+		{
+			name: "Лендинг для корпоратива",
+			enddate: moment("2017-03-28").toString(),
+			isDone: false,
+			startdate: moment("2017-03-11").toString()
+		},
+		{
+			name: "Креатив на афишу",
+			enddate: moment("2017-03-27").toString(),
+			isDone: true,
+			startdate: moment("2017-03-10").toString()
+		}
+	]
 });

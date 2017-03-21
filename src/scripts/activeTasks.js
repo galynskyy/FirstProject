@@ -18,6 +18,7 @@ var activeTasksModule = (function() {
 			var message = containerEmptyTasks.querySelector(".message__tasks-empty").cloneNode(true);
 
 			message.textContent = "Активных задач нет";
+			message.id = "activeBlock";
 			blockForMessage.appendChild(message);
 		}
 	};
