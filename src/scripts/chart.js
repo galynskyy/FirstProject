@@ -24,8 +24,16 @@ var chartModule = (function() {
 		circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
 		circle.classList.add("_transition");
 
-		var percentCount = percent.innerHTML;
-		_getDoneTasks(percentCount);
+		_getStatistics(checkboxesChecked, checkboxesAll);
+		_getDoneTasks(percent.innerHTML);
+	};
+
+	var _getStatistics = function(countChecked, countAll) {
+		var countActiveTasks = document.querySelector(".goal-badge._active");
+		var countCompleteTasks = document.querySelector(".goal-badge._complete");
+
+	    countActiveTasks.textContent = String(countAll - countChecked);
+		countCompleteTasks.textContent = String(countChecked);
 	};
 
 	var _getDoneTasks = function(percentCount) {
