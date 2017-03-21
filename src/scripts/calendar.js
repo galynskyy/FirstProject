@@ -114,18 +114,18 @@ var calendarModule = (function() {
 })();
 
 btn && calendarModule.init({
-	tasks: [
-		{
-			name: "Лендинг для корпоратива",
-			enddate: moment("2017-03-28").toString(),
-			isDone: false,
-			startdate: moment("2017-03-11").toString()
-		},
-		{
-			name: "Креатив на афишу",
-			enddate: moment("2017-03-27").toString(),
-			isDone: true,
-			startdate: moment("2017-03-10").toString()
-		}
-	]
+	// tasks: [
+	// 	{
+	// 		name: "Лендинг для корпоратива",
+	// 		enddate: moment("2017-03-28").toString(),
+	// 		isDone: false,
+	// 		startdate: moment("2017-03-11").toString()
+	// 	},
+	// 	{
+	// 		name: "Креатив на афишу",
+	// 		enddate: moment("2017-03-27").toString(),
+	// 		isDone: true,
+	// 		startdate: moment("2017-03-10").toString()
+	// 	}
+	// ]
 });

@@ -37,6 +37,7 @@ var chartModule = (function() {
 			})
 		} else {
 			var closeTasks = document.querySelectorAll(".calendar__progress._delay");
+
 			[...closeTasks].forEach(function(task) {
 				task.className = "calendar__progress _done";
 			})
