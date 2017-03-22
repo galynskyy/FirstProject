@@ -15,15 +15,17 @@ var calendarModule = (function() {
 	var _addOnCLick = function addOnCLick() {
 		var taskName = document.getElementById("input-form").value.trim();
 
-		if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
-			alert("Задача с таким названием уже существует или поле пустое");
-			return;
-		}
+
+		// if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
+		// 	alert("Задача с таким названием уже существует или поле пустое");
+		// 	return;
+		// }
 
 		var d = $('#datetimepicker').datetimepicker("getValue");
 		var task = {
 			name: taskName,
 			enddate: d,
+			isDataPassed: false,
 			isDone: false
 		};
 
@@ -40,16 +42,16 @@ var calendarModule = (function() {
 		}
 	};
 
-	var _checkIfTaskAlreadyExists = function(taskName) {
-		var taskContainer = document.getElementById("tasks");
-		var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
-		var namesList = Array.prototype.map.call(taskElements, function(element) {
-
-			return element.textContent;
-		});
-
-		return namesList.indexOf(taskName) > -1;
-	};
+	// var _checkIfTaskAlreadyExists = function(taskName) {
+	// 	var taskContainer = document.getElementById("tasks");
+	// 	var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
+	// 	var namesList = Array.prototype.map.call(taskElements, function(element) {
+	//
+	// 		return element.textContent;
+	// 	});
+	//
+	// 	return namesList.indexOf(taskName) > -1;
+	// };
 
 	var _checkFillingOfChart = function() {
 		var percent = document.querySelector(".goal-chart__percent");
@@ -105,7 +107,11 @@ var calendarModule = (function() {
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
 
-		(task.isDone || (_checkFillingOfChart() === true)) ? span.className += " _delay" : span.className += " _done";
+		if (daysEnd < 0) {
+			alert("Невозможно добавить задачу: cрок истек");
+		}
+
+		(task.isDone || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 
 		div.appendChild(span);
 		divInner.appendChild(div);
@@ -122,7 +128,7 @@ btn && calendarModule.init({
 	tasks: [
 		{
 			name: "Лендинг для корпоратива",
-			enddate: moment("2017-03-28").toString(),
+			enddate: moment("2017-03-26").toString(),
 			isDone: false,
 			startdate: moment("2017-03-11").toString()
 		},
