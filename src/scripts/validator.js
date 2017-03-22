@@ -79,13 +79,3 @@ var validateModule =  (function() {
 	};
 })();
 inputElement && validateModule.init();
-
-
-
-
-
-
-
-
-
-
