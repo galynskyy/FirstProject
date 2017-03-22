@@ -1,17 +1,40 @@
 var inputElement = document.getElementById("input-form");
+var modalError = document.getElementById('error');
+var minLength = 4;
+var maxLength = 20;
 
-const colorInputBorder = function(input, color) {
-	input.style.border = `1px solid ${color}`;
-};
-
-inputElement.addEventListener('blur', function() {
-	if (this.value.length === 0 || _checkIfTaskAlreadyExists(this.value)) {
-		colorInputBorder(this, "red");
+var _onInputBlur = function() {
+	if (this.value.length === 0) {
+		_colorInputBorder(inputElement, "red");
 		return;
 	}
 
-	colorInputBorder(this, "#acadaf");
-});
+	if (_checkIfTaskAlreadyExists(this.value)) {
+		_colorInputBorder(this, "red");
+		return;
+	}
+
+	if (this.value.length < minLength) {
+		modalError.textContent = "Введите не менее 4 символов";
+		_colorInputBorder(this, "red");
+		return;
+	}
+
+	if (this.value.length > maxLength) {
+		modalError.textContent = "Введите не более 20 символов";
+		_colorInputBorder(this, "red");
+		return;
+	}
+
+	_colorInputBorder(this, "#acadaf");
+};
+
+inputElement.addEventListener('blur', _onInputBlur);
+
+var _colorInputBorder = function(input, color) {
+	input.style.border = `1px solid ${color}`;
+};
+
 
 var _checkIfTaskAlreadyExists = function(taskName) {
 	var taskContainer = document.getElementById("tasks");
