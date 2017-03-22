@@ -752,6 +752,53 @@ html, body {
 	width: 70%;
 }
 
+.mobile-tasks__list {
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+	font-size: 0;
+	background: #c3c9cd;
+}
+
+.mobile-tasks__item {
+	margin: 0 0 10px;
+}
+
+.mobile-tasks__item:last-child {
+	margin: 0;
+}
+
+.mobile-task__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+}
+
+.mobile-task__item {
+	background: #fff;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 300px;
+	min-height: 40px;
+	border-bottom: 2px solid #dce3e7;
+}
+
+.mobile-task__item._name,
+.mobile-task__item._more {
+	background: #eef2f4;
+}
+
+.mobile-task__item:last-child {
+	border-bottom: 0;
+}
+
+.mobile-task__item p {
+	font: 14px "Roboto-Regular";
+	padding: 0;
+	margin: 0;
+}
+
 @media screen and (max-device-width: 768px) {
 	.auth {
 		min-width: 300px;
