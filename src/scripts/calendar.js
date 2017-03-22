@@ -35,17 +35,6 @@ var calendarModule = (function() {
 		}
 	};
 
-	// var _checkIfTaskAlreadyExists = function(taskName) {
-	// 	var taskContainer = document.getElementById("tasks");
-	// 	var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
-	// 	var namesList = Array.prototype.map.call(taskElements, function(element) {
-	//
-	// 		return element.textContent;
-	// 	});
-	//
-	// 	return namesList.indexOf(taskName) > -1;
-	// };
-
 	var _checkFillingOfChart = function() {
 		var percent = document.querySelector(".goal-chart__percent");
 
@@ -88,6 +77,12 @@ var calendarModule = (function() {
 
 		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
 
+		if (daysEnd < 0) {
+			var modalError = document.getElementById("error");
+			modalError.textContent = "Поменяйте дату";
+			return;
+		}
+
 		if (daysStart < 0) {
 			var tdEmpty = document.createElement("td");
 			tr.appendChild(tdEmpty);
@@ -99,10 +94,6 @@ var calendarModule = (function() {
 		divInner.className = "calendar__inner";
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
-
-		if (daysEnd < 0) {
-			alert("Невозможно добавить задачу: cрок истек");
-		}
 
 		(task.isDone || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 

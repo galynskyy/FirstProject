@@ -50,9 +50,6 @@ var validateModule =  (function() {
 			_colorInputBorder(inputData, "red");
 			return;
 		}
-
-
-
 	};
 
 	var _colorInputBorder = function(input, color) {
@@ -69,8 +66,6 @@ var validateModule =  (function() {
 
 		return namesList.indexOf(taskName) > -1;
 	};
-
-
 
 	return {
 		init: _init
