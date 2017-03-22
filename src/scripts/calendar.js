@@ -14,6 +14,20 @@ var calendarModule = (function() {
 
 	var _addOnCLick = function addOnCLick() {
 		var taskName = document.getElementById("input-form").value.trim();
+		var dataValue = document.getElementById("datetimepicker").value.trim();
+
+		if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
+			return;
+		}
+
+		if (taskName.length < minLength || taskName.length > maxLength) {
+			return;
+		}
+
+		if (dataValue.length === 0) {
+			return;
+		}
+
 		var d = $('#datetimepicker').datetimepicker("getValue");
 		var task = {
 			name: taskName,
@@ -23,8 +37,20 @@ var calendarModule = (function() {
 		};
 
 		_removeMessageBlock();
+
+		var endDate = moment(task.enddate);
+		var startDate = moment(task.startdate);
+		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
+
+		if (daysEnd <= 0) {
+			var modalError = document.getElementById("error");
+			modalError.textContent = "Поменяйте дату";
+			return;
+		}
+
 		_draw(task);
 	};
+
 
 	var _removeMessageBlock = function() {
 		var activeBlock = document.getElementById("activeBlock");
@@ -33,6 +59,17 @@ var calendarModule = (function() {
 		if (activeBlock) {
 			blockForMessage.removeChild(activeBlock);
 		}
+	};
+
+	var _checkIfTaskAlreadyExists = function(taskName) {
+		var taskContainer = document.getElementById("tasks");
+		var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
+		var namesList = Array.prototype.map.call(taskElements, function(element) {
+
+			return element.textContent;
+		});
+
+		return namesList.indexOf(taskName) > -1;
 	};
 
 	var _checkFillingOfChart = function() {
@@ -48,8 +85,8 @@ var calendarModule = (function() {
 
 		tr.className = "calendar__columns";
 		calendar_container.appendChild(tr);
-		taskContainer.appendChild(_getTask(task));
 		_getCalendar(tr, task);
+		taskContainer.appendChild(_getTask(task));
 	};
 
 	var _getTask = function(task) {
@@ -76,12 +113,6 @@ var calendarModule = (function() {
 		}).diff(startDate, "days");
 
 		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
-
-		if (daysEnd < 0) {
-			var modalError = document.getElementById("error");
-			modalError.textContent = "Поменяйте дату";
-			return;
-		}
 
 		if (daysStart < 0) {
 			var tdEmpty = document.createElement("td");

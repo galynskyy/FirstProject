@@ -19,28 +19,33 @@ var validateModule =  (function() {
 		if (this.value.length === 0) {
 			modalError.textContent = "Вы не ввели название задачи";
 			_colorInputBorder(inputElement, "red");
+			
 			return;
 		}
 
 		if (_checkIfTaskAlreadyExists(this.value)) {
 			modalError.textContent = "Задача с таким названием уже существует";
 			_colorInputBorder(this, "red");
+
 			return;
 		}
 
 		if (this.value.length < minLength) {
 			modalError.textContent = "Введите не менее 4 символов";
 			_colorInputBorder(this, "red");
+
 			return;
 		}
 
 		if (this.value.length > maxLength) {
 			modalError.textContent = "Введите не более 20 символов";
 			_colorInputBorder(this, "red");
+
 			return;
 		}
 
 		_colorInputBorder(this, "#acadaf");
+		modalError.textContent = "";
 	};
 
 
@@ -48,8 +53,10 @@ var validateModule =  (function() {
 		if (this.value.length === 0) {
 			modalError.textContent = "Вы не выбрали дату";
 			_colorInputBorder(inputData, "red");
+
 			return;
 		}
+		modalError.textContent = "";
 	};
 
 	var _colorInputBorder = function(input, color) {
