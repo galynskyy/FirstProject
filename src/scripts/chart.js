@@ -6,13 +6,13 @@ var checkboxes = document.querySelectorAll(".goal-checkbox");
  * @name chartModule
  */
 
-var chartModule = (function () {
+var chartModule = (function() {
 
 	/**
 	 * Функция модуля
 	 * @memberOf chartModule
 	 */
-	var _init = function () {
+	var _init = function() {
 		_eventListeners();
 		_initChart();
 	};
@@ -21,18 +21,17 @@ var chartModule = (function () {
 	 * Добавление обработчика события
 	 * @memberof chartModule
 	 */
-	var _eventListeners = function () {
+	var _eventListeners = function() {
 		for (var checkbox of checkboxes) {
 			checkbox.addEventListener("click", _initChart);
-		}
-		;
+		};
 	};
 
 	/**
 	 * Отрисовка диаграммы на странице
 	 * @memberof chartModule
 	 */
-	var _initChart = function () {
+	var _initChart = function() {
 		var circle = document.querySelector(".goal-chart__active");
 		var checkboxesAll = document.querySelectorAll(".goal-checkbox").length;
 		var checkboxesChecked = document.querySelectorAll(".goal-checkbox:checked").length;

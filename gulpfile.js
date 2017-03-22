@@ -9,6 +9,7 @@ var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
 var handlebars = require("gulp-compile-handlebars");
 var jsdoc = require('gulp-jsdoc3');
+var userContext = require('./src/data.json');
 
 gulp.task("styles", function() {
 	var processors = [
@@ -30,7 +31,7 @@ gulp.task("fonts", function() {
 
 gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
-    	.pipe(concat("min.js"))
+    	.pipe(concat("script.min.js"))
 		.pipe(gulp.dest("public/scripts"));
 });
 
@@ -41,11 +42,36 @@ gulp.task("html", function() {
 
 gulp.task("handlebars", function() {
     var options = {
-        batch : ["src/partials"]
+        batch : ["src/partials"],
+	    helpers: {
+            "list": function(context, options) {
+	            var elem = "<ul class='goal-task'>";
+
+	            for (var i = 0, j = context.length; i < j; i++) {
+	            	elem = elem + "<li class='goal-task__item'>" + options.fn(context[i]) + "</li>";
+	            }
+
+	            return elem + "</ul>";
+
+            },
+            "checked": function(currentValue) {
+                return currentValue ? ' checked="checked"' : '';
+            },
+
+            "listDays": function(context, options) {
+                var elem = "<div class='calendar__days'>";
+
+                for (var i = 0; i < context.length; i++) {
+                    elem = elem + "<div class='calendar__day'>" + options.fn(context[i]) + "</div>"
+                }
+
+                return elem + "</div>";
+            }
+	    }
     };
  
     return gulp.src("src/index.hbs")
-        .pipe(handlebars({}, options))
+        .pipe(handlebars(userContext, options))
         .pipe(rename("index.html"))
         .pipe(gulp.dest("public"));
 });
@@ -77,9 +103,11 @@ gulp.task("doc", function(cb) {
         .pipe(jsdoc(cb));
 });
 
-gulp.task("watch", ["browser-sync", "styles"], function() {
+gulp.task("watch", ["browser-sync", "styles", "handlebars"], function() {
+    gulp.watch("src/partials/*.hbs", ["handlebars"]);
 	gulp.watch("src/styles/**/*.css", ["styles"]);
-	gulp.watch("src/*.html", browserSync.reload);
+    gulp.watch("src/data.json", browserSync.reload);
+    gulp.watch("src/*.html", browserSync.reload);
 	gulp.watch("src/scripts/**/*.js", browserSync.reload);
 });
 
