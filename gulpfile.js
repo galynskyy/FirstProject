@@ -3,40 +3,50 @@ var browserSync = require("browser-sync");
 var concat = require("gulp-concat");
 var cssnano = require("cssnano");
 var rename = require("gulp-rename");
-var del	= require("del");
+var del = require("del");
 var autoprefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
 var handlebars = require("gulp-compile-handlebars");
 var jsdoc = require('gulp-jsdoc3');
 
+
 gulp.task("styles", function() {
-	var processors = [
-		autoprefixer({
-			browsers: ["last 3 version"]
-		}),
-		cssnano()
-	];
-	return gulp.src("src/styles/**/*.css")
-		.pipe(postcss(processors))
-		.pipe(concat("build.min.css"))
-		.pipe(gulp.dest("public/styles"));
+    var processors = [
+        autoprefixer({
+            browsers: ["last 3 version"]
+        }),
+        cssnano()
+    ];
+    return gulp.src("src/styles/**/*.css")
+        .pipe(postcss(processors))
+        .pipe(concat("build.min.css"))
+        .pipe(gulp.dest("public/styles"))
+        .pipe(browserSync.reload({
+            stream: true
+        }));
 });
 
 gulp.task("fonts", function() {
-	return gulp.src("src/fonts/**/*")
-	    .pipe(gulp.dest("public/fonts"));
+    return gulp.src("src/fonts/**/*")
+        .pipe(gulp.dest("public/fonts"));
 });
 
 gulp.task("js", function() {
     return gulp.src("src/scripts/**/*")
-    	.pipe(concat("min.js"))
-		.pipe(gulp.dest("public/scripts"));
+        .pipe(concat("build.js"))
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+        .pipe(gulp.dest("public/scripts"));
 });
 
 gulp.task("html", function() {
-	return gulp.src("src/*.html")
-		.pipe(gulp.dest("public"));
+    return gulp.src("src/*.html")
+        .pipe(browserSync.reload({
+            stream: true
+        }))
+        .pipe(gulp.dest("public"));
 });
 
 gulp.task("handlebars", function() {
@@ -51,18 +61,18 @@ gulp.task("handlebars", function() {
 });
 
 gulp.task("img", function() {
-	return gulp.src("src/assets/icons/*")
-		.pipe(imagemin())
-		.pipe(gulp.dest("public/assets/icons"));
+    return gulp.src("src/assets/icons/*")
+        .pipe(imagemin())
+        .pipe(gulp.dest("public/assets/icons"));
 });
 
 gulp.task("browser-sync", function() {
-	browserSync({
-		server: {
-			baseDir: "public"
-		},
-		notify: false
-	});
+    browserSync({
+        server: {
+            baseDir: "public"
+        },
+        notify: false
+    });
 });
 
 gulp.task("clean", function() {
