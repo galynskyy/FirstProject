@@ -1,25 +1,29 @@
 var inputElement = document.getElementById("input-form");
-var modalError = document.getElementById('error');
+var inputData = document.getElementById("datetimepicker");
+
+var modalError = document.getElementById("error");
 var minLength = 4;
 var maxLength = 20;
 
 var validateModule =  (function() {
 	var _init = function() {
-		_eventListener();
+		_eventListeners();
 	};
 
-	var _eventListener = function() {
-		inputElement.addEventListener('blur', _onInputBlur);
+	var _eventListeners = function() {
+		inputElement.addEventListener("blur", _onInputBlur);
+		inputData.addEventListener("blur", _onInputDataBlur)
 	};
-
 
 	var _onInputBlur = function() {
 		if (this.value.length === 0) {
+			modalError.textContent = "Вы не ввели название задачи";
 			_colorInputBorder(inputElement, "red");
 			return;
 		}
 
 		if (_checkIfTaskAlreadyExists(this.value)) {
+			modalError.textContent = "Задача с таким названием уже существует";
 			_colorInputBorder(this, "red");
 			return;
 		}
@@ -39,6 +43,18 @@ var validateModule =  (function() {
 		_colorInputBorder(this, "#acadaf");
 	};
 
+
+	var _onInputDataBlur = function() {
+		if (this.value.length === 0) {
+			modalError.textContent = "Вы не выбрали дату";
+			_colorInputBorder(inputData, "red");
+			return;
+		}
+
+
+
+	};
+
 	var _colorInputBorder = function(input, color) {
 		input.style.border = `1px solid ${color}`;
 	};
@@ -53,6 +69,8 @@ var validateModule =  (function() {
 
 		return namesList.indexOf(taskName) > -1;
 	};
+
+
 
 	return {
 		init: _init

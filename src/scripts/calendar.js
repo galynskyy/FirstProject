@@ -14,13 +14,6 @@ var calendarModule = (function() {
 
 	var _addOnCLick = function addOnCLick() {
 		var taskName = document.getElementById("input-form").value.trim();
-
-
-		// if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
-		// 	alert("Задача с таким названием уже существует или поле пустое");
-		// 	return;
-		// }
-
 		var d = $('#datetimepicker').datetimepicker("getValue");
 		var task = {
 			name: taskName,
