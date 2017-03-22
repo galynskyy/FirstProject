@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="styles/build.min.css" rel="stylesheet">
+		<title>FirstProject / Index</title>
+	</head>
+	<body>
+		<div class="fixed-wrap fixed-wrap__modal">
+			<div class="modal">
+				<div class="modal-container">
+					<button class="modal__btn_close" id="close"></button>
+					<div class="move-container"></div>
+					<input class="modal__input" required="required" type="text" id="input-form"
+						   placeholder="Введите название цели">
+					<button class="modal__btn" type="submit" id="add">Поставить задачу</button>
+					<div class="modal__error" id="error"></div>
+					<div class="wrapper-calendar">
+						<p class="calendar__deadline">Крайний срок</p>
+						<input type="text" id="datetimepicker">
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wrapper">
+			{{> user}}
+			{{> calendar}}
+			{{> goal}}
+		</div>
+		<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+		<script src="scripts/build.js"></script>
+		<script>
+		    $(function () {
+		        $("#datetimepicker").datetimepicker({
+		            format: 'd.m.Y H:i',
+		            lang: 'ru'
+		        });
+		    });
+		</script>
+	</body>
+</html>
