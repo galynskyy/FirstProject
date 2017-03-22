@@ -2,3 +2,6 @@
 .idea/
 node_modules/
 .DS_Store
+public/
+gulpfile.js.*
+docs/

@@ -1,0 +1,27 @@
+<div class="tasks-calendar">
+	<ul class="tasks-list">
+		<li class="tasks-list__item">
+			<a class="tasks-list__title _gray" href="#">
+				<span class="tasks-list__text">Задачи</span>
+				<span class="tasks-list__btn"></span>
+			</a>
+		</li>
+		{{#each tasks}}
+		<li class="tasks-list__item">
+			<a class="tasks-list__title" href="#">
+				<span class="tasks-list__text">{{task}}</span>
+			</a>
+		</li>
+		{{/each}}
+	</ul>
+	<div class="calendar">
+		<div class="calendar__year">
+			<div class="calendar__year-month">Декабрь 2016</div>
+			<div class="calendar__year-month">Январь 2017</div>
+		</div>
+		{{#listDays days}}
+			<div class="calendar__date">{{this}}</div>
+			<div class="calendar__inner"></div>
+		{{/listDays}}
+	</div>
+</div>

@@ -9,6 +9,10 @@ html, body {
 	padding: 110px 135px;
 }
 
+.user {
+	margin: 0 0 40px 0;
+}
+
 .goal-header__title {
 	font: bold 18px "Lato-Black", sans-serif;
 }
@@ -87,8 +91,8 @@ html, body {
 
 .goal-chart__active {
   	fill: transparent;
-  	stroke-dasharray: 502;
-  	stroke-dashoffset: 502;
+  	stroke-dasharray: 502.655;
+  	stroke-dashoffset: 502.655;
   	stroke-width: 16;
   	stroke: #33b800;
 }
@@ -149,7 +153,7 @@ html, body {
 	left: 50%;
 	max-width: 460px;
 	min-height: 230px;
-	transform: translate(-50%, -50%); 
+	transform: translate(-50%, -50%);
 	background: #f4f4f4;
 }
 
@@ -263,7 +267,7 @@ html, body {
 	opacity: .8;
 }
 
-.social { 
+.social {
 	list-style: none;
 	font-size: 0;
 	padding: 0;
@@ -359,6 +363,7 @@ html, body {
 	border-radius: 5px;
 	color: #fff;
 	text-transform: uppercase;
+	outline: none;
 }
 
 .tasks__item._color_blue {
@@ -380,7 +385,7 @@ html, body {
 	background: #ff6762;
 	text-align: center;
 	padding: 5px 0 0;
-	color: #fff;f
+	color: #fff;
 }
 
 .tasks__item._color_gray {
@@ -410,9 +415,6 @@ html, body {
 	font: 14px "Roboto-Regular";
 	color: #90a7b2;
 }
-
-
-/* Tasks-calendar Style begin */
 
 .tasks-calendar {
 	width: 1180px;
@@ -572,11 +574,11 @@ html, body {
 .calendar::-webkit-scrollbar {
     width: 15px;
 }
- 
+
 .calendar::-webkit-scrollbar-track {
     background: #eef2f4;
 }
- 
+
 .calendar::-webkit-scrollbar-thumb {
 	background: #d4d8da;
 }
@@ -589,11 +591,11 @@ html, body {
 }
 
 .calendar::-webkit-scrollbar-button:end:increment {
-	background: #eef2f4 url('../assets/images/scrollbar-arrow_right.png') center no-repeat;
+	background: #eef2f4 url('../assets/icons/scrollbar-arrow_right.png') center no-repeat;
 }
 
 .calendar::-webkit-scrollbar-button:start:decrement {
-	background: #eef2f4 url('../assets/images/scrollbar-arrow_left.png') center no-repeat;
+	background: #eef2f4 url('../assets/icons/scrollbar-arrow_left.png') center no-repeat;
 }
 
 .calendar__inner {
@@ -631,6 +633,7 @@ html, body {
 	display: block;
 	height: 20px;
 	border-top: 1px solid #eef2f4;
+	border-right: 4px solid #ff6762;
 	border-bottom: 1px solid #eef2f4;
 	box-sizing: border-box;
 	z-index: 10;
@@ -641,8 +644,8 @@ html, body {
 	width: 250px;
 }
 
-.calendar__progress._done:before, 
-.calendar__progress._delay:before, 
+.calendar__progress._done:before,
+.calendar__progress._delay:before,
 .calendar__progress._proc:before {
 	content: '';
 	position: absolute;
@@ -651,7 +654,6 @@ html, body {
 	display: block;
 	height: 100%;
 	background: #3bc8f5;
-	border-right: 4px solid #ff6762;
 	box-sizing: border-box;
 }
 
@@ -672,11 +674,12 @@ html, body {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: 100%;
+	left: calc(100% + 4px);
 	display: block;
 	width: 150px;
 	height: 100%;
 	background: #fbadaa;
+	z-index: 2;
 }
 
 .calendar__progress._proc {
@@ -687,8 +690,6 @@ html, body {
 .calendar__progress._proc:before {
 	width: 70%;
 }
-
-/* Tasks-calendar Style END */
 
 @media screen and (max-device-width: 768px) {
 	.auth {
@@ -722,7 +723,7 @@ html, body {
 	.social__image {
 		max-height: 70px;
 	}
-	
+
 	.auth__action {
 		margin: 0 0 15px;
 	}
