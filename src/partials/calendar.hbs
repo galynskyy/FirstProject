@@ -1,13 +1,22 @@
 <div class="tasks">
 	<button class="tasks__btn" type="submit">+ добавить задачу</button>
-	<div class="tasks__item_link">
-		<a class="tasks__item _color_blue" href="#">3</a>
-		<a class="tasks__item _link_blue" href="#">Действующих</a>
-		<a class="tasks__item _color_red" href="#">1</a>
-		<a class="tasks__item _link_red" href="#">Просроченных</a>
-		<a class="tasks__item _color_gray" href="#">3</a>
-		<a class="tasks__item _link_gray" href="#">Выполненых</a>
-	</div>
+	<ul class="tasks-type__list">
+		<li class="tasks-type__item">
+			<label class="tasks-type__label _active">
+				<span class="tasks-badge _active">3</span> Действующих
+			</label>
+		</li>
+		<li class="tasks-type__item">
+			<label class="tasks-type__label _overdue">
+				<span class="tasks-badge _overdue">1</span> Просроченных
+			</label>
+		</li>
+		<li class="tasks-type__item">
+			<label class="tasks-type__label _done">
+				<span class="tasks-badge _done">3</span> Выполненых
+			</label>
+		</li>
+	</ul>
 </div>
 </div>
 <div class="tasks-calendar">

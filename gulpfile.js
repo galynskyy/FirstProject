@@ -90,7 +90,7 @@ gulp.task("doc", function(cb) {
 gulp.task("watch", ["browser-sync", "styles"], function() {
 	gulp.watch("src/styles/**/*.css", ["styles"]);
 	gulp.watch("src/partials/**/*.hbs", ["handlebars"]);
-	gulp.watch("src/scripts/**/*.js", browserSync.reload);
+	gulp.watch("src/scripts/**/*.js", ["js"]);
 });
 
 gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "img", "doc"], function() {

@@ -869,6 +869,7 @@ html, body {
 }
 
 .mobile-tasks__list {
+	display: none;
 	list-style: none;
 	margin: 0;
 	padding: 20px;
@@ -915,6 +916,37 @@ html, body {
 	margin: 0;
 }
 
+.tasks-type__list {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+}
+
+.tasks-type__item {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+
+.tasks-type__item:last-child {
+	margin: 0;
+}
+
+.tasks-type__label {
+	font: 14px "Lato-Regular", sans-serif;
+}
+
+.tasks-type__label._active {
+	color: #3bc8f5;
+}
+
+.tasks-type__label._overdue {
+	color: #ff6762;
+}
+
+.tasks-type__label._done {
+	color: #90a7b2;
+}
+
 @media screen and (max-device-width: 768px) {
 	.auth {
 		min-width: 300px;
@@ -944,12 +976,16 @@ html, body {
 	}
 
 	.user {
-		margin: 20px 0 40px;
+		margin: 20px 0 10px;
 		text-align: center;
 	}
 
 	.tasks {
 		min-width: 300px;
+	}
+
+	.tasks-calendar {
+		display: none;
 	}
 
 	.tasks-type__item {
@@ -963,6 +999,16 @@ html, body {
 	}
 
 	.goal-indicators {
+		display: inline-block;
+		text-align: center;
+	}
+
+	.goal-indicators__item {
+		display: flex;
+		margin: 0 0 10px;
+	}
+
+	.goal-info {
 		text-align: center;
 	}
 
@@ -996,5 +1042,9 @@ html, body {
 
 	.contact-info__name {
 		text-align: left;
+	}
+
+	.mobile-tasks__list {
+		display: block;
 	}
 }

@@ -33,7 +33,7 @@ var calendarModule = (function() {
 			name: taskName,
 			enddate: d,
 			isDataPassed: false,
-			isDone: false
+			status: "active"
 		};
 
 		_removeMessageBlock();
@@ -82,11 +82,14 @@ var calendarModule = (function() {
 		var taskContainer = document.getElementById("tasks");
 		var calendar_container = document.getElementById("task-table");
 		var tr = document.createElement("tr");
+		var mobileContainer = document.querySelector(".mobile-tasks__list");
 
 		tr.className = "calendar__columns";
 		calendar_container.appendChild(tr);
 		_getCalendar(tr, task);
 		taskContainer.appendChild(_getTask(task));
+
+		mobileContainer.appendChild(_getTaskMobile(task));
 	};
 
 	var _getTask = function(task) {
@@ -96,6 +99,21 @@ var calendarModule = (function() {
 		newTask.querySelector('.tasks-list__text').textContent = task.name;
 
 		return newTask;
+	};
+
+	var _getTaskMobile = function(task) {
+		var tMobile = document.getElementById('mobileTasks');
+		var tMobileContainer = 'content' in tMobile ? tMobile.content : tMobile;
+		var newTaskMobile = tMobileContainer.querySelector('.mobile-tasks__item').cloneNode(true);
+
+		newTaskMobile.querySelector('.mobile-task__text._name').textContent = task.name;
+		newTaskMobile.querySelector('.mobile-task__text._status').textContent = task.status === "active" ? "Ждет выполнения" : "Выполнена";
+		var endDate = moment(task.enddate);
+		newTaskMobile.querySelector('.mobile-task__text._date').textContent = endDate.format("DD.MM.YY HH:mm:ss");
+		newTaskMobile.querySelector('.mobile-task__text._time').textContent = task.time;
+		newTaskMobile.querySelector('.mobile-task__text._author').textContent = document.querySelector(".contact-info__item._fio").textContent;
+
+		return newTaskMobile;
 	};
 
 	var _getCalendar = function(tr, task) {
@@ -126,7 +144,7 @@ var calendarModule = (function() {
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
 
-		(task.isDone || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
+		(task.status === "active" || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 
 		div.appendChild(span);
 		divInner.appendChild(div);
@@ -143,14 +161,14 @@ btn && calendarModule.init({
 	tasks: [
 		{
 			name: "Лендинг для корпоратива",
-			enddate: moment("2017-03-26").toString(),
-			isDone: false,
+			enddate: moment("2017-03-26 16:00:00").toString(),
+			status: "inactive",
 			startdate: moment("2017-03-11").toString()
 		},
 		{
 			name: "Креатив на афишу",
-			enddate: moment("2017-03-27").toString(),
-			isDone: true,
+			enddate: moment("2017-03-27 17:00:00").toString(),
+			status: "active",
 			startdate: moment("2017-03-10").toString()
 		}
 	]
