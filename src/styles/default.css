@@ -538,6 +538,17 @@ html, body {
 	font-size: 0;
 }
 
+.tasks-tittle {
+	display: inline-block;
+	min-width: 250px;
+	padding: 35px 0 15px 0;
+	border-right: 3px solid #eef2f4;
+	box-sizing: border-box;
+	vertical-align: top;
+	font-size: 0;
+
+}
+
 .tasks-list {
 	display: inline-block;
 	min-width: 250px;

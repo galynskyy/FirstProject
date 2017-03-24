@@ -1,11 +1,34 @@
 var btn = document.getElementById("add");
+var taskContainer = document.getElementById("tasks");
+var templateElement = document.getElementById('taskTemplate');
+var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
+var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
+var percent = document.querySelector(".goal-chart__percent");
+var calendar_container = document.getElementById("task-table");
+
+var templateTittle = document.getElementById('tittle');
+var templateTittleContainer = 'content' in templateTittle ? templateTittle.content : templateTittle;
+
+var tasks = [
+	{
+		name: "Лендинг для корпоратива",
+		status: 'todo',
+		enddate: moment("2017-03-26").toString(),
+		startdate: moment("2017-03-11").toString()
+	},
+	{
+		name: "Креатив на афишу",
+		status: 'done',
+		enddate: moment("2017-03-27").toString(),
+		startdate: moment("2017-03-10").toString()
+
+	}
+];
 
 var calendarModule = (function() {
 	var _init = function(config) {
 		_eventListener();
-		if (config && config.tasks) {
-			config.tasks.forEach(_draw);
-		}
+		_renderList(tasks);
 	};
 
 	var _eventListener = function() {
@@ -29,14 +52,11 @@ var calendarModule = (function() {
 		}
 
 		var d = $('#datetimepicker').datetimepicker("getValue");
-		var task = {
-			name: taskName,
-			enddate: d,
-			isDataPassed: false,
-			isDone: false
-		};
+		var task = _createNewTodo(taskName, d);
+
 
 		_removeMessageBlock();
+
 
 		var endDate = moment(task.enddate);
 		var startDate = moment(task.startdate);
@@ -48,9 +68,19 @@ var calendarModule = (function() {
 			return;
 		}
 
-		_draw(task);
+
+		tasks.push(task);
+		_renderList(tasks);
+		// _getStatistics();
 	};
 
+	var _createNewTodo = function(taskName, d) {
+		return {
+				name: taskName,
+				enddate: d,
+				status: 'todo'
+		}
+	};
 
 	var _removeMessageBlock = function() {
 		var activeBlock = document.getElementById("activeBlock");
@@ -62,8 +92,6 @@ var calendarModule = (function() {
 	};
 
 	var _checkIfTaskAlreadyExists = function(taskName) {
-		var taskContainer = document.getElementById("tasks");
-		var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
 		var namesList = Array.prototype.map.call(taskElements, function(element) {
 
 			return element.textContent;
@@ -73,25 +101,36 @@ var calendarModule = (function() {
 	};
 
 	var _checkFillingOfChart = function() {
-		var percent = document.querySelector(".goal-chart__percent");
 
 		return percent.textContent === "100%";
 	};
 
-	var _draw = function(task) {
-		var taskContainer = document.getElementById("tasks");
-		var calendar_container = document.getElementById("task-table");
-		var tr = document.createElement("tr");
+	var _getTittle = function() {
+		var taskTittle = templateTittleContainer.querySelector('.tasks-list__item').cloneNode(true);
 
-		tr.className = "calendar__columns";
-		calendar_container.appendChild(tr);
-		_getCalendar(tr, task);
-		taskContainer.appendChild(_getTask(task));
+		return taskTittle;
+	};
+
+	var _renderList = function(list) {
+		taskContainer.innerHTML = '';
+		taskContainer.appendChild(_getTittle());
+
+		list.map(_getTask).forEach(_insertTodoElement);
+	};
+
+	var _insertTodoElement = function(elem) {
+		taskContainer.appendChild(elem);
 	};
 
 	var _getTask = function(task) {
-		var templateElement = document.getElementById('taskTemplate');
-		var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
+
+		var tr = document.createElement("tr");
+		tr.innerHTML = '';
+		tr.className = "calendar__columns";
+		calendar_container.appendChild(tr);
+
+		_getCalendar(tr, task);
+
 		var newTask = templateContainer.querySelector('.tasks-list__item').cloneNode(true);
 		newTask.querySelector('.tasks-list__text').textContent = task.name;
 
@@ -126,7 +165,7 @@ var calendarModule = (function() {
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
 
-		(task.isDone || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
+		(task.status === 'done' || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 
 		div.appendChild(span);
 		divInner.appendChild(div);
@@ -139,19 +178,4 @@ var calendarModule = (function() {
 	};
 })();
 
-btn && calendarModule.init({
-	tasks: [
-		{
-			name: "Лендинг для корпоратива",
-			enddate: moment("2017-03-26").toString(),
-			isDone: false,
-			startdate: moment("2017-03-11").toString()
-		},
-		{
-			name: "Креатив на афишу",
-			enddate: moment("2017-03-27").toString(),
-			isDone: true,
-			startdate: moment("2017-03-10").toString()
-		}
-	]
-});
+btn && calendarModule.init();

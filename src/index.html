@@ -69,12 +69,14 @@
 	</div>
 	<div class="tasks-calendar">
 		<ul class="tasks-list" id="tasks">
-			<li class="tasks-list__item">
-				<a class="tasks-list__title _gray" href="#">
-					<span class="tasks-list__text">Задачи</span>
-					<span class="tasks-list__btn"></span>
-				</a>
-			</li>
+			<template id="tittle" style="display: none">
+				<li class="tasks-list__item">
+					<a class="tasks-list__title _gray" href="#">
+						<span class="tasks-list__text">Задачи</span>
+						<span class="tasks-list__btn"></span>s"
+					</a>
+				</li>
+			</template>
 			<template id="taskTemplate" style="display: none">
 				<li class="tasks-list__item">
 					<a class="tasks-list__title" href="#">
