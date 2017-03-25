@@ -128,6 +128,63 @@ html, body {
 	font: bold 18px "Lato-Black", sans-serif;
 }
 
+.tasks-type__list {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+}
+
+.tasks-type__item {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+
+.tasks-type__item:last-child {
+	margin: 0;
+}
+
+.tasks-type__label {
+	font: 14px "Lato-Regular", sans-serif;
+}
+
+.tasks-type__label._active {
+	color: #3bc8f5;
+}
+
+.tasks-type__label._overdue {
+	color: #ff6762;
+}
+
+.tasks-type__label._done {
+	color: #90a7b2;
+}
+
+.tasks-badge {
+ 	display: inline-block;
+ 	margin: 0 5px 0 0;
+  	min-width: 12px;
+  	padding: 2px 10px;
+  	font: bold 14px "Lato-Regular", sans-serif;
+  	line-height: 2;
+  	color: #fff;
+  	text-align: center;
+  	white-space: nowrap;
+  	vertical-align: middle;
+  	border-radius: 30px;
+}
+
+.tasks-badge._active {
+	background: #3bc8f5;
+}
+
+.tasks-badge._overdue {
+	background: #ff6762;
+}
+
+.tasks-badge._done {
+	background: #90a7b2;
+}
+
 .goal-indicators {
 	list-style: none;
 	padding: 0;
@@ -169,11 +226,11 @@ html, body {
 }
 
 .goal-badge._active {
-	background-color: #4ac241;
+	background: #4ac241;
 }
 
 .goal-badge._complete {
-	background-color: #90a7b2;
+	background: #90a7b2;
 }
 
 .goal-progress {
@@ -202,8 +259,8 @@ html, body {
 
 .goal-chart__active {
   	fill: transparent;
-  	stroke-dasharray: 502;
-  	stroke-dashoffset: 502;
+  	stroke-dasharray: 502.655;
+  	stroke-dashoffset: 502.655;
   	stroke-width: 16;
   	stroke: #33b800;
 }
@@ -427,6 +484,10 @@ html, body {
 	min-width: 640px;
 }
 
+.contact-info__item._bold {
+	font: bold 16px "Lato-Regular", sans-serif;
+}
+
 .contact-info__name {
 	vertical-align: top;
 }
@@ -440,18 +501,18 @@ html, body {
 }
 
 .contact-info__item._fio {
-	font: 16px "Roboto-Regular";
+	font: bold 16px "Lato-Regular";
 	margin: 0 0 10px;
 }
 
 .contact-info__item {
-	font: 12px "Roboto-Regular";
+	font: 12px "Lato-Regular";
 	margin: 0 0 5px 0;
 }
 
 .contact-info__item._color_gray {
 	color: #d0d3d0;
-	font: 14px "Roboto-Regular";
+	font: 14px "Lato-Regular";
 }
 
 .tasks {
@@ -530,7 +591,7 @@ html, body {
 .tasks-calendar {
 	position: relative;
 	width: 1180px;
-	margin: 0 0 10px;
+	margin: 0 0 60px;
 	background: #fff;
 	box-sizing: border-box;
 	border: solid #eef2f4;
@@ -818,6 +879,85 @@ html, body {
 	font-size: 20px;
 }
 
+.mobile-tasks__list {
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 20px;
+	font-size: 0;
+	background: #c3c9cd;
+}
+
+.mobile-tasks__item {
+	margin: 0 0 10px;
+}
+
+.mobile-tasks__item:last-child {
+	margin: 0;
+}
+
+.mobile-task__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+}
+
+.mobile-task__item {
+	background: #fff;
+	padding: 0;
+	margin: 0 auto;
+	max-width: 300px;
+	min-height: 40px;
+	border-bottom: 2px solid #dce3e7;
+}
+
+.mobile-task__item._name,
+.mobile-task__item._more {
+	background: #eef2f4;
+}
+
+.mobile-task__item:last-child {
+	border-bottom: 0;
+}
+
+.mobile-task__item p {
+	font: 14px "Roboto-Regular";
+	padding: 0;
+	margin: 0;
+}
+
+.tasks-type__list {
+	display: inline-block;
+	list-style: none;
+	padding: 0;
+}
+
+.tasks-type__item {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+
+.tasks-type__item:last-child {
+	margin: 0;
+}
+
+.tasks-type__label {
+	font: 14px "Lato-Regular", sans-serif;
+}
+
+.tasks-type__label._active {
+	color: #3bc8f5;
+}
+
+.tasks-type__label._overdue {
+	color: #ff6762;
+}
+
+.tasks-type__label._done {
+	color: #90a7b2;
+}
+
 @media screen and (max-device-width: 768px) {
 	.auth {
 		min-width: 300px;
@@ -825,10 +965,66 @@ html, body {
 
 	.wrapper {
 		min-width: 300px;
+		padding: 0;
+	}
+
+	.contact-info {
+		min-width: 300px;
+		margin: 0 0 20px;
+	}
+
+	.tasks-calendar {
+		min-width: 300px;
+		background: #c3c9cd;
+	}
+
+	.tasks-list__item:first-child {
+		display: none;
+	}
+
+	.calendar {
+		display: none;
+	}
+
+	.user {
+		margin: 20px 0 10px;
+		text-align: center;
+	}
+
+	.tasks {
+		min-width: 300px;
+	}
+
+	.tasks-calendar {
+		display: none;
+	}
+
+	.tasks-type__item {
+		display: flex;
+		margin: 0 0 10px;
+	}
+
+	.tasks__btn {
+		display: block;
+		margin: 0 auto;
 	}
 
 	.goal-indicators {
+		display: inline-block;
 		text-align: center;
+	}
+
+	.goal-indicators__item {
+		display: flex;
+		margin: 0 0 10px;
+	}
+
+	.goal-info {
+		text-align: center;
+	}
+
+	.goal-task {
+		text-align: left;
 	}
 
 	.goal-detail {
@@ -853,5 +1049,13 @@ html, body {
 
 	.auth__action {
 		margin: 0 0 15px;
+	}
+
+	.contact-info__name {
+		text-align: left;
+	}
+
+	.mobile-tasks__list {
+		display: block;
 	}
 }

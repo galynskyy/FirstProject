@@ -1,10 +1,27 @@
 var checkboxes = document.querySelectorAll(".goal-checkbox");
 
-var chartModule = (function() {
+/**
+ * Модель прогресс-диаграммы
+ * @constructor
+ * @name chartModule
+ */
+
+var chartModule = (function () {
+
+	/**
+	 	* Функция модуля
+	 	* @memberOf chartModule
+	 	*/
+
 	var _init = function() {
 		_eventListeners();
 		_initChart();
 	};
+
+	/**
+	 	* Добавление обработчика события
+	 	* @memberof chartModule
+ 	*/
 
 	var _eventListeners = function() {
 		for (var checkbox of checkboxes) {
@@ -12,7 +29,13 @@ var chartModule = (function() {
 		}
 	};
 
+	/**
+		* Отрисовка диаграммы на странице
+		* @memberof chartModule
+	*/
+
 	var _initChart = function() {
+
 		var circle = document.querySelector(".goal-chart__active");
 		var checkboxesAll = document.querySelectorAll(".goal-checkbox").length;
 		var checkboxesChecked = document.querySelectorAll(".goal-checkbox:checked").length;
@@ -26,9 +49,6 @@ var chartModule = (function() {
 
 		_getStatisticsChart(checkboxesChecked, checkboxesAll);
 		_getDoneTasks(percent.innerHTML);
-
-
-
 	};
 
 	var _getStatisticsChart = function(countChecked, countAll) {
@@ -45,9 +65,6 @@ var chartModule = (function() {
 
 			[...activeTasks].forEach(function(task) {
 				task.className = "calendar__progress _delay";
-
-				// меняю статус всех задач в массиве tasks который в calendar.js
-
 			})
 		} else {
 			var closeTasks = document.querySelectorAll(".calendar__progress._delay");
@@ -61,11 +78,11 @@ var chartModule = (function() {
 	};
 
 	var _getCalendarStatistic = function() {
-		var st = document.querySelector('.tasks__item_link');
+		var st = document.querySelector('.tasks-type__list');
 		var statistics = {
-			proc: st.querySelector('.tasks__item._color_red'),
-			done: st.querySelector('.tasks__item._color_gray'),
-			todo: st.querySelector('.tasks__item._color_blue'),
+			proc: st.querySelector('.tasks-badge._overdue'),
+			done: st.querySelector('.tasks-badge._done'),
+			todo: st.querySelector('.tasks-badge._active'),
 		};
 
 		var doneTasks = document.querySelectorAll(".calendar__progress._delay");

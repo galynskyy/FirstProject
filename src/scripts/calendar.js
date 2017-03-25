@@ -12,6 +12,10 @@ var templateTittleContainer = "content" in templateTittle ? templateTittle.conte
 var templateDays = document.getElementById("days");
 var templateDaysContainer = "content" in templateDays ? templateDays.content : templateDays;
 
+var mobileContainer = document.querySelector(".mobile-tasks__list");
+var tMobile = document.getElementById('mobileTasks');
+var tMobileContainer = 'content' in tMobile ? tMobile.content : tMobile;
+
 
 var tasks = [
 	{
@@ -58,6 +62,7 @@ var calendarModule = (function() {
 		}
 
 		var d = $('#datetimepicker').datetimepicker("getValue");
+
 		var task = _createNewTodo(taskName, d);
 
 		_removeMessageBlock();
@@ -108,7 +113,7 @@ var calendarModule = (function() {
 
 		return percent.textContent === "100%";
 	};
-
+	
 	var _getTittle = function() {
 		var taskTittle = templateTittleContainer
 			.querySelector(".tasks-list__item")
@@ -129,22 +134,35 @@ var calendarModule = (function() {
 		taskContainer.innerHTML = "";
 		calendar_container.innerHTML = "";
 
+		// var result = parent.contains(child);
+		// element.children.length > 0
+
+		// if (mobileContainer.children.length > 0) {
+		// 	mobileContainer.innerHTML = "";
+		// }
+
+		mobileContainer.innerHTML = ""
+
+
+
 		taskContainer.appendChild(_getTittle());
 		calendar_container.appendChild(_getDays());
 
 		list.map(_getTask).forEach(_insertTodoElement);
+		list.map(_getTaskMobile).forEach(_insertTodoMobileElement);
 	};
 
-	// var _getDays = function() {
-	//
-	// };
+
 
 	var _insertTodoElement = function(elem) {
 		taskContainer.appendChild(elem);
 	};
 
-	var _getTask = function(task) {
+	var _insertTodoMobileElement = function(elem) {
+		mobileContainer.appendChild(elem);
+	};
 
+	var _getTask = function(task) {
 		var tr = document.createElement("tr");
 		tr.innerHTML = "";
 		tr.className = "calendar__columns";
@@ -156,6 +174,20 @@ var calendarModule = (function() {
 		newTask.querySelector(".tasks-list__text").textContent = task.name;
 
 		return newTask;
+	};
+
+	var _getTaskMobile = function(task) {
+
+		var newTaskMobile = tMobileContainer.querySelector('.mobile-tasks__item').cloneNode(true);
+
+		newTaskMobile.querySelector('.mobile-task__text._name').textContent = task.name;
+		newTaskMobile.querySelector('.mobile-task__text._status').textContent = task.status === "todo" ? "Ждет выполнения" : "Выполнена";
+		var endDate = moment(task.enddate);
+		newTaskMobile.querySelector('.mobile-task__text._date').textContent = endDate.format("DD.MM.YY HH:mm:ss");
+		newTaskMobile.querySelector('.mobile-task__text._time').textContent = task.time;
+		newTaskMobile.querySelector('.mobile-task__text._author').textContent = document.querySelector(".contact-info__item._fio").textContent;
+
+		return newTaskMobile;
 	};
 
 	var _getCalendar = function(tr, task) {
@@ -189,20 +221,39 @@ var calendarModule = (function() {
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
 
-		(task.status === "done" || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 
+		(task.status === "done" || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 		div.appendChild(span);
 		divInner.appendChild(div);
 		td.appendChild(divInner);
 		tr.appendChild(td);
 	};
 
+
+	// <ul class="tasks-type__list">
+	// 	<li class="tasks-type__item">
+	// 	<label class="tasks-type__label _active">
+	// 	<span class="tasks-badge _active">3</span> Действующих
+	// 	</label>
+	// 	</li>
+	// 	<li class="tasks-type__item">
+	// 	<label class="tasks-type__label _overdue">
+	// 	<span class="tasks-badge _overdue">1</span> Просроченных
+	// 	</label>
+	// 	</li>
+	// 	<li class="tasks-type__item">
+	// 	<label class="tasks-type__label _done">
+	// 	<span class="tasks-badge _done">3</span> Выполненых
+	// 	</label>
+	// 	</li>
+	// 	</ul>
+
 	var _getStatistics = function() {
-		var st = document.querySelector('.tasks__item_link');
+		var st = document.querySelector('.tasks-type__list');
 		var statistics = {
-			proc: st.querySelector('.tasks__item._color_red'),
-			done: st.querySelector('.tasks__item._color_gray'),
-			todo: st.querySelector('.tasks__item._color_blue'),
+			proc: st.querySelector('.tasks-badge._overdue'),
+			done: st.querySelector('.tasks-badge._done'),
+			todo: st.querySelector('.tasks-badge._active'),
 		};
 
 		var done = tasks.filter(todo => todo.status === 'done');
