@@ -33,6 +33,7 @@ var calendarModule = (function() {
 	var _init = function(config) {
 		_eventListener();
 		_renderList(tasks);
+		_getStatistics();
 	};
 
 	var _eventListener = function() {
@@ -72,7 +73,7 @@ var calendarModule = (function() {
 
 		tasks.push(task);
 		_renderList(tasks);
-		// _getStatistics();
+		_getStatistics();
 	};
 
 	var _createNewTodo = function(taskName, d) {
@@ -192,6 +193,25 @@ var calendarModule = (function() {
 		td.appendChild(divInner);
 		tr.appendChild(td);
 	};
+
+
+	var _getStatistics = function() {
+		var st = document.querySelector('.tasks__item_link');
+		var statistics = {
+			proc: st.querySelector('.tasks__item._color_red'),
+			done: st.querySelector('.tasks__item._color_gray'),
+			todo: st.querySelector('.tasks__item._color_blue'),
+		};
+
+		var done = tasks.filter(todo => todo.status === 'done');
+		var countAll = tasks.length;
+		var countDone = done.length;
+
+		// statistics.all.textContent = countAll;
+		statistics.done.textContent = countDone;
+		statistics.todo.textContent = countAll - countDone;
+	};
+
 
 	return {
 		init: _init

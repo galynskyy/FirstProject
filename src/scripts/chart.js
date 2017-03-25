@@ -26,6 +26,7 @@ var chartModule = (function() {
 
 		_getStatistics(checkboxesChecked, checkboxesAll);
 		_getDoneTasks(percent.innerHTML);
+		_getStatisticCalendar();
 	};
 
 	var _getStatistics = function(countChecked, countAll) {
