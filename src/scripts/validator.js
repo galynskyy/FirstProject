@@ -48,7 +48,6 @@ var validateModule =  (function() {
 		modalError.textContent = "";
 	};
 
-
 	var _onInputDataBlur = function() {
 		if (this.value.length === 0) {
 			modalError.textContent = "Вы не выбрали дату";

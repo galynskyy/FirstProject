@@ -7,14 +7,14 @@ var activeTasksModule = (function() {
 	};
 
 	var _eventListeners = function() {
-		window.addEventListener('load', _initMessage);
+		window.addEventListener("load", _initMessage);
 	};
 
 	var _initMessage = function() {
-		if (taskContainer.children.length <= countTasks.length + 1) {
+		if (taskContainer.children.length <= (countTasks.length + 1)) {
 			var templateEmptyTasks = document.getElementById("emptyTaskTemplate");
 			var blockForMessage = document.querySelector(".message");
-			var containerEmptyTasks = 'content' in templateEmptyTasks ? templateEmptyTasks.content : templateEmptyTasks;
+			var containerEmptyTasks = "content" in templateEmptyTasks ? templateEmptyTasks.content : templateEmptyTasks;
 			var message = containerEmptyTasks.querySelector(".message__tasks-empty").cloneNode(true);
 
 			message.textContent = "Активных задач нет";
