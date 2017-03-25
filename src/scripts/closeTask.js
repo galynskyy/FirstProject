@@ -32,4 +32,3 @@ var removeTaskModule = (function() {
 })();
 
 taskContainer && removeTaskModule.init();
-

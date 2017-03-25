@@ -9,6 +9,10 @@ var calendar_container = document.getElementById("task-table");
 var templateTittle = document.getElementById("tittle");
 var templateTittleContainer = "content" in templateTittle ? templateTittle.content : templateTittle;
 
+var templateDays = document.getElementById("days");
+var templateDaysContainer = "content" in templateDays ? templateDays.content : templateDays;
+
+
 var tasks = [
 	{
 		name: "Лендинг для корпоратива",
@@ -111,12 +115,20 @@ var calendarModule = (function() {
 		return taskTittle;
 	};
 
+	var _getDays = function() {
+		var days = templateDaysContainer
+			.querySelector(".calendar__dates")
+			.cloneNode(true);
+
+		return days;
+	};
+
 	var _renderList = function(list) {
 		taskContainer.innerHTML = "";
 		calendar_container.innerHTML = "";
 
 		taskContainer.appendChild(_getTittle());
-		// calendar_container.appendChild(_getDays());
+		calendar_container.appendChild(_getDays());
 
 		list.map(_getTask).forEach(_insertTodoElement);
 	};
