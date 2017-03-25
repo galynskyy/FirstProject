@@ -4,7 +4,7 @@
   "description": "<b>Authors:</b>",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "ava \"src/scripts/*.test.js\"",
     "lint": "eslint src/scripts || true",
     "stylelint": "stylelint src/styles/*.css || true",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
@@ -14,6 +14,12 @@
       "precommit-msg",
       "lint",
       "stylelint"
+    ]
+  },
+  "pre-push": {
+    "run": [
+      "test",
+      "lint"
     ]
   },
   "repository": {
@@ -35,6 +41,7 @@
     "gulp-postcss": "^6.2.0"
   },
   "devDependencies": {
+    "ava": "^0.18.2",
     "cssnano": "^3.9.1",
     "del": "^2.2.2",
     "eslint": "^3.17.1",
