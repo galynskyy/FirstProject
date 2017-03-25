@@ -22,7 +22,7 @@ var tasks = [
 	},
 	{
 		name: "Креатив на афишу",
-		status: "done",
+		status: "todo",
 		enddate: moment("2017-03-27").toString(),
 		startdate: moment("2017-03-10").toString()
 
@@ -33,6 +33,7 @@ var calendarModule = (function() {
 	var _init = function(config) {
 		_eventListener();
 		_renderList(tasks);
+		_isDayProc(tasks);
 		_getStatistics();
 	};
 
@@ -173,12 +174,14 @@ var calendarModule = (function() {
 		}).diff(startDate, "days");
 
 		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
+		console.log(daysEnd);
 
 		if (daysStart < 0) {
 			var tdEmpty = document.createElement("td");
 			tr.appendChild(tdEmpty);
 			tdEmpty.colSpan = Math.abs(daysStart);
 		}
+
 
 		td.className = "calendar__day";
 		td.colSpan = daysEnd;
@@ -194,7 +197,6 @@ var calendarModule = (function() {
 		tr.appendChild(td);
 	};
 
-
 	var _getStatistics = function() {
 		var st = document.querySelector('.tasks__item_link');
 		var statistics = {
@@ -207,11 +209,31 @@ var calendarModule = (function() {
 		var countAll = tasks.length;
 		var countDone = done.length;
 
-		// statistics.all.textContent = countAll;
 		statistics.done.textContent = countDone;
 		statistics.todo.textContent = countAll - countDone;
 	};
 
+	var _isDayProc = function(tasks) {
+		var now = moment();
+		[...tasks].forEach(function(task) {
+			var endDate = moment(task.enddate);
+			var daysProc = endDate.diff(now, "days");
+
+			if (daysProc < 0) {
+				var doneTasks = document.querySelectorAll(".calendar__progress._done");
+				var delayTasks = document.querySelectorAll(".calendar__progress._delay");
+
+				[...delayTasks].forEach(function(task) {
+					task.className = "calendar__progress _proc";
+				});
+
+				[...doneTasks].forEach(function(task) {
+					task.className = "calendar__progress _proc";
+				});
+
+			}}
+		);
+	};
 
 	return {
 		init: _init

@@ -24,12 +24,14 @@ var chartModule = (function() {
 		circle.style.strokeDashoffset = circleLength - (circleLength * checkboxesChecked / checkboxesAll);
 		circle.classList.add("_transition");
 
-		_getStatistics(checkboxesChecked, checkboxesAll);
+		_getStatisticsChart(checkboxesChecked, checkboxesAll);
 		_getDoneTasks(percent.innerHTML);
-		_getStatisticCalendar();
+
+
+
 	};
 
-	var _getStatistics = function(countChecked, countAll) {
+	var _getStatisticsChart = function(countChecked, countAll) {
 		var countActiveTasks = document.querySelector(".goal-badge._active");
 		var countCompleteTasks = document.querySelector(".goal-badge._complete");
 
@@ -43,6 +45,9 @@ var chartModule = (function() {
 
 			[...activeTasks].forEach(function(task) {
 				task.className = "calendar__progress _delay";
+
+				// меняю статус всех задач в массиве tasks который в calendar.js
+
 			})
 		} else {
 			var closeTasks = document.querySelectorAll(".calendar__progress._delay");
@@ -51,6 +56,25 @@ var chartModule = (function() {
 				task.className = "calendar__progress _done";
 			})
 		}
+
+		_getCalendarStatistic();
+	};
+
+	var _getCalendarStatistic = function() {
+		var st = document.querySelector('.tasks__item_link');
+		var statistics = {
+			proc: st.querySelector('.tasks__item._color_red'),
+			done: st.querySelector('.tasks__item._color_gray'),
+			todo: st.querySelector('.tasks__item._color_blue'),
+		};
+
+		var doneTasks = document.querySelectorAll(".calendar__progress._delay");
+		var countDelay = doneTasks.length;
+		var todoTasks = document.querySelectorAll(".calendar__progress._done");
+		var countTodo = todoTasks.length;
+
+		statistics.done.textContent = countDelay;
+		statistics.todo.textContent = countTodo;
 	};
 
 	return {
