@@ -1,4 +1,5 @@
 "use strict";
+
 var btnAdd = document.getElementById("add");
 var activeBlock = document.getElementById("activeBlock");
 var blockForMessage = document.querySelector(".message");
@@ -22,26 +23,12 @@ var statistics = {
 	todo: st.querySelector('.tasks-badge._active'),
 };
 
-var tasks = [
-	{
-		name: "Лендинг для корпоратива",
-		status: "todo",
-		enddate: moment("2017-03-26").toString(),
-		startdate: moment("2017-03-11").toString()
-	},
-	{
-		name: "Креатив на афишу",
-		status: "todo",
-		enddate: moment("2017-03-27").toString(),
-		startdate: moment("2017-03-10").toString()
-
-	}
-];
+var tasks = [];
 
 var calendarModule = (function() {
 	var _init = function() {
 		_eventListeners();
-		_renderCurrentTasks(tasks);
+		_loadTasksFromStore();
 	};
 
 	var _eventListeners = function() {
@@ -110,7 +97,33 @@ var calendarModule = (function() {
 		_insertTodoMobileElement(_getTaskMobileTemplate(task));
 		inputElement.value = '';
 		tasks.push(task);
+		_saveList(tasks);
 		_renderStatistics(tasks);
+	};
+
+	var _saveList = function(tasks) {
+		var tasksStore = [];
+		tasks.forEach(item => {
+			tasksStore.push(item);
+		});
+
+		if ('localStorage' in window && window['localStorage'] !== null)  {
+			localStorage.tasksStore = JSON.stringify(tasksStore);
+		} else {
+			alert("Сохранение невозможно. Браузер не поддерживает localstorage")
+		}
+		return tasksStore;
+	};
+
+	var _loadTasksFromStore = function() {
+		if (localStorage.tasksStore) {
+			var tasksStore = JSON.parse(localStorage.tasksStore);
+		}
+		tasksStore.forEach(item => {
+			tasks.push(item);
+		});
+
+		_renderCurrentTasks(tasks);
 	};
 
 	var _getCalendarColumns = function(task) {
@@ -127,7 +140,6 @@ var calendarModule = (function() {
 	};
 
 	var _getTaskMobileTemplate = function(task) {
-
 		var newTaskMobile = tMobileContainer.querySelector('.mobile-tasks__item').cloneNode(true);
 
 		newTaskMobile.querySelector('.mobile-task__text._name').textContent = task.name;
