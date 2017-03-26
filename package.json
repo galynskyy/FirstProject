@@ -43,6 +43,7 @@
   "devDependencies": {
     "ava": "^0.18.2",
     "cssnano": "^3.9.1",
+    "cyclejs-calendar": "^0.1.2",
     "del": "^2.2.2",
     "eslint": "^3.17.1",
     "gulp": "^3.9.1",

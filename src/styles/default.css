@@ -66,6 +66,18 @@ html, body {
 	outline: none;
 }
 
+.modal-task__btn {
+	min-width: 170px;
+	min-height: 35px;
+	font: 14px "Roboto-Regular";
+	background: #f5a03b;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+
 .wrapper {
 	max-width: 1280px;
 	margin: auto;
