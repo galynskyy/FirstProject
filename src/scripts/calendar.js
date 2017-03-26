@@ -1,21 +1,26 @@
-var btn = document.getElementById("add");
+"use strict";
+var btnAdd = document.getElementById("add");
+var activeBlock = document.getElementById("activeBlock");
+var blockForMessage = document.querySelector(".message");
 var taskContainer = document.getElementById("tasks");
-var templateElement = document.getElementById("taskTemplate");
-var templateContainer = "content" in templateElement ? templateElement.content : templateElement;
-
-var percent = document.querySelector(".goal-chart__percent");
+var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
+var inputElement = document.getElementById("input-form");
 var calendar_container = document.getElementById("task-table");
+var percent = document.querySelector(".goal-chart__percent");
 
-var templateTittle = document.getElementById("tittle");
-var templateTittleContainer = "content" in templateTittle ? templateTittle.content : templateTittle;
-
-var templateDays = document.getElementById("days");
-var templateDaysContainer = "content" in templateDays ? templateDays.content : templateDays;
+var templateElement = document.getElementById('taskTemplate');
+var templateContainer = 'content' in templateElement ? templateElement.content : templateElement;
 
 var mobileContainer = document.querySelector(".mobile-tasks__list");
 var tMobile = document.getElementById('mobileTasks');
 var tMobileContainer = 'content' in tMobile ? tMobile.content : tMobile;
 
+var st = document.querySelector('.tasks-type__list');
+var statistics = {
+	proc: st.querySelector('.tasks-badge._overdue'),
+	done: st.querySelector('.tasks-badge._done'),
+	todo: st.querySelector('.tasks-badge._active'),
+};
 
 var tasks = [
 	{
@@ -34,19 +39,44 @@ var tasks = [
 ];
 
 var calendarModule = (function() {
-	var _init = function(config) {
-		_eventListener();
-		_renderList(tasks);
-		_isDayProc(tasks);
-		_getStatistics();
+	var _init = function() {
+		_eventListeners();
+		_renderCurrentTasks(tasks);
 	};
 
-	var _eventListener = function() {
-		btn.addEventListener("click", _addOnCLick);
+	var _eventListeners = function() {
+		btnAdd.addEventListener("click", _addOnClick);
+		taskContainer.addEventListener("click", _onListOfTasksClick);
 	};
 
-	var _addOnCLick = function addOnCLick() {
-		var taskName = document.getElementById("input-form").value.trim();
+	var _onListOfTasksClick = function(e) {
+		var target =  e.target;
+
+		if (_isCloseBtn(target)) {
+			var taskLi = target.parentNode.parentNode;
+			_deleteTask(taskLi);
+		}
+
+		_renderStatistics();
+	};
+
+	var _deleteTask = function(element) {
+		tasks = tasks.filter(function(item) {
+			const elem = element.querySelector('.tasks-list__text');
+
+			if (elem.textContent !== item.name) {
+				return item;
+			}
+		});
+		taskContainer.removeChild(element);
+	};
+
+	var _isCloseBtn = function(target) {
+		return target.classList.contains("tasks-list__close");
+	};
+
+	var _addOnClick = function() {
+		var taskName = inputElement.value.trim();
 		var dataValue = document.getElementById("datetimepicker").value.trim();
 
 		if (taskName.length === 0 || _checkIfTaskAlreadyExists(taskName)) {
@@ -61,12 +91,11 @@ var calendarModule = (function() {
 			return;
 		}
 
+		_removeMessageBlock();
+
 		var d = $('#datetimepicker').datetimepicker("getValue");
 
 		var task = _createNewTodo(taskName, d);
-
-		_removeMessageBlock();
-
 		var endDate = moment(task.enddate);
 		var startDate = moment(task.startdate);
 		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
@@ -77,106 +106,27 @@ var calendarModule = (function() {
 			return;
 		}
 
+		_insertTodoElement(_getTaskTemplate(task));
+		_insertTodoMobileElement(_getTaskMobileTemplate(task));
+		inputElement.value = '';
 		tasks.push(task);
-		_renderList(tasks);
-		_getStatistics();
+		_renderStatistics(tasks);
 	};
 
-	var _createNewTodo = function(taskName, d) {
-		return {
-				name: taskName,
-				enddate: d,
-				status: "todo"
-		}
-	};
-
-	var _removeMessageBlock = function() {
-		var activeBlock = document.getElementById("activeBlock");
-		var blockForMessage = document.querySelector(".message");
-
-		if (activeBlock) {
-			blockForMessage.removeChild(activeBlock);
-		}
-	};
-
-	var _checkIfTaskAlreadyExists = function(taskName) {
-		var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
-		var namesList = Array.prototype.map.call(taskElements, function(element) {
-
-			return element.textContent;
-		});
-
-		return namesList.indexOf(taskName) > -1;
-	};
-
-	var _checkFillingOfChart = function() {
-
-		return percent.textContent === "100%";
-	};
-	
-	var _getTittle = function() {
-		var taskTittle = templateTittleContainer
-			.querySelector(".tasks-list__item")
-			.cloneNode(true);
-
-		return taskTittle;
-	};
-
-	var _getDays = function() {
-		var days = templateDaysContainer
-			.querySelector(".calendar__dates")
-			.cloneNode(true);
-
-		return days;
-	};
-
-	var _renderList = function(list) {
-		taskContainer.innerHTML = "";
-		calendar_container.innerHTML = "";
-
-		// var result = parent.contains(child);
-		// element.children.length > 0
-
-		// if (mobileContainer.children.length > 0) {
-		// 	mobileContainer.innerHTML = "";
-		// }
-
-		mobileContainer.innerHTML = ""
-
-
-
-		taskContainer.appendChild(_getTittle());
-		calendar_container.appendChild(_getDays());
-
-		list.map(_getTask).forEach(_insertTodoElement);
-		list.map(_getTaskMobile).forEach(_insertTodoMobileElement);
-	};
-
-
-
-	var _insertTodoElement = function(elem) {
-		taskContainer.appendChild(elem);
-	};
-
-	var _insertTodoMobileElement = function(elem) {
-		mobileContainer.appendChild(elem);
-	};
-
-	var _getTask = function(task) {
+	var _getCalendarColumns = function(task) {
 		var tr = document.createElement("tr");
 		tr.innerHTML = "";
 		tr.className = "calendar__columns";
 		calendar_container.appendChild(tr);
-
 		_getCalendar(tr, task);
-
-		var newTask = templateContainer.querySelector(".tasks-list__item").cloneNode(true);
-		newTask.querySelector(".tasks-list__text").textContent = task.name;
-
-		return newTask;
 	};
 
-	var _getTaskMobile = function(task) {
+	var _renderCurrentTasks = function(tasks) {
+		tasks.map(_getTaskTemplate).forEach(_insertTodoElement);
+		tasks.map(_getTaskMobileTemplate).forEach(_insertTodoMobileElement);
+	};
+
+	var _getTaskMobileTemplate = function(task) {
 
 		var newTaskMobile = tMobileContainer.querySelector('.mobile-tasks__item').cloneNode(true);
 
@@ -188,6 +138,19 @@ var calendarModule = (function() {
 		newTaskMobile.querySelector('.mobile-task__text._author').textContent = document.querySelector(".contact-info__item._fio").textContent;
 
 		return newTaskMobile;
+	};
+
+	var _insertTodoMobileElement = function(elem) {
+		mobileContainer.appendChild(elem);
+	};
+
+	var _getTaskTemplate = function(task) {
+		_getCalendarColumns(task);
+
+		var newTask = templateContainer.querySelector('.tasks-list__item').cloneNode(true);
+		newTask.querySelector('.tasks-list__text').textContent = task.name;
+
+		return newTask;
 	};
 
 	var _getCalendar = function(tr, task) {
@@ -206,22 +169,17 @@ var calendarModule = (function() {
 		}).diff(startDate, "days");
 
 		var daysEnd = endDate.diff(startDate.add(-1, "days"), "days");
-		console.log(daysEnd);
 
 		if (daysStart < 0) {
 			var tdEmpty = document.createElement("td");
 			tr.appendChild(tdEmpty);
 			tdEmpty.colSpan = Math.abs(daysStart);
 		}
-
-
 		td.className = "calendar__day";
 		td.colSpan = daysEnd;
 		divInner.className = "calendar__inner";
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
-
-
 		(task.status === "done" || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
 		div.appendChild(span);
 		divInner.appendChild(div);
@@ -229,33 +187,39 @@ var calendarModule = (function() {
 		tr.appendChild(td);
 	};
 
+	var _insertTodoElement = function(elem) {
+		taskContainer.appendChild(elem);
+	};
 
-	// <ul class="tasks-type__list">
-	// 	<li class="tasks-type__item">
-	// 	<label class="tasks-type__label _active">
-	// 	<span class="tasks-badge _active">3</span> Действующих
-	// 	</label>
-	// 	</li>
-	// 	<li class="tasks-type__item">
-	// 	<label class="tasks-type__label _overdue">
-	// 	<span class="tasks-badge _overdue">1</span> Просроченных
-	// 	</label>
-	// 	</li>
-	// 	<li class="tasks-type__item">
-	// 	<label class="tasks-type__label _done">
-	// 	<span class="tasks-badge _done">3</span> Выполненых
-	// 	</label>
-	// 	</li>
-	// 	</ul>
+	var _createNewTodo = function(taskName, d) {
+		return {
+			name: taskName,
+			enddate: d,
+			status: "todo"
+		}
+	};
 
-	var _getStatistics = function() {
-		var st = document.querySelector('.tasks-type__list');
-		var statistics = {
-			proc: st.querySelector('.tasks-badge._overdue'),
-			done: st.querySelector('.tasks-badge._done'),
-			todo: st.querySelector('.tasks-badge._active'),
-		};
+	var _checkFillingOfChart = function() {
 
+		return percent.textContent === "100%";
+	};
+
+	var _removeMessageBlock = function() {
+		if (activeBlock) {
+			blockForMessage.removeChild(activeBlock);
+		}
+	};
+
+	var _checkIfTaskAlreadyExists = function(taskName) {
+		var namesList = Array.prototype.map.call(taskElements, function(element) {
+
+			return element.textContent;
+		});
+
+		return namesList.indexOf(taskName) > -1;
+	};
+
+	var _renderStatistics = function() {
 		var done = tasks.filter(todo => todo.status === 'done');
 		var countAll = tasks.length;
 		var countDone = done.length;
@@ -264,31 +228,9 @@ var calendarModule = (function() {
 		statistics.todo.textContent = countAll - countDone;
 	};
 
-	var _isDayProc = function(tasks) {
-		var now = moment();
-		[...tasks].forEach(function(task) {
-			var endDate = moment(task.enddate);
-			var daysProc = endDate.diff(now, "days");
-
-			if (daysProc < 0) {
-				var doneTasks = document.querySelectorAll(".calendar__progress._done");
-				var delayTasks = document.querySelectorAll(".calendar__progress._delay");
-
-				[...delayTasks].forEach(function(task) {
-					task.className = "calendar__progress _proc";
-				});
-
-				[...doneTasks].forEach(function(task) {
-					task.className = "calendar__progress _proc";
-				});
-
-			}}
-		);
-	};
-
 	return {
 		init: _init
 	};
 })();
 
-btn && calendarModule.init();
+btnAdd && taskContainer && calendarModule.init();
