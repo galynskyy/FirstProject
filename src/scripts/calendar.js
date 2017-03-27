@@ -5,7 +5,6 @@ var maxLength = 50;
 
 var btnAdd = document.getElementById("add");
 var activeBlock = document.getElementById("activeBlock");
-// var blockForMessage = document.querySelector(".message");
 var taskContainer = document.getElementById("tasks");
 var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
 var inputElement = document.getElementById("input-form");
@@ -65,12 +64,8 @@ var calendarModule = (function() {
 
 		taskContainer.removeChild(element);
 		_renderStatistics(tasks);
-		console.log(taskContainer.children.length);
 
-		if (taskContainer.children.length <= (countTasks.length + 1)) {
-
-			activeTasksModule.initMessage();
-		}
+		activeTasksModule.initMessage();
 	};
 
 	var _isCloseBtn = function(target) {
