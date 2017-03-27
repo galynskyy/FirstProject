@@ -822,10 +822,6 @@ html, body {
 	border-right: 4px solid #ff6762;
 }
 
-/*.calendar__progress._delay::before {*/
-
-/*}*/
-
 .calendar__progress._delay:after {
 	content: '';
 	position: absolute;
@@ -836,18 +832,6 @@ html, body {
 	background: #fbadaa;
 	z-index: 2;
 }
-
-/*.calendar__progress._proc {*/
-
-/*}*/
-
-/*.calendar__progress._proc:before {*/
-
-/*}*/
-
-/*.message {*/
-
-/*}*/
 
 .message__tasks-empty {
 	color: #d4d8da;
