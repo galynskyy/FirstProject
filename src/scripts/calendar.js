@@ -57,9 +57,6 @@ var calendarModule = (function() {
 
 			if (elem.textContent !== item.name) {
 				return item;
-
-				//
-				// tasks.splice(index, 1);
 			}
 			var index = tasks.indexOf(item);
 
@@ -91,7 +88,7 @@ var calendarModule = (function() {
 			return;
 		}
 
-		_removeMessageBlock();
+
 
 		var d = $("#datetimepicker").datetimepicker("getValue");
 		var task = _createNewTodo(taskName, d);
@@ -107,6 +104,7 @@ var calendarModule = (function() {
 			return;
 		}
 
+		_removeMessageBlock();
 		_insertTodoElement(_getTaskTemplate(task));
 		_insertTodoMobileElement(_getTaskMobileTemplate(task));
 		inputElement.value = "";
@@ -244,7 +242,9 @@ var calendarModule = (function() {
 	};
 
 	var _removeMessageBlock = function() {
+
 		if (activeBlock) {
+			console.log("ok");
 			blockForMessage.removeChild(activeBlock);
 		}
 	};
