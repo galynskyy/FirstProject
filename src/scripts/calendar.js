@@ -62,6 +62,7 @@ var calendarModule = (function() {
 				// tasks.splice(index, 1);
 			}
 			var index = tasks.indexOf(item);
+
 			tasks.splice(index, 1);
 			_saveList(tasks);
 		});
@@ -131,7 +132,7 @@ var calendarModule = (function() {
 	};
 
 	var _loadTasksFromStore = function() {
-		if (typeof localStorage.tasksStore === 'undefined') {
+		if (typeof localStorage.tasksStore === "undefined") {
 			return;
 		}
 
