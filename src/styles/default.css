@@ -822,7 +822,7 @@ html, body {
 	border-right: 4px solid #ff6762;
 }
 
-.calendar__progress._delay:after {
+.calendar__progress._delay::after {
 	content: '';
 	position: absolute;
 	top: 0;

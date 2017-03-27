@@ -63,6 +63,7 @@ var calendarModule = (function() {
 			_saveList(tasks);
 		});
 		taskContainer.removeChild(element);
+		_renderStatistics(tasks);
 	};
 
 	var _isCloseBtn = function(target) {
