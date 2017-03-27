@@ -4,7 +4,6 @@ var minLength = 2;
 var maxLength = 50;
 
 var btnAdd = document.getElementById("add");
-var activeBlock = document.getElementById("activeBlock");
 var taskContainer = document.getElementById("tasks");
 var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
 var inputElement = document.getElementById("input-form");
