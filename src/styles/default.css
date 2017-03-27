@@ -83,7 +83,7 @@ html, body {
 .modal__error {
 	display: inline-block;
 	font: 16px "Roboto-Regular", sans-serif;
-	color: #ff0000;
+	color: #f00;
 }
 
 .wrapper__calendar {
@@ -101,7 +101,7 @@ html, body {
 }
 
 .user {
-	margin: 0 0 40px 0;
+	margin: 0 0 40px;
 }
 
 .goal-header__title {
@@ -487,7 +487,7 @@ html, body {
 
 .contact-info__item {
 	font: 12px "Lato-Regular";
-	margin: 0 0 5px 0;
+	margin: 0 0 5px;
 }
 
 .contact-info__item._color_gray {
@@ -575,25 +575,24 @@ html, body {
 	background: #fff;
 	box-sizing: border-box;
 	border: solid #eef2f4;
-	border-width: 1px 3px 1px 3px;
+	border-width: 1px 3px;
 	font-size: 0;
 }
 
 .tasks-tittle {
 	display: inline-block;
 	min-width: 250px;
-	padding: 35px 0 15px 0;
+	padding: 35px 0 15px;
 	border-right: 3px solid #eef2f4;
 	box-sizing: border-box;
 	vertical-align: top;
 	font-size: 0;
-
 }
 
 .tasks-list {
 	display: inline-block;
 	min-width: 250px;
-	padding: 35px 0 15px 0;
+	padding: 35px 0 15px;
 	border-right: 3px solid #eef2f4;
 	box-sizing: border-box;
 	vertical-align: top;
@@ -617,7 +616,7 @@ html, body {
 	right: 5px;
 	top: 50%;
 	transform: translateY(-50%);
-	color: #ff0000;
+	color: #f00;
 	font-size: 12px;
 	visibility: hidden;
 }
