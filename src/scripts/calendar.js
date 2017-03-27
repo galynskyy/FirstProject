@@ -31,7 +31,7 @@ var tasks = [];
 var calendarModule = (function() {
 	var _init = function() {
 		_eventListeners();
-		_loadTasksFromStore();
+		/*_loadTasksFromStore();*/
 		_isDayProc();
 	};
 

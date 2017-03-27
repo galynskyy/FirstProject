@@ -14,7 +14,7 @@ html, body {
 	background: rgba(0, 0, 0, .6);
 	opacity: 0;
 	visibility: hidden;
-	transition: 3000ms;
+	transition: 1.2s;
 	z-index: 2;
 }
 
@@ -44,8 +44,8 @@ html, body {
 	background-color: #fff;
 	padding: 20px;
 	color: #000;
-	height: 500px;
-	width: 710px;
+	min-height: 500px;
+	min-width: 710px;
 	text-align: left;
 	white-space: normal;
 }
@@ -98,6 +98,27 @@ html, body {
 	max-width: 1280px;
 	margin: auto;
 	padding: 110px 135px;
+}
+
+.mobile-task-name {
+	display: inline-flex;
+	width: 80%;
+	min-height: 100%;
+	align-items: center;
+}
+
+.mobile-task-arrow {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 20%;
+	min-height: 100%;
+	background: #dce3e7;
+}
+
+.mobile-task__icon {
+	max-width: 16px;
+	max-height: 16px;
 }
 
 .user {
@@ -865,6 +886,7 @@ html, body {
 }
 
 .mobile-task__item {
+	display: flex;
 	background: #fff;
 	padding: 0;
 	margin: 0 auto;
@@ -882,10 +904,21 @@ html, body {
 	border-bottom: 0;
 }
 
-.mobile-task__item p {
-	font: 14px "Roboto-Regular";
+.mobile-task__text._name {
+	font: bold 18px "Roboto-Regular", sans-serif;
 	padding: 0;
-	margin: 0;
+	margin: 0 0 0 20px;
+}
+
+.mobile-task__text._more {
+	font: 14px "Roboto-Regular", sans-serif;
+	padding: 0;
+	margin: 0 20px 0 0;
+}
+
+.mobile-task__item._more {
+	justify-content: flex-end;
+	align-items: center;
 }
 
 .tasks-type__list {
@@ -1018,5 +1051,9 @@ html, body {
 
 	.mobile-tasks__list {
 		display: block;
+	}
+
+	.modal-container {
+		min-width: 300px;
 	}
 }

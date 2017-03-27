@@ -3,7 +3,12 @@
 		<li class="mobile-tasks__item">
 			<ul class="mobile-task__list">
 				<li class="mobile-task__item _name">
-					<p class="mobile-task__text _name">{{Name}}</p>
+					<div class="mobile-task-name">
+						<h1 class="mobile-task__text _name">{{Name}}</h1>
+					</div>
+					<div class="mobile-task-arrow">
+						<img class="mobile-task__icon" src="../assets/icons/arrow-right.svg" />
+					</div>
 				</li>
 				<li class="mobile-task__item _status">
 					<p class="mobile-task__text _status">{{Status}}</p>
@@ -18,7 +23,7 @@
 					<p class="mobile-task__text _author">{{Author}}</p>
 				</li>
 				<li class="mobile-task__item _more">
-					<p>More</p>
+					<h1 class="mobile-task__text _more">Еще...</h1>
 				</li>
 			</ul>
 		</li>
