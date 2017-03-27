@@ -95,7 +95,7 @@ gulp.task("watch", ["browser-sync", "styles"], function() {
 	gulp.watch("src/scripts/**/*.js", ["js"]);
 });
 
-gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "img", "doc"], function() {
+gulp.task("build", ["clean", "styles", "fonts", "js", "handlebars", "img", "html", "doc"], function() {
 	return gulp.src("src/styles/*min.css")
 		.pipe(gulp.dest("public/styles"));
 });

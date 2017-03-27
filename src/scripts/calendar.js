@@ -1,7 +1,7 @@
 "use strict";
 
-var minLength = 4;
-var maxLength = 20;
+var minLength = 2;
+var maxLength = 50;
 
 var btnAdd = document.getElementById("add");
 var activeBlock = document.getElementById("activeBlock");
@@ -51,17 +51,21 @@ var calendarModule = (function() {
 	};
 
 	var _deleteTask = function(element) {
-		tasks = tasks.filter(function(item) {
+		console.log(tasks);
+		tasks.filter(function(item) {
 			var elem = element.querySelector(".tasks-list__text");
 
-			if (elem.textContent === item.name) {
-				var index = tasks.indexOf(item);
+			if (elem.textContent !== item.name) {
+				return item;
 
-				tasks.splice(index, 1);
+				//
+				// tasks.splice(index, 1);
 			}
-
+			var index = tasks.indexOf(item);
+			tasks.splice(index, 1);
 			_saveList(tasks);
 		});
+
 		taskContainer.removeChild(element);
 		_renderStatistics(tasks);
 	};
@@ -127,9 +131,14 @@ var calendarModule = (function() {
 	};
 
 	var _loadTasksFromStore = function() {
+		if (typeof localStorage.tasksStore === 'undefined') {
+			return;
+		}
+
 		if (localStorage.tasksStore) {
 			var tasksStore = JSON.parse(localStorage.tasksStore);
 		}
+
 		tasksStore.forEach(item => {
 			tasks.push(item);
 		});

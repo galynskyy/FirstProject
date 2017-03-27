@@ -1,5 +1,5 @@
-var minLength = 4;
-var maxLength = 20;
+var minLength = 2;
+var maxLength = 50;
 var inputElement = document.getElementById("input-form");
 var inputData = document.getElementById("datetimepicker");
 var modalError = document.getElementById("error");
@@ -37,7 +37,7 @@ var validateModule = (function() {
 		}
 
 		if (this.value.length > maxLength) {
-			modalError.textContent = "Введите не более 20 символов";
+			modalError.textContent = "Введите не более 50 символов";
 			_colorInputBorder(this, "red");
 
 			return;
