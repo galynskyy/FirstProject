@@ -4,88 +4,73 @@
 //
 // var inputLogin = document.getElementById("login");
 // var inputPassd = document.getElementById("pw");
+// var btnSubmit = document.getElementById("submit");
 // var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
 //
 // var validateModule = (function() {
 // 	var _init = function() {
-// 		_eventListeners();
+// 		_eventListener();
+// 	};
+//
+// 	var _eventListener = function() {
+// 		// btnAdd.addEventListener("click", _validate);
+// 		btnSubmit.addEventListener("click", _validate);
+//
+// 	};
+//
+// 	var _validate = function(input) {
+// 		console.log("hello");
+// 		var name = input.getAttribute("name");
+// 		switch (name) {
+// 			case "user":
+// 				_validateLogin(input);
+// 				break;
+// 			case "password":
+// 				_validatePassword(input);
+// 				break;
+// 		}
 // 	};
 //
 // 	var _checkEmpty = function(input) {
 // 		if (!input.value || input.value === null) {
-// 			throw new SyntaxError("Поле пустое");
+// 			console.log("Поле пустое");
 // 		}
 // 	};
 //
-// 	var _checkMinLength = function() {
+// 	var _checkMinLength = function(input) {
+// 		if (input.value.length < this.minLength) {
+// 			console.log("Введите больше, чем 4 символа");
+// 		}
+// 	};
 //
-// 	}
+// 	var _checkMaxLength = function(input) {
+// 		if (input.value.length > this.maxLength) {
+// 			console.log("Длина не должна превышать 10 символов");
+// 		}
+// 	};
 //
+// 	var _checkPassword = function(input) {
+// 		if (!this.passwordRegex.test(input.value)) {
+// 			console.log("Невалидный паспорт");
+// 		}
+// 	};
 //
+// 	var _validateLogin = function(input) {
+// 		_checkEmpty(input);
+// 		_checkMinLength(input);
+// 		_checkMaxLength(input);
+// 	};
+//
+// 	var _validatePassword = function(input) {
+// 		_checkEmpty(input);
+// 		_checkMinLength(input);
+// 		_checkMaxLength(input);
+// 		_checkPassword(input);
+// 	};
 //
 // 	return {
 // 		init: _init
 // 	};
 // })();
 //
-//
-//
-// (function() {
-// 	"use strict";
-//
-// 	class Validator {
-// 		constructor() {
-// 			this.minLength = 4;
-// 			this.maxLength = 10;
-// 			this.passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/;
-// 		}
-//
-// 		checkEmpty(input) {
-// 			if (!input.value || input.value === null) {
-// 				throw new SyntaxError("Поле пустое");
-// 			}
-// 		}
-// 		checkMinLength(input) {
-// 			if (input.value.length < this.minLength) {
-// 				throw new SyntaxError("Введите больше, чем 4 символа");
-// 			}
-// 		}
-// 		checkMaxLength(input) {
-// 			if (input.value.length > this.maxLength) {
-// 				throw new SyntaxError("Длина не должна превышать 10 символов");
-// 			}
-// 		}
-// 		checkPassword(input) {
-// 			if (!this.passwordRegex.test(input.value)) {
-// 				throw new SyntaxError("Невалидный паспорт");
-// 			}
-// 		}
-//
-// 		validateLogin(input) {
-// 			this.checkEmpty(input);
-// 			this.checkMinLength(input);
-// 			this.checkMaxLength(input);
-// 		}
-//
-// 		validatePassword(input) {
-// 			this.checkEmpty(input);
-// 			this.checkMinLength(input);
-// 			this.checkMaxLength(input);
-// 			this.checkPassword(input);
-// 		}
-//
-// 		validate(input) {
-// 			const name = input.getAttribute("name");
-// 			switch (name) {
-// 				case "login":
-// 					this.validateLogin(input);
-// 					break;
-// 				case "password":
-// 					this.validatePassword(input);
-// 					break;
-// 			}
-// 		}
-// 	}
-//
-// 	window.Validator = Validator;
-// })();
+// btnSubmit && validateModule.init();

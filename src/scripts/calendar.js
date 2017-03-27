@@ -64,7 +64,6 @@ var calendarModule = (function() {
 
 		taskContainer.removeChild(element);
 		_renderStatistics(tasks);
-
 		activeTasksModule.initMessage();
 	};
 
