@@ -7,7 +7,6 @@ var modalWnd = (function() {
 	var modal = document.querySelector(".modal");		
 	var modalOverlay = document.querySelector(".fixed-wrap");
 
-
 	var _eventsListener = function() {
 		modalBtn.addEventListener("click", _showModal, false);
 		modalOverlay.addEventListener("click", _closeModal, false);
@@ -34,6 +33,7 @@ var modalWnd = (function() {
 })();
 
 var modalBtn = document.querySelector(".tasks__btn");
+
 if (!modalBtn) {
 	console.log("меня нет на странице");
 } else {

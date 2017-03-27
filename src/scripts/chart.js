@@ -6,7 +6,7 @@ var checkboxes = document.querySelectorAll(".goal-checkbox");
  * @name chartModule
  */
 
-var chartModule = (function () {
+var chartModule = (function() {
 
 	/**
 	 	* Функция модуля
@@ -55,7 +55,7 @@ var chartModule = (function () {
 		var countActiveTasks = document.querySelector(".goal-badge._active");
 		var countCompleteTasks = document.querySelector(".goal-badge._complete");
 
-	    countActiveTasks.textContent = String(countAll - countChecked);
+		countActiveTasks.textContent = String(countAll - countChecked);
 		countCompleteTasks.textContent = String(countChecked);
 	};
 
@@ -65,24 +65,24 @@ var chartModule = (function () {
 
 			[...activeTasks].forEach(function(task) {
 				task.className = "calendar__progress _delay";
-			})
+			});
 		} else {
 			var closeTasks = document.querySelectorAll(".calendar__progress._delay");
 
 			[...closeTasks].forEach(function(task) {
 				task.className = "calendar__progress _done";
-			})
+			});
 		}
 
 		_getCalendarStatistic();
 	};
 
 	var _getCalendarStatistic = function() {
-		var st = document.querySelector('.tasks-type__list');
+		var st = document.querySelector(".tasks-type__list");
 		var statistics = {
-			proc: st.querySelector('.tasks-badge._overdue'),
-			done: st.querySelector('.tasks-badge._done'),
-			todo: st.querySelector('.tasks-badge._active'),
+			proc: st.querySelector(".tasks-badge._overdue"),
+			done: st.querySelector(".tasks-badge._done"),
+			todo: st.querySelector(".tasks-badge._active"),
 		};
 
 		var doneTasks = document.querySelectorAll(".calendar__progress._delay");

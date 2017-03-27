@@ -1,18 +1,17 @@
-var inputElement = document.getElementById("input-form");
-var inputData = document.getElementById("datetimepicker");
-
-var modalError = document.getElementById("error");
 var minLength = 4;
 var maxLength = 20;
+var inputElement = document.getElementById("input-form");
+var inputData = document.getElementById("datetimepicker");
+var modalError = document.getElementById("error");
 
-var validateModule =  (function() {
+var validateModule = (function() {
 	var _init = function() {
 		_eventListeners();
 	};
 
 	var _eventListeners = function() {
 		inputElement.addEventListener("blur", _onInputBlur);
-		inputData.addEventListener("blur", _onInputDataBlur)
+		inputData.addEventListener("blur", _onInputDataBlur);
 	};
 
 	var _onInputBlur = function() {
@@ -64,7 +63,7 @@ var validateModule =  (function() {
 
 	var _checkIfTaskAlreadyExists = function(taskName) {
 		var taskContainer = document.getElementById("tasks");
-		var taskElements = taskContainer.querySelectorAll('.tasks-list__text');
+		var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
 		var namesList = Array.prototype.map.call(taskElements, function(element) {
 
 			return element.textContent;
@@ -77,4 +76,5 @@ var validateModule =  (function() {
 		init: _init
 	};
 })();
+
 inputElement && validateModule.init();

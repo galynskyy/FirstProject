@@ -1,5 +1,8 @@
 "use strict";
 
+var minLength = 4;
+var maxLength = 20;
+
 var btnAdd = document.getElementById("add");
 var activeBlock = document.getElementById("activeBlock");
 var blockForMessage = document.querySelector(".message");
@@ -9,7 +12,7 @@ var inputElement = document.getElementById("input-form");
 var calendar_container = document.getElementById("task-table");
 var percent = document.querySelector(".goal-chart__percent");
 
-var templateElement = document.getElementById('taskTemplate');
+var templateElement = document.getElementById("taskTemplate");
 var templateContainer = "content" in templateElement ? templateElement.content : templateElement;
 
 var mobileContainer = document.querySelector(".mobile-tasks__list");
@@ -42,10 +45,9 @@ var calendarModule = (function() {
 
 		if (_isCloseBtn(target)) {
 			var taskLi = target.parentNode.parentNode;
+
 			_deleteTask(taskLi);
 		}
-
-
 	};
 
 	var _deleteTask = function(element) {
@@ -54,6 +56,7 @@ var calendarModule = (function() {
 
 			if (elem.textContent === item.name) {
 				var index = tasks.indexOf(item);
+
 				tasks.splice(index, 1);
 			}
 
@@ -85,7 +88,6 @@ var calendarModule = (function() {
 		_removeMessageBlock();
 
 		var d = $("#datetimepicker").datetimepicker("getValue");
-
 		var task = _createNewTodo(taskName, d);
 		var endDate = moment(task.enddate);
 		var startDate = moment(task.startdate);
@@ -93,7 +95,9 @@ var calendarModule = (function() {
 
 		if (daysEnd <= 0) {
 			var modalError = document.getElementById("error");
+
 			modalError.textContent = "Поменяйте дату";
+
 			return;
 		}
 
@@ -107,6 +111,7 @@ var calendarModule = (function() {
 
 	var _saveList = function(tasks) {
 		var tasksStore = [];
+
 		tasks.forEach(item => {
 			tasksStore.push(item);
 		});
@@ -116,6 +121,7 @@ var calendarModule = (function() {
 		} else {
 			alert("Сохранение невозможно. Браузер не поддерживает localstorage");
 		}
+
 		return tasksStore;
 	};
 
@@ -132,6 +138,7 @@ var calendarModule = (function() {
 
 	var _getCalendarColumns = function(task) {
 		var tr = document.createElement("tr");
+
 		tr.innerHTML = "";
 		tr.className = "calendar__columns";
 		calendar_container.appendChild(tr);
@@ -145,10 +152,10 @@ var calendarModule = (function() {
 
 	var _getTaskMobileTemplate = function(task) {
 		var newTaskMobile = tMobileContainer.querySelector(".mobile-tasks__item").cloneNode(true);
+		var endDate = moment(task.enddate);
 
 		newTaskMobile.querySelector(".mobile-task__text._name").textContent = task.name;
 		newTaskMobile.querySelector(".mobile-task__text._status").textContent = task.status === "todo" ? "Ждет выполнения" : "Выполнена";
-		var endDate = moment(task.enddate);
 		newTaskMobile.querySelector(".mobile-task__text._date").textContent = endDate.format("DD.MM.YY HH:mm:ss");
 		newTaskMobile.querySelector(".mobile-task__text._time").textContent = task.time;
 		newTaskMobile.querySelector(".mobile-task__text._author").textContent = document.querySelector(".contact-info__item._fio").textContent;
@@ -164,6 +171,7 @@ var calendarModule = (function() {
 		_getCalendarColumns(task);
 
 		var newTask = templateContainer.querySelector(".tasks-list__item").cloneNode(true);
+
 		newTask.querySelector(".tasks-list__text").textContent = task.name;
 
 		return newTask;
@@ -188,6 +196,7 @@ var calendarModule = (function() {
 
 		if (daysStart < 0) {
 			var tdEmpty = document.createElement("td");
+
 			tr.appendChild(tdEmpty);
 			tdEmpty.colSpan = Math.abs(daysStart);
 		}
@@ -215,7 +224,7 @@ var calendarModule = (function() {
 			name: taskName,
 			enddate: d,
 			status: "todo"
-		}
+		};
 	};
 
 	var _checkFillingOfChart = function() {
@@ -240,6 +249,7 @@ var calendarModule = (function() {
 
 	var _isDayProc = function() {
 		var now = moment();
+
 		[...tasks].forEach(function(task) {
 			var endDate = moment(task.enddate);
 			var daysProc = endDate.diff(now, "days");
