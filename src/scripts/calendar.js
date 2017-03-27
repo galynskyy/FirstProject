@@ -5,7 +5,7 @@ var maxLength = 50;
 
 var btnAdd = document.getElementById("add");
 var activeBlock = document.getElementById("activeBlock");
-var blockForMessage = document.querySelector(".message");
+// var blockForMessage = document.querySelector(".message");
 var taskContainer = document.getElementById("tasks");
 var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
 var inputElement = document.getElementById("input-form");
@@ -51,7 +51,6 @@ var calendarModule = (function() {
 	};
 
 	var _deleteTask = function(element) {
-		console.log(tasks);
 		tasks.filter(function(item) {
 			var elem = element.querySelector(".tasks-list__text");
 
@@ -66,6 +65,12 @@ var calendarModule = (function() {
 
 		taskContainer.removeChild(element);
 		_renderStatistics(tasks);
+		console.log(taskContainer.children.length);
+
+		if (taskContainer.children.length <= (countTasks.length + 1)) {
+
+			activeTasksModule.initMessage();
+		}
 	};
 
 	var _isCloseBtn = function(target) {
@@ -88,8 +93,6 @@ var calendarModule = (function() {
 			return;
 		}
 
-
-
 		var d = $("#datetimepicker").datetimepicker("getValue");
 		var task = _createNewTodo(taskName, d);
 		var endDate = moment(task.enddate);
@@ -104,13 +107,13 @@ var calendarModule = (function() {
 			return;
 		}
 
-		_removeMessageBlock();
 		_insertTodoElement(_getTaskTemplate(task));
 		_insertTodoMobileElement(_getTaskMobileTemplate(task));
 		inputElement.value = "";
 		tasks.push(task);
 		_saveList(tasks);
 		_renderStatistics(tasks);
+		_removeMessageBlock(tasks);
 	};
 
 	var _saveList = function(tasks) {
@@ -241,10 +244,11 @@ var calendarModule = (function() {
 		return percent.textContent === "100%";
 	};
 
-	var _removeMessageBlock = function() {
+	var _removeMessageBlock = function(tasks) {
+		if (tasks.length !== 0) {
+			var blockForMessage = document.querySelector(".message");
+			var activeBlock = document.getElementById("activeBlock");
 
-		if (activeBlock) {
-			console.log("ok");
 			blockForMessage.removeChild(activeBlock);
 		}
 	};

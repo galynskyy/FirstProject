@@ -24,7 +24,8 @@ var activeTasksModule = (function() {
 	};
 
 	return {
-		init: _init
+		init: _init,
+		initMessage: _initMessage
 	};
 
 })();
