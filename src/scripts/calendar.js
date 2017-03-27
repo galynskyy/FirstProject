@@ -29,6 +29,7 @@ var calendarModule = (function() {
 	var _init = function() {
 		_eventListeners();
 		_loadTasksFromStore();
+		_isDayProc();
 	};
 
 	var _eventListeners = function() {
@@ -49,11 +50,14 @@ var calendarModule = (function() {
 
 	var _deleteTask = function(element) {
 		tasks = tasks.filter(function(item) {
-			const elem = element.querySelector('.tasks-list__text');
+			var elem = element.querySelector('.tasks-list__text');
 
-			if (elem.textContent !== item.name) {
-				return item;
+			if (elem.textContent === item.name) {
+				var index = tasks.indexOf(item);
+				tasks.splice(index, 1);
 			}
+
+			_saveList(tasks);
 		});
 		taskContainer.removeChild(element);
 	};
@@ -107,10 +111,10 @@ var calendarModule = (function() {
 			tasksStore.push(item);
 		});
 
-		if ('localStorage' in window && window['localStorage'] !== null)  {
+		if ("localStorage" in window && window["localStorage"] !== null)  {
 			localStorage.tasksStore = JSON.stringify(tasksStore);
 		} else {
-			alert("Сохранение невозможно. Браузер не поддерживает localstorage")
+			alert("Сохранение невозможно. Браузер не поддерживает localstorage");
 		}
 		return tasksStore;
 	};
@@ -192,7 +196,11 @@ var calendarModule = (function() {
 		divInner.className = "calendar__inner";
 		div.className = "calendar__task-line";
 		span.className = "calendar__progress";
-		(task.status === "done" || _checkFillingOfChart() === true) ? span.className += " _delay" : span.className += " _done";
+
+
+		(task.status === "done" || _checkFillingOfChart() === true) ?
+			span.className += " _delay" : span.className += " _done";
+
 		div.appendChild(span);
 		divInner.appendChild(div);
 		td.appendChild(divInner);
@@ -231,13 +239,28 @@ var calendarModule = (function() {
 		return namesList.indexOf(taskName) > -1;
 	};
 
+	var _isDayProc = function() {
+		var now = moment();
+		[...tasks].forEach(function(task) {
+			var endDate = moment(task.enddate);
+			var daysProc = endDate.diff(now, "days");
+
+			if (daysProc < 0) {
+				tasks.status = "proc";
+			}}
+		);
+	};
+
 	var _renderStatistics = function() {
 		var done = tasks.filter(todo => todo.status === 'done');
+		var proc = tasks.filter(todo => todo.status === 'proc');
 		var countAll = tasks.length;
 		var countDone = done.length;
+		var countProc = proc.length;
 
 		statistics.done.textContent = countDone;
-		statistics.todo.textContent = countAll - countDone;
+		statistics.todo.textContent = countAll - countDone - countProc;
+		statistics.proc.textContent = countProc;
 	};
 
 	return {
