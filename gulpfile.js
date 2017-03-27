@@ -8,23 +8,25 @@ var autoprefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 var imagemin = require("gulp-imagemin");
 var handlebars = require("gulp-compile-handlebars");
+var eslint = require("eslint");
+var stylelint = require("stylelint");
 var jsdoc = require('gulp-jsdoc3');
 
-
 gulp.task("styles", function() {
-    var processors = [
-        autoprefixer({
-            browsers: ["last 3 version"]
-        }),
-        cssnano()
-    ];
-    return gulp.src("src/styles/**/*.css")
-        .pipe(postcss(processors))
-        .pipe(concat("build.min.css"))
-        .pipe(gulp.dest("public/styles"))
-        .pipe(browserSync.reload({
-            stream: true
-        }));
+	var processors = [
+		stylelint,
+		autoprefixer({
+			browsers: ["last 3 version"]
+		}),
+		cssnano()
+	];
+	return gulp.src("src/styles/**/*.css")
+		.pipe(postcss(processors))
+		.pipe(concat("build.min.css"))
+		.pipe(gulp.dest("public/styles"))
+		.pipe(browserSync.reload({
+			stream: true
+		}));
 });
 
 gulp.task("fonts", function() {

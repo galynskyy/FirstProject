@@ -1,16 +1,41 @@
-var btn = document.querySelector('.tasks__btn');
+var modalWnd = (function() {
 
-btn.addEventListener('click', function() {
-	var modal = document.querySelector('.fixed-wrap');
-	modal.classList.toggle("_show");
-	var elem = document.getElementsByClassName('fixed-wrap fixed-wrap__modal _show')[0];
-	elem.style.display = "block";
-});
+	var _init = function() {
+		_eventsListener();
+	};
+		
+	var modal = document.querySelector(".modal");		
+	var modalOverlay = document.querySelector(".fixed-wrap");
 
 
-var closeBtn = document.getElementById('close');
+	var _eventsListener = function() {
+		modalBtn.addEventListener("click", _showModal, false);
+		modalOverlay.addEventListener("click", _closeModal, false);
+		modal.addEventListener("click", _stopProp, false);
+	};
 
-closeBtn.addEventListener('click', function() {
-	var elem = document.getElementsByClassName('fixed-wrap fixed-wrap__modal _show')[0];
-	elem.style.display = "none";
-});
+	var _stopProp = function(event) {
+		event.stopPropagation();
+	};
+
+	var _showModal = function() {
+		modalOverlay.classList.add("_show");
+	};
+
+	var _closeModal = function() {
+		modalOverlay.classList.remove("_show");
+	};
+
+	return {
+		init: _init,
+		show: _showModal,
+		close: _closeModal
+	};
+})();
+
+var modalBtn = document.querySelector(".tasks__btn");
+if (!modalBtn) {
+	console.log("меня нет на странице");
+} else {
+	modalWnd.init();
+}

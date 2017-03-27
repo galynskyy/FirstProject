@@ -45,7 +45,7 @@ var calendarModule = (function() {
 			_deleteTask(taskLi);
 		}
 
-		_renderStatistics();
+
 	};
 
 	var _deleteTask = function(element) {
@@ -250,7 +250,7 @@ var calendarModule = (function() {
 		);
 	};
 
-	var _renderStatistics = function() {
+	var _renderStatistics = function(tasks) {
 		var done = tasks.filter(todo => todo.status === "done");
 		var proc = tasks.filter(todo => todo.status === "proc");
 		var countAll = tasks.length;
