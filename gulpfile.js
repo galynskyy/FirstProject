@@ -30,51 +30,51 @@ gulp.task("styles", function() {
 });
 
 gulp.task("fonts", function() {
-    return gulp.src("src/fonts/**/*")
-        .pipe(gulp.dest("public/fonts"));
+	return gulp.src("src/fonts/**/*")
+		.pipe(gulp.dest("public/fonts"));
 });
 
 gulp.task("js", function() {
-    return gulp.src("src/scripts/**/*")
-        .pipe(concat("build.js"))
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-        .pipe(gulp.dest("public/scripts"));
+	return gulp.src("src/scripts/**/*")
+		.pipe(concat("build.js"))
+		.pipe(browserSync.reload({
+			stream: true
+		}))
+		.pipe(gulp.dest("public/scripts"));
 });
 
 gulp.task("html", function() {
-    return gulp.src("src/*.html")
-        .pipe(browserSync.reload({
-            stream: true
-        }))
-        .pipe(gulp.dest("public"));
+	return gulp.src("src/*.html")
+		.pipe(browserSync.reload({
+			stream: true
+		}))
+		.pipe(gulp.dest("public"));
 });
 
 gulp.task("handlebars", function() {
-    var options = {
-        batch : ["src/partials"]
-    };
+	var options = {
+		batch : ["src/partials"]
+	};
 
-    return gulp.src("src/index.hbs")
-        .pipe(handlebars({}, options))
-        .pipe(rename("index.html"))
-        .pipe(gulp.dest("public"));
+	return gulp.src("src/index.hbs")
+		.pipe(handlebars({}, options))
+		.pipe(rename("index.html"))
+		.pipe(gulp.dest("public"));
 });
 
 gulp.task("img", function() {
-    return gulp.src("src/assets/icons/*")
-        .pipe(imagemin())
-        .pipe(gulp.dest("public/assets/icons"));
+	return gulp.src("src/assets/icons/*")
+		.pipe(imagemin())
+		.pipe(gulp.dest("public/assets/icons"));
 });
 
 gulp.task("browser-sync", function() {
-    browserSync({
-        server: {
-            baseDir: "public"
-        },
-        notify: false
-    });
+	browserSync({
+		server: {
+			baseDir: "public"
+		},
+		notify: false
+	});
 });
 
 gulp.task("clean", function() {
@@ -82,11 +82,11 @@ gulp.task("clean", function() {
 });
 
 gulp.task("doc", function(cb) {
-    gulp.src(["README.md", "src/scripts/**/*.js"],
-	    {
-            read: false
-        })
-        .pipe(jsdoc(cb));
+	gulp.src(["README.md", "src/scripts/**/*.js"],
+		{
+			read: false
+		})
+		.pipe(jsdoc(cb));
 });
 
 gulp.task("watch", ["browser-sync", "styles"], function() {
