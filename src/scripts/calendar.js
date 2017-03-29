@@ -31,7 +31,7 @@ var tasks = [];
 var calendarModule = (function() {
 	var _init = function() {
 		_eventListeners();
-		/*_loadTasksFromStore();*/
+		_loadTasksFromStore();
 		_isDayProc();
 	};
 
@@ -86,8 +86,6 @@ var calendarModule = (function() {
 			return;
 		}
 
-		_removeMessageBlock();
-
 		var d = $("#datetimepicker").datetimepicker("getValue");
 		var task = _createNewTodo(taskName, d);
 		var endDate = moment(task.enddate);
@@ -102,6 +100,7 @@ var calendarModule = (function() {
 			return;
 		}
 
+		_removeMessageBlock();
 		_insertTodoElement(_getTaskTemplate(task));
 		_insertTodoMobileElement(_getTaskMobileTemplate(task));
 		inputElement.value = "";
@@ -234,6 +233,7 @@ var calendarModule = (function() {
 	};
 
 	var _removeMessageBlock = function() {
+		console.log("remove message");
 		if (activeBlock) {
 			blockForMessage.removeChild(activeBlock);
 		}

@@ -1,4 +1,9 @@
 <ul class="mobile-tasks__list">
+	<div class="message">
+		<template id="emptyTaskTemplate" style="display: none">
+			<span class="message__tasks-empty">Активных задач нет</span>
+		</template>
+	</div>
 	<template id="mobileTasks">
 		<li class="mobile-tasks__item">
 			<ul class="mobile-task__list">
@@ -11,6 +16,13 @@
 					</div>
 				</li>
 				<li class="mobile-task__item _status">
+					<div class="mobile-task-status">
+						<p class="mobile-task__header">Статус</p>
+						<p class="mobile-task__text _status"></p>
+					</div>
+					<div class="mobile-task-badge">
+
+					</div>
 					<p class="mobile-task__text _status">{{Status}}</p>
 				</li>
 				<li class="mobile-task__item _date">
