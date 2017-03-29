@@ -1,11 +1,9 @@
 "use strict";
 
-var minLength = 4;
-var maxLength = 20;
+var minLength = 2;
+var maxLength = 50;
 
 var btnAdd = document.getElementById("add");
-var activeBlock = document.getElementById("activeBlock");
-var blockForMessage = document.querySelector(".message");
 var taskContainer = document.getElementById("tasks");
 var taskElements = taskContainer.querySelectorAll(".tasks-list__text");
 var inputElement = document.getElementById("input-form");
@@ -51,19 +49,21 @@ var calendarModule = (function() {
 	};
 
 	var _deleteTask = function(element) {
-		tasks = tasks.filter(function(item) {
+		tasks.filter(function(item) {
 			var elem = element.querySelector(".tasks-list__text");
 
-			if (elem.textContent === item.name) {
-				var index = tasks.indexOf(item);
-
-				tasks.splice(index, 1);
+			if (elem.textContent !== item.name) {
+				return item;
 			}
+			var index = tasks.indexOf(item);
 
+			tasks.splice(index, 1);
 			_saveList(tasks);
 		});
+
 		taskContainer.removeChild(element);
 		_renderStatistics(tasks);
+		activeTasksModule.initMessage();
 	};
 
 	var _isCloseBtn = function(target) {
@@ -107,6 +107,7 @@ var calendarModule = (function() {
 		tasks.push(task);
 		_saveList(tasks);
 		_renderStatistics(tasks);
+		_removeMessageBlock(tasks);
 	};
 
 	var _saveList = function(tasks) {
@@ -126,9 +127,14 @@ var calendarModule = (function() {
 	};
 
 	var _loadTasksFromStore = function() {
+		if (typeof localStorage.tasksStore === "undefined") {
+			return;
+		}
+
 		if (localStorage.tasksStore) {
 			var tasksStore = JSON.parse(localStorage.tasksStore);
 		}
+
 		tasksStore.forEach(item => {
 			tasks.push(item);
 		});
@@ -232,9 +238,11 @@ var calendarModule = (function() {
 		return percent.textContent === "100%";
 	};
 
-	var _removeMessageBlock = function() {
-		console.log("remove message");
-		if (activeBlock) {
+	var _removeMessageBlock = function(tasks) {
+		if (tasks.length !== 0) {
+			var blockForMessage = document.querySelector(".message");
+			var activeBlock = document.getElementById("activeBlock");
+
 			blockForMessage.removeChild(activeBlock);
 		}
 	};

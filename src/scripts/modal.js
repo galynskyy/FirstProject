@@ -3,8 +3,8 @@ var modalWnd = (function() {
 	var _init = function() {
 		_eventsListener();
 	};
-		
-	var modal = document.querySelector(".modal");		
+
+	var modal = document.querySelector(".modal");
 	var modalOverlay = document.querySelector(".fixed-wrap");
 
 	var _eventsListener = function() {

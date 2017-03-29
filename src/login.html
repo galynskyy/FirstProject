@@ -26,14 +26,15 @@
 				</li>
 			</ul>
 			<form class="login">
-				<input class="login__input" type="text" placeholder="Введите логин">
-				<input class="login__input" type="password" placeholder="Введите пароль">
-				<button type="button" class="login__submit">Войти</button>
+				<input class="login__input" required="required" type="text" id="login" name="user" placeholder="Введите логин">
+				<input class="login__input" required="required" type="password" id="pw" name="password" placeholder="Введите пароль">
+				<button type="button" class="login__submit" id="submit">Войти</button>
 			</form>
 			<div class="auth__action">
 				<a href="#" class="auth__link">Регистрация</a>
 				<a href="#" class="auth__link">Восстановить пароль</a>
 			</div>
 		</div>
+		<script src="scripts/build.js"></script>
 	</body>
 </html>

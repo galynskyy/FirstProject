@@ -9,8 +9,9 @@ module.exports = {
     },
 	"globals": {
 		"moment": true,
-        "$": true
-	},
+        "$": true,
+		"activeTasksModule": true
+    },
     "rules": {
         "indent": [
             "error",
